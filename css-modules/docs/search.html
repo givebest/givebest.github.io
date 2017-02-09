@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>search</title>
+  <meta name="description" content="search	@import "search.scss";	                                                    搜索                取消                                            意外险        ...">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="canonical" href="/search">
+</head>
+
+
+  <body ontouchstart>
+
+    <header class="site-header">
+
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">CSS Modules 演示使用文档</a>
+      </div>
+
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+            
+            <li><a href="bug.html">问题汇总</a></li>
+            
+          
+            
+            <li><a href="htmlcssguide.html">编码规范</a></li>
+            
+          
+            
+          
+            
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  </nav>
+
+
+
+</header>
+
+		
+
+	  <div id="menuContainer" class="post-side">
+	<a href="javascript:;" id="menuCtrl" class="post-side-menu iconfont"></a>
+	<h1 class="post-side-title">
+		<a href="index.html">CSS Modules</a>
+	</h1>
+	<ul class="list-group">
+		   
+			   	
+			   		<li class="list-group-item"><a href="rule.html">rule</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="header.html">header</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="product.html">product</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="iconfont.html">iconfont</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="tipbox.html">tipbox</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="tab.html">tab</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="search.html">search</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="loading.html">loading</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="select.html">select</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="list.html">list</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="form.html">form</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="dialog.html">dialog</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="checkbox.html">checkbox</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="base.html">base</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="article.html">article</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="button.html">button</a></li>
+			   	
+		    
+	</ul>
+</div>
+
+
+<script>
+
+	init();
+
+	function init(){
+		window.addEventListener('load', function(){
+			eventMenu();
+		}, false);
+	}
+
+	function eventMenu(){
+
+		var menuContainer = document.getElementById('menuContainer'),
+			menuCtrl = document.getElementById('menuCtrl');
+
+		menuCtrl.onclick = function(){
+			var className = 'post-side-show';
+			!!(utils.hasClass(menuContainer, className)) ? utils.removeClass(menuContainer, className) : utils.addClass(menuContainer, className);
+			//console.log(utils.hasClass(menuContainer, 'post-side-show'));
+		}
+
+	}
+
+
+	var utils = (function(){
+		function hasClass(obj, cls) {  
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
+		}  
+		 
+		function addClass(obj, cls) {  
+		    if (!this.hasClass(obj, cls)) obj.className += " " + cls;  
+		}  
+		 
+		function removeClass(obj, cls) {  
+		    if (hasClass(obj, cls)) {  
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');  
+		        obj.className = obj.className.replace(reg, ' ');  
+		    }  
+		}
+
+		return {
+			addClass: addClass,
+			removeClass: removeClass,
+			hasClass: hasClass
+		}
+
+	}());
+</script>
+
+      <div class="post-content">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+
+
+  		
+
+			
+
+
+		<div class="page-header">
+		  <h1> search </h1>
+		  <p>search模块。</p>
+		</div>
+
+
+		 <h2 id="nav-tabs">search</h2>
+<p>
+	<code>@import "search.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+	<div class="ui-search">
+        <div class="ui-search-head">
+            <form class="ui-form" action="#">
+                <input class="ui-input ui-search-hinput" type="text" placeholder="搜索" />
+                <button type="submit" class="ui-search-hbtn ui-search-lbtn iconfont">搜索</button>
+                <a class="ui-search-hcancel" href="javascript:;">取消</a>
+            </form>    
+        </div>
+        <ul class="ui-search-list">
+            <li class="ui-search-litem"><a href="#">意外险</a></li>
+            <li class="ui-search-litem"><a href="#">意外险</a></li>
+            <li class="ui-search-litem"><a href="#">意外险</a></li>
+            <li class="ui-search-litem"><a href="#">意外险</a></li>
+            <li class="ui-search-litem"><a href="#">意外险</a></li>
+        </ul>
+    </div>
+
+    <div class="ui-search">
+        <div class="ui-search-head ui-search-hdefault">
+            <form class="ui-form" action="#">
+                <input class="ui-input ui-search-hinput" type="text" placeholder="搜索" />
+                <button type="submit" class="ui-search-hbtn iconfont">搜索</button>
+                <a class="ui-search-hcancel" href="javascript:;">取消</a>
+            </form>    
+        </div>
+    </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-search"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-search-head"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"ui-form"</span> <span class="na">action=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input ui-search-hinput"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"搜索"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"ui-search-hbtn ui-search-lbtn iconfont"</span><span class="nt">&gt;</span>搜索<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"ui-search-hcancel"</span> <span class="na">href=</span><span class="s">"javascript:;"</span><span class="nt">&gt;</span>取消<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/form&gt;</span>    
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-search-list"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-search-litem"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>意外险<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-search-litem"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>意外险<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-search-litem"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>意外险<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-search-litem"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>意外险<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-search-litem"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>意外险<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">搜索居左</h2>
+<p>
+    <code>@import "search.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <div class="ui-search">
+        <div class="ui-search-head ui-search-hdefault">
+            <form class="ui-form" action="#">
+                <input class="ui-input ui-search-hinput" type="text" placeholder="搜索" />
+                <button type="submit" class="ui-search-hbtn iconfont ui-search-lbtn">搜索</button>
+            </form>    
+        </div>
+    </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-search"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-search-head ui-search-hdefault"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"ui-form"</span> <span class="na">action=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input ui-search-hinput"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"搜索"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"ui-search-hbtn iconfont ui-search-lbtn"</span><span class="nt">&gt;</span>搜索<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/form&gt;</span>    
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">搜索居中</h2>
+<p>
+    <code>@import "search.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <div class="ui-search">
+        <div class="ui-search-head ui-search-hdefault">
+            <form class="ui-form" action="#">
+                <input class="ui-input ui-search-hinput ui-search-rinput" type="text" placeholder="搜索" />
+                <button type="submit" class="ui-search-hbtn iconfont ui-search-rbtn">搜索</button>    
+            </form>    
+        </div>
+    </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-search"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-search-head ui-search-hdefault"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"ui-form"</span> <span class="na">action=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input ui-search-hinput ui-search-rinput"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"搜索"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"ui-search-hbtn iconfont ui-search-rbtn"</span><span class="nt">&gt;</span>搜索<span class="nt">&lt;/button&gt;</span>    
+            <span class="nt">&lt;/form&gt;</span>    
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+
+	
+
+
+
+
+
+
+
+
+
+</article>
+
+      </div>
+
+
+    <footer class="site-footer">
+
+  <div class="container-fluid">
+
+    <h2 class="footer-heading">CSS Modules 演示使用文档</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:givenlovs@msn.com">givenlovs@msn.com</a></li>
+        </ul>
+      </div>
+
+  
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

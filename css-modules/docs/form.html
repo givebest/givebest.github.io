@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>form</title>
+  <meta name="description" content="输入	@import "form.scss";	                    登陆            单项输入                            姓名                            ">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="canonical" href="/form">
+</head>
+
+
+  <body ontouchstart>
+
+    <header class="site-header">
+
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">CSS Modules 演示使用文档</a>
+      </div>
+
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+            
+            <li><a href="bug.html">问题汇总</a></li>
+            
+          
+            
+            <li><a href="htmlcssguide.html">编码规范</a></li>
+            
+          
+            
+          
+            
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  </nav>
+
+
+
+</header>
+
+		
+
+	  <div id="menuContainer" class="post-side">
+	<a href="javascript:;" id="menuCtrl" class="post-side-menu iconfont"></a>
+	<h1 class="post-side-title">
+		<a href="index.html">CSS Modules</a>
+	</h1>
+	<ul class="list-group">
+		   
+			   	
+			   		<li class="list-group-item"><a href="rule.html">rule</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="header.html">header</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="product.html">product</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="iconfont.html">iconfont</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="tipbox.html">tipbox</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="tab.html">tab</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="search.html">search</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="loading.html">loading</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="select.html">select</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="list.html">list</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="form.html">form</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="dialog.html">dialog</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="checkbox.html">checkbox</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="base.html">base</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="article.html">article</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="button.html">button</a></li>
+			   	
+		    
+	</ul>
+</div>
+
+
+<script>
+
+	init();
+
+	function init(){
+		window.addEventListener('load', function(){
+			eventMenu();
+		}, false);
+	}
+
+	function eventMenu(){
+
+		var menuContainer = document.getElementById('menuContainer'),
+			menuCtrl = document.getElementById('menuCtrl');
+
+		menuCtrl.onclick = function(){
+			var className = 'post-side-show';
+			!!(utils.hasClass(menuContainer, className)) ? utils.removeClass(menuContainer, className) : utils.addClass(menuContainer, className);
+			//console.log(utils.hasClass(menuContainer, 'post-side-show'));
+		}
+
+	}
+
+
+	var utils = (function(){
+		function hasClass(obj, cls) {  
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
+		}  
+		 
+		function addClass(obj, cls) {  
+		    if (!this.hasClass(obj, cls)) obj.className += " " + cls;  
+		}  
+		 
+		function removeClass(obj, cls) {  
+		    if (hasClass(obj, cls)) {  
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');  
+		        obj.className = obj.className.replace(reg, ' ');  
+		    }  
+		}
+
+		return {
+			addClass: addClass,
+			removeClass: removeClass,
+			hasClass: hasClass
+		}
+
+	}());
+</script>
+
+      <div class="post-content">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+
+
+  		
+
+			
+
+
+		<div class="page-header">
+		  <h1> form </h1>
+		  <p>form模块，包含图片上传、单项、多项输入等。</p>
+		</div>
+
+
+		 <h2 id="nav-tabs">输入</h2>
+<p>
+	<code>@import "form.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+	<form class="ui-form" name="" method="post" action="#">
+        <fieldset>
+            <legend>登陆</legend>
+            <div class="ui-form-item-title">单项输入</div>
+            <div class="ui-form-item ui-form-item-last">
+                <label for="" class="ui-label">姓名</label>
+                <input class="ui-input" type="text" placeholder="手机/邮箱/用户名" />
+            </div>
+
+            <div class="ui-form-item-title">投保信息</div>
+            <div class="ui-form-item">
+                <label for="" class="ui-label">我是被保险人的</label>
+                <input class="ui-input" type="text" placeholder="密码" />
+            </div>
+            <div class="ui-form-item">
+                <label for="" class="ui-label">份数</label>
+                <div class="ui-form-iright">
+                    <div class="ui-num-group">
+                        <a href="javascript:;" class="ui-num-glink disabled">-</a>
+                        <input class="ui-input" type="text" value="1" />
+                        <a href="javascript:;" class="ui-num-glink">+</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <label for="" class="ui-label">性别</label>
+                 <div class="ui-form-iright">
+                    <label class="ui-radio-square" for="male"><input type="radio" name="gender" id="male" value="male" /><i>男</i></label>
+                    <label class="ui-radio-square" for="female"><input type="radio" name="gender" id="female" value="female" checked="" /><i>女</i></label>
+                 </div>
+            </div>
+            <div class="ui-form-item ui-form-item-error">
+                <label for="" class="ui-label">投保人姓名</label>
+                <input class="ui-input" type="text" placeholder="2-15位中文" />
+            </div>
+            <div class="ui-form-item ui-form-item-last">
+                <label for="" class="ui-label">验证码</label>
+                <input class="ui-input" type="text" placeholder="验证码" />
+                <img src="//weui.github.io/weui/images/vcode.jpg" alt="验证码" class="ui-form-vcode" />
+            </div>
+
+            <div class="ui-form-item-title">反馈内容</div>
+            <div class="ui-form-itextarea ui-form-item-last">
+                <label for="" class="ui-label">反馈内容</label>
+                <textarea class="ui-textarea" placeholder="请输入反馈内容"></textarea>
+            </div>
+
+            <div class="ui-form-item-title">图片上传</div>
+            <div class="ui-form-item ui-form-item-last">
+                <div class="ui-upload-list">
+                    <div class="ui-upload-list-title">
+                        图片上传
+                    </div>
+                    <ul class="ui-upload-list-items">
+                        <li class="ui-upload-list-item">
+                            <img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" alt="001" />
+                        </li>
+                        <li class="ui-upload-list-item">
+                            <img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" alt="001" />
+                        </li>
+                        <li class="ui-upload-list-item">
+                            <img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" alt="001" />
+                        </li>
+                        <li class="ui-upload-list-item">
+                            <img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" alt="001" />
+                        </li>
+                        <li class="ui-upload-list-item">
+                            <img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" alt="001" />
+                        </li>
+                        <li class="ui-upload-list-item">
+                            <img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" alt="001" />
+                            <i class="ui-upload-list-istatus iconfont"></i>
+                        </li>
+                        <li class="ui-upload-list-item">
+                            <img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" alt="001" />
+                            <i class="ui-upload-list-istatus">50%</i>
+                        </li>
+                        <li class="ui-upload-list-item ui-upload-list-input iconfont">
+                            <input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="" />
+                        </li>
+                    </ul>
+                </div>      
+            </div>
+
+
+            <div class="ui-form-item ui-form-foot ui-form-itembg">
+                <button type="submit" class="ui-btn ui-btn-blue ui-btn-block disabled">下一步</button>
+            </div>
+            <div class="ui-form-item ui-form-foot ui-form-itembg">
+                <label for="ck51" class="ui-checkbox-square ui-small-font">
+                   <input type="checkbox" name="ck51" id="ck51" checked="" />
+                   <i class="iconfont"></i>
+                   已阅读并同意<a href="#" class="highlight">《借款额度合同及相关授权》</a>
+                </label>
+            </div>
+      
+        </fieldset>
+    </form>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"ui-form"</span> <span class="na">name=</span><span class="s">""</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;fieldset&gt;</span>
+            <span class="nt">&lt;legend&gt;</span>登陆<span class="nt">&lt;/legend&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item-title"</span><span class="nt">&gt;</span>单项输入<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item ui-form-item-last"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"ui-label"</span><span class="nt">&gt;</span>姓名<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"手机/邮箱/用户名"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item-title"</span><span class="nt">&gt;</span>投保信息<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"ui-label"</span><span class="nt">&gt;</span>我是被保险人的<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"密码"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"ui-label"</span><span class="nt">&gt;</span>份数<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"ui-label"</span><span class="nt">&gt;</span>性别<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item ui-form-item-error"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"ui-label"</span><span class="nt">&gt;</span>投保人姓名<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"2-15位中文"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item ui-form-item-last"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"ui-label"</span><span class="nt">&gt;</span>验证码<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"验证码"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"//weui.github.io/weui/images/vcode.jpg"</span> <span class="na">alt=</span><span class="s">"验证码"</span> <span class="na">class=</span><span class="s">"ui-form-vcode"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item-title"</span><span class="nt">&gt;</span>反馈内容<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-itextarea ui-form-item-last"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"ui-label"</span><span class="nt">&gt;</span>反馈内容<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"ui-textarea"</span> <span class="na">placeholder=</span><span class="s">"请输入反馈内容"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item-title"</span><span class="nt">&gt;</span>图片上传<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item ui-form-item-last"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-upload-list"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-upload-list-title"</span><span class="nt">&gt;</span>
+                        图片上传
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-upload-list-items"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/"</span> <span class="na">alt=</span><span class="s">"001"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/"</span> <span class="na">alt=</span><span class="s">"001"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/"</span> <span class="na">alt=</span><span class="s">"001"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/"</span> <span class="na">alt=</span><span class="s">"001"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/"</span> <span class="na">alt=</span><span class="s">"001"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/"</span> <span class="na">alt=</span><span class="s">"001"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ui-upload-list-istatus iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/"</span> <span class="na">alt=</span><span class="s">"001"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ui-upload-list-istatus"</span><span class="nt">&gt;</span>50%<span class="nt">&lt;/i&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-upload-list-item ui-upload-list-input iconfont"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">accept=</span><span class="s">"image/jpg,image/jpeg,image/png,image/gif"</span> <span class="na">multiple</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;/ul&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>      
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item ui-form-foot ui-form-itembg"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"ui-btn ui-btn-blue ui-btn-block disabled"</span><span class="nt">&gt;</span>下一步<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-item ui-form-foot ui-form-itembg"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"ck51"</span> <span class="na">class=</span><span class="s">"ui-checkbox-square ui-small-font"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"ck51"</span> <span class="na">id=</span><span class="s">"ck51"</span> <span class="na">checked=</span><span class="s">""</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                   已阅读并同意<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"highlight"</span><span class="nt">&gt;</span>《借款额度合同及相关授权》<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/fieldset&gt;</span>
+    <span class="nt">&lt;/form&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">单项无label输入</h2>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <form class="ui-form">
+        <div class="ui-form-list">
+            <input class="ui-input-empty" placeholder="手机/邮箱/用户" />
+            <input class="ui-input-empty ui-input-empty-last" placeholder="手机/邮箱/用户" />
+        </div>
+    </form>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"ui-form"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-list"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input-empty"</span> <span class="na">placeholder=</span><span class="s">"手机/邮箱/用户"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input-empty ui-input-empty-last"</span> <span class="na">placeholder=</span><span class="s">"手机/邮箱/用户"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">验证码输入</h2>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <form class="ui-form">
+        <div class="ui-form-list">
+            <div class="ui-form-list-sigle">
+               <input class="ui-input-empty" type="text" placeholder="验证码" value="SNNV" />
+               <img src="//weui.github.io/weui/images/vcode.jpg" alt="验证码" class="ui-form-vcode" />
+            </div> 
+            <div class="ui-form-list-sigle">
+               <input class="ui-input-empty" type="text" placeholder="请输入短信验证码" />
+                <span class="ui-sendtime-remaining">
+                    <span class="ui-divide-line">|</span>
+                    <i class="ui-ml15 ui-fsn">58秒后重发</i>
+                </span>
+            </div>
+            <div class="ui-form-list-sigle">
+                 <input class="ui-input-empty ui-input-empty-last" type="text" placeholder="请输入短信验证码" />
+                  <span class="ui-send-yzm">
+                      <span class="ui-divide-line">|</span>
+                      <i class="ui-ml15 ui-fsn">获取验证码</i>
+                  </span>
+              </div>  
+        </div>
+    </form>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"ui-form"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-list"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-list-sigle"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input-empty"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"验证码"</span> <span class="na">value=</span><span class="s">"SNNV"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"//weui.github.io/weui/images/vcode.jpg"</span> <span class="na">alt=</span><span class="s">"验证码"</span> <span class="na">class=</span><span class="s">"ui-form-vcode"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/div&gt;</span> 
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-list-sigle"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input-empty"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"请输入短信验证码"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-sendtime-remaining"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-divide-line"</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ui-ml15 ui-fsn"</span><span class="nt">&gt;</span>58秒后重发<span class="nt">&lt;/i&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ui-form-list-sigle"</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"ui-input-empty ui-input-empty-last"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"请输入短信验证码"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-send-yzm"</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-divide-line"</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;</span>
+                      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ui-ml15 ui-fsn"</span><span class="nt">&gt;</span>获取验证码<span class="nt">&lt;/i&gt;</span>
+                  <span class="nt">&lt;/span&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>  
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span></code></pre></figure>
+
+	
+
+
+
+
+
+
+
+
+
+</article>
+
+      </div>
+
+
+    <footer class="site-footer">
+
+  <div class="container-fluid">
+
+    <h2 class="footer-heading">CSS Modules 演示使用文档</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:givenlovs@msn.com">givenlovs@msn.com</a></li>
+        </ul>
+      </div>
+
+  
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
