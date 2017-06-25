@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>webpack 实现的多入口项目脚手架</title>
+  <meta name="description" content="简介基于 webpack2 实现的多入口项目脚手架，主要使用 extract-text-webpack-plugin 实现 js 、css 公共代码提取，html-webpack-plugin 实现 html 多入口，less-loader 实现 less 编译，postcss-loader 配置 autopre...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://blog.givebest.cn/webpack/2017/06/25/webpack-multiple-entry.html">
+  <link rel="alternate" type="application/rss+xml" title="Givebest's Blog" href="http://blog.givebest.cn/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Givebest's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">webpack 实现的多入口项目脚手架</h1>
+    <p class="post-meta"><time datetime="2017-06-25T16:23:35+08:00" itemprop="datePublished">Jun 25, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="section">简介</h2>
+<p>基于 webpack2 实现的多入口项目脚手架，主要使用 extract-text-webpack-plugin 实现 js 、css 公共代码提取，html-webpack-plugin 实现 html 多入口，less-loader 实现 less 编译，postcss-loader 配置 autoprefixer 实现自动添加浏览器兼容前缀，html-withimg-loader 实现 html 内引入图片版本号添加和模板功能，babel-loader 实现 ES6 转码功能， happypack 多线程加速构建速度。</p>
+
+<h2 id="section-1">目录</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>├── dist                     # 构建后的目录
+├── config                   # 项目配置文件
+│   ├── webpack.config.js    # webpack 配置文件
+│   └── postcss.config.js    # postcss 配置文件
+├── src                      # 程序源文件
+│   └── js                   # 入口
+│   ├   └── index.js         # 匹配 view/index.html
+│   ├   └── user         
+│   ├   ├    ├── index.js    # 匹配 view/user/index.html
+│   ├   ├    ├── list.js     # 匹配 view/user/list.html
+│   ├   └── lib              # JS 库等，不参与路由匹配
+│   ├       ├── jquery.js 
+│   └── view                 
+│   ├    └── index.html       # 对应 js/index.js
+│   ├    └── user         
+│   ├        ├── index.html   # 对应 js/user/index.js
+│   ├        ├── list.html    # 对应 js/user/list.js
+│   └── css                   # css 文件目录
+│   ├    └── base.css          
+│   ├    └── iconfont.css     
+│   └── font                  # iconfont 文件目录
+│   ├    └── iconfont.ttf         
+│   ├    └── iconfont.css
+│   └── img                   # 图片文件目录
+│   ├    └── pic1.jpg         
+│   ├    └── pic2.png     
+│   └── template              # html 模板目录
+│       └── head.html         
+│       └── foot.html            
+</code></pre>
+</div>
+
+<h2 id="section-2">配置</h2>
+
+<h3 id="section-3">多入口</h3>
+
+<blockquote>
+  <p>根据 <code class="highlighter-rouge">JS</code> 目录获取多入口数组</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>const ROOT = process.cwd();  // 根目录
+
+let entryJs = getEntry('./src/js/**/*.js');
+
+/**
+ * 根据目录获取入口
+ * @param  {[type]} globPath [description]
+ * @return {[type]}          [description]
+ */
+function getEntry (globPath) {
+	let entries = {};
+	Glob.sync(globPath).forEach(function (entry) {
+		let basename = path.basename(entry, path.extname(entry)),
+			pathname = path.dirname(entry);
+		// js/lib/*.js 不作为入口
+		if (!entry.match(/\/js\/lib\//)) {
+			entries[pathname.split('/').splice(3).join('/') + '/' + basename] = pathname + '/' + basename;
+		}
+	});
+	return entries;
+}
+
+// webpack 配置
+const config = {
+	entry: entryJs,
+	output: {
+		filename: 'js/[name].js?[chunkhash:8]',
+		chunkFilename: 'js/[name].js?[chunkhash:8]',
+		path: path.resolve(ROOT, 'dist'),
+		publicPath: '/'
+	},  
+}
+</code></pre>
+</div>
+
+<h3 id="module">module</h3>
+
+<blockquote>
+  <p>使用 babel 实现 ES2015 转 ES5，less 转 css 并使用 postcss 实现 autoprefixer 自动添加浏览器兼容，url-loader 实现 css 引用图片、字体添加版本号，html-withimg-loader 实现 html 引用图片添加版本号并实现模板功能。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module: {
+    rules: [
+        {
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader?id=js',
+                options: {
+                    presets: ['env']
+                }
+            }
+        },
+        {
+            test: /\.(less|css)$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader?id=styles',
+                use: [{
+                        loader: 'css-loader?id=styles',
+                        options: {
+                            minimize:  !IsDev
+                        }
+                    }, 
+                    {
+                        loader: 'less-loader?id=styles'
+                    }, 
+                    {
+                        loader: 'postcss-loader?id=styles',
+                        options: {
+                            config: {
+                                path: PostcssConfigPath
+                            }
+                        }
+                    }
+                ]
+            })
+        },
+        {
+            test: /\.(png|jpg|gif)$/,
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 100,
+                        publicPath: '',
+                        name: '/img/[name].[ext]?[hash:8]'
+                    }
+                }
+            ]
+        },
+        {
+            test: /\.(eot|svg|ttf|woff)$/,
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 100,
+                        publicPath: '',
+                        name: '/font/[name].[ext]?[hash:8]'
+                    }
+                }
+            ]
+        },
+        // @see https://github.com/wzsxyz/html-withimg-loader
+        {
+            test: /\.(htm|html)$/i,
+            loader: 'html-withimg-loader?min=false'
+        }
+    ]
+},
+
+
+// postcss.config.js
+module.exports = {
+	plugins: [
+		require('autoprefixer')({
+			browsers: ['&gt; 1%', 'last 5 versions', 'not ie &lt;= 9'],
+		})
+	]
+}
+</code></pre>
+</div>
+
+<h3 id="view-">View 视图</h3>
+
+<blockquote>
+  <p>根据目录对应关系，获取 js 对应的 html 入口</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let entryHtml = getEntryHtml('./src/view/**/*.html'),
+    configPlugins;
+
+entryHtml.forEach(function (v) {
+	configPlugins.push(new HtmlWebpackPlugin(v));
+});
+
+// webpack 配置
+resolve: {
+    alias: {
+        views:  path.resolve(ROOT, './src/view')	
+    }
+},
+
+/**
+ * 根据目录获取 Html 入口
+ * @param  {[type]} globPath [description]
+ * @return {[type]}          [description]
+ */
+function getEntryHtml (globPath) {
+	let entries = [];
+	Glob.sync(globPath).forEach(function (entry) {
+		let basename = path.basename(entry, path.extname(entry)),
+			pathname = path.dirname(entry),
+			// @see https://github.com/kangax/html-minifier#options-quick-reference
+			minifyConfig = IsDev ? '' : {
+				removeComments: true,
+				collapseWhitespace: true,
+				minifyCSS: true,
+				minifyJS: true	
+			};
+
+		entries.push({
+			filename: entry.split('/').splice(2).join('/'),
+			template: entry,
+			chunks: ['common', pathname.split('/').splice(3).join('/') + '/' + basename],
+			minify: minifyConfig
+		});
+
+	});
+	return entries;
+}
+</code></pre>
+</div>
+
+<h3 id="plugins">plugins</h3>
+
+<blockquote>
+  <p>使用 happypack 多线程加快构建速度，CommonsChunkPlugin 实现提取公用 js 为单独文件，extract-text-webpack-plugin 实现提取公用 css 为单独文件，</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let configPlugins = [
+    new HappyPack({
+        id: 'js',
+        // @see https://github.com/amireh/happypack
+        threadPool: HappyThreadPool,
+        loaders: ['babel-loader']
+    }),
+    new HappyPack({
+        id: 'styles',
+        threadPool: HappyThreadPool,
+        loaders: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader']
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'common'
+    }),
+    // @see https://github.com/webpack/webpack/tree/master/examples/multiple-entry-points-commons-chunk-css-bundle
+    new ExtractTextPlugin({
+        filename: 'css/[name].css?[contenthash:8]',
+        allChunks: true
+    })
+];
+
+entryHtml.forEach(function (v) {
+	configPlugins.push(new HtmlWebpackPlugin(v));
+});
+
+// webpack 配置
+plugins: configPlugins,
+</code></pre>
+</div>
+
+<h3 id="section-4">开发</h3>
+
+<blockquote>
+  <p>webpack-dev-server 实现开发环境自动刷新等功能</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// webpack 配置
+devServer: {
+    contentBase: [
+        path.join(ROOT, 'src/')
+    ],
+    hot: false,
+    host: '0.0.0.0',
+    port: 8080
+}
+</code></pre>
+</div>
+
+<h3 id="section-5">开发</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm start
+</code></pre>
+</div>
+<blockquote>
+  <p>http://localhost:8080/view</p>
+</blockquote>
+
+<h3 id="section-6">构建</h3>
+
+<blockquote>
+  <p>cross-env 实现区分开发和生产环境构建</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">npm run dev</code></td>
+      <td>开发环境构建，不压缩代码</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">npm run build</code></td>
+      <td>生产环境构建，压缩代码</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-7">仓库</h3>
+
+<blockquote>
+  <p>欢迎 star</p>
+</blockquote>
+
+<p><a href="https://github.com/givebest/webpack2-multiple-entry">https://github.com/givebest/webpack2-multiple-entry</a></p>
+
+<blockquote>
+  <p>转载请注明出处：<a href="http://blog.givebest.cn/webpack/2017/06/25/webpack-multiple-entry.html">http://blog.givebest.cn/webpack/2017/06/25/webpack-multiple-entry.html</a></p>
+</blockquote>
+
+  </div>
+
+</article>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/givebest"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">givebest</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  </body>
+
+</html>
