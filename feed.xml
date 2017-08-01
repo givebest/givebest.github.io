@@ -6,16 +6,125 @@
 </description>
     <link>http://blog.givebest.cn/</link>
     <atom:link href="http://blog.givebest.cn/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 25 Jun 2017 17:17:03 +0800</pubDate>
-    <lastBuildDate>Sun, 25 Jun 2017 17:17:03 +0800</lastBuildDate>
-    <generator>Jekyll v3.2.1</generator>
+    <pubDate>Tue, 01 Aug 2017 18:32:15 +0800</pubDate>
+    <lastBuildDate>Tue, 01 Aug 2017 18:32:15 +0800</lastBuildDate>
+    <generator>Jekyll v3.5.1</generator>
+    
+      <item>
+        <title>JavaScript addEventListener 第三个参数</title>
+        <description>&lt;p&gt;先看一个完整的演示页面代码。&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;zh-CN&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;JavaScript addEventListener&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.header-container&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#eee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.header-container&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;yellow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header-container&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;nav ul li a&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'header'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ul'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'li'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;useCapture&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useCapture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ul'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useCapture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;useCapture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'li'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;useCapture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;结果&quot;&gt;结果&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-usecapture-false默认值也是false&quot;&gt;1. useCapture: false（默认值也是false）&lt;/h3&gt;
+
+&lt;p&gt;输出：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ul&quot;&lt;/span&gt;
+&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;li&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;2-usecapture-true&quot;&gt;2. useCapture: true&lt;/h3&gt;
+
+&lt;p&gt;输出：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;li&quot;&lt;/span&gt;
+&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ul&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;语法&quot;&gt;语法&lt;/h2&gt;
+
+&lt;h3 id=&quot;mdnmozilla-developer-network&quot;&gt;MDN（Mozilla Developer Network）&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;useCapture  可选  &lt;br /&gt;
+Boolean，是指在DOM树中，注册了该listener的元素，是否会先于它下方的任何事件目标，接收到该事件。沿着DOM树向上冒泡的事件不会触发被指定为use capture（也就是设为true）的listener。当一个元素嵌套了另一个元素，两个元素都对同一个事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。事件传播模式决定了元素以哪个顺序接收事件。进一步的解释可以查看 事件流 及 JavaScript Event order 文档。 如果没有指定， useCapture 默认为 false 。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;othree&quot;&gt;Othree&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;useCapture 這個參數就是在控制這時候兩個 click 事件的先後順序。如果是 false ，那就會使用 bubbling，他是從內而外的流程，如果是 true，那就是 capture，和 bubbling 相反是由外而內。capture 和 bubbling，兩個檔案只有差在此一參數不同，可以發現事件的發生順序不一樣了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;总bai结hua&quot;&gt;总(bai)结(hua)&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;useCapture&lt;/code&gt; 参数默认为 &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;，事件执行顺序为 事件冒泡 &lt;code class=&quot;highlighter-rouge&quot;&gt;bubbling&lt;/code&gt; （由内向外），即本示例中顺序是 &lt;code class=&quot;highlighter-rouge&quot;&gt;li → ul&lt;/code&gt;；&lt;code class=&quot;highlighter-rouge&quot;&gt;useCapture&lt;/code&gt; 值为 &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;，事件执行顺序为事件捕捉 &lt;code class=&quot;highlighter-rouge&quot;&gt;capturing&lt;/code&gt; （由外向内），即本示例中顺序是 &lt;code class=&quot;highlighter-rouge&quot;&gt;ul → li&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;事件捕捉与冒泡：&lt;a href=&quot;http://javascript.info/bubbling-and-capturing&quot;&gt;http://javascript.info/bubbling-and-capturing&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;来源参考&quot;&gt;来源/参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.othree.net/log/2007/02/06/third-argument-of-addeventlistener/&quot;&gt;https://blog.othree.net/log/2007/02/06/third-argument-of-addeventlistener/&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;转载请注明出处：&lt;a href=&quot;http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html&quot;&gt;http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Tue, 01 Aug 2017 18:23:35 +0800</pubDate>
+        <link>http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html</link>
+        <guid isPermaLink="true">http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>webpack 实现的多入口项目脚手架</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;简介&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
 &lt;p&gt;基于 webpack2 实现的多入口项目脚手架，主要使用 extract-text-webpack-plugin 实现 js 、css 公共代码提取，html-webpack-plugin 实现 html 多入口，less-loader 实现 less 编译，postcss-loader 配置 autoprefixer 实现自动添加浏览器兼容前缀，html-withimg-loader 实现 html 内引入图片版本号添加和模板功能，babel-loader 实现 ES6 转码功能， happypack 多线程加速构建速度。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;目录&lt;/h2&gt;
+&lt;h2 id=&quot;目录&quot;&gt;目录&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── dist                     # 构建后的目录
 ├── config                   # 项目配置文件
@@ -49,9 +158,9 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;配置&lt;/h2&gt;
+&lt;h2 id=&quot;配置&quot;&gt;配置&lt;/h2&gt;
 
-&lt;h3 id=&quot;section-3&quot;&gt;多入口&lt;/h3&gt;
+&lt;h3 id=&quot;多入口&quot;&gt;多入口&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;根据 &lt;code class=&quot;highlighter-rouge&quot;&gt;JS&lt;/code&gt; 目录获取多入口数组&lt;/p&gt;
@@ -180,7 +289,7 @@ module.exports = {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;view-&quot;&gt;View 视图&lt;/h3&gt;
+&lt;h3 id=&quot;view-视图&quot;&gt;View 视图&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;根据目录对应关系，获取 js 对应的 html 入口&lt;/p&gt;
@@ -268,7 +377,7 @@ plugins: configPlugins,
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;开发&lt;/h3&gt;
+&lt;h3 id=&quot;开发&quot;&gt;开发&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;webpack-dev-server 实现开发环境自动刷新等功能&lt;/p&gt;
@@ -286,7 +395,7 @@ devServer: {
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;开发&lt;/h3&gt;
+&lt;h3 id=&quot;开发-1&quot;&gt;开发&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm start
 &lt;/code&gt;&lt;/pre&gt;
@@ -295,7 +404,7 @@ devServer: {
   &lt;p&gt;http://localhost:8080/view&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;构建&lt;/h3&gt;
+&lt;h3 id=&quot;构建&quot;&gt;构建&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;cross-env 实现区分开发和生产环境构建&lt;/p&gt;
@@ -320,7 +429,7 @@ devServer: {
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;section-7&quot;&gt;仓库&lt;/h3&gt;
+&lt;h3 id=&quot;仓库&quot;&gt;仓库&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;欢迎 star&lt;/p&gt;
@@ -377,18 +486,18 @@ devServer: {
     
       <item>
         <title>兼容IE6+及现代浏览器的简单分页，支持同一页面多个分页。</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;简介&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
 
 &lt;p&gt;兼容IE6+及现代浏览器的简单分页，支持同一页面多个分页。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;使用&lt;/h2&gt;
+&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
 
 &lt;h3 id=&quot;browser&quot;&gt;Browser&lt;/h3&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;css/GB-paging.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;js/GB-paging.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;普通分页&lt;/h3&gt;
+&lt;h3 id=&quot;普通分页&quot;&gt;普通分页&lt;/h3&gt;
 
 &lt;h4 id=&quot;html&quot;&gt;HTML&lt;/h4&gt;
 
@@ -407,7 +516,7 @@ devServer: {
     &lt;span class=&quot;na&quot;&gt;eventType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;section-3&quot;&gt;同页面另一个分页&lt;/h3&gt;
+&lt;h3 id=&quot;同页面另一个分页&quot;&gt;同页面另一个分页&lt;/h3&gt;
 
 &lt;h4 id=&quot;html-1&quot;&gt;HTML&lt;/h4&gt;
 
@@ -427,7 +536,7 @@ devServer: {
     &lt;span class=&quot;na&quot;&gt;eventType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;section-4&quot;&gt;刷新带参数&lt;/h3&gt;
+&lt;h3 id=&quot;刷新带参数&quot;&gt;刷新带参数&lt;/h3&gt;
 
 &lt;h4 id=&quot;html-2&quot;&gt;HTML&lt;/h4&gt;
 
@@ -443,14 +552,14 @@ devServer: {
     &lt;span class=&quot;na&quot;&gt;goUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'?type=1&amp;amp;name=2&amp;amp;'&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;section-5&quot;&gt;辅助函数&lt;/h3&gt;
+&lt;h3 id=&quot;辅助函数&quot;&gt;辅助函数&lt;/h3&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;other&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;section-6&quot;&gt;选项&lt;/h2&gt;
+&lt;h2 id=&quot;选项&quot;&gt;选项&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;eleId&lt;/code&gt; 分页容器，仅支持ID，默认为： ‘gbpaging’    &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;total&lt;/code&gt;: 总记录数          &lt;br /&gt;
@@ -463,7 +572,7 @@ devServer: {
 &lt;code class=&quot;highlighter-rouge&quot;&gt;eventType&lt;/code&gt;: 事件方式，’click’ || ‘link’    &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;goUrl&lt;/code&gt;： 链接URL，’?type=1&amp;amp;name=2&amp;amp;’ || ‘‘，为分页参数名+值，如：’p=1’&lt;/p&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;演示&lt;/h2&gt;
+&lt;h2 id=&quot;演示&quot;&gt;演示&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://blog.givebest.cn/GB-paging.html&quot;&gt;http://blog.givebest.cn/GB-paging.html&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -478,11 +587,11 @@ devServer: {
     
       <item>
         <title>移动端的Canvas绘制可配置的转盘抽奖</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;简介&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
 
 &lt;p&gt;适用于移动端的Canvas绘制可配置的转盘抽奖&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;使用&lt;/h2&gt;
+&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
 
 &lt;h3 id=&quot;browser&quot;&gt;Browser&lt;/h3&gt;
 
@@ -508,7 +617,7 @@ devServer: {
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;演示&lt;/h3&gt;
+&lt;h3 id=&quot;演示&quot;&gt;演示&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://blog.givebest.cn/GB-canvas-turntable.html&quot;&gt;http://blog.givebest.cn/GB-canvas-turntable.html&lt;/a&gt;&lt;/p&gt;
 

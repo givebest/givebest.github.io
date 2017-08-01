@@ -62,18 +62,18 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h2 id="section">简介</h2>
+    <h2 id="简介">简介</h2>
 
 <p>兼容IE6+及现代浏览器的简单分页，支持同一页面多个分页。</p>
 
-<h2 id="section-1">使用</h2>
+<h2 id="使用">使用</h2>
 
 <h3 id="browser">Browser</h3>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"css/GB-paging.css"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/GB-paging.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
 
-<h3 id="section-2">普通分页</h3>
+<h3 id="普通分页">普通分页</h3>
 
 <h4 id="html">HTML</h4>
 
@@ -92,7 +92,7 @@
     <span class="na">eventType</span><span class="p">:</span> <span class="s1">'click'</span>
 <span class="p">});</span></code></pre></figure>
 
-<h3 id="section-3">同页面另一个分页</h3>
+<h3 id="同页面另一个分页">同页面另一个分页</h3>
 
 <h4 id="html-1">HTML</h4>
 
@@ -112,7 +112,7 @@
     <span class="na">eventType</span><span class="p">:</span> <span class="s1">'click'</span>
 <span class="p">});</span></code></pre></figure>
 
-<h3 id="section-4">刷新带参数</h3>
+<h3 id="刷新带参数">刷新带参数</h3>
 
 <h4 id="html-2">HTML</h4>
 
@@ -128,14 +128,14 @@
     <span class="na">goUrl</span><span class="p">:</span> <span class="s1">'?type=1&amp;name=2&amp;'</span>
 <span class="p">});</span></code></pre></figure>
 
-<h3 id="section-5">辅助函数</h3>
+<h3 id="辅助函数">辅助函数</h3>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">getPage</span><span class="p">(</span><span class="nx">pname</span><span class="p">,</span> <span class="nx">other</span><span class="p">){</span>
     <span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="nx">other</span> <span class="o">+</span> <span class="nx">pname</span> <span class="o">+</span> <span class="s1">'='</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">page</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<h2 id="section-6">选项</h2>
+<h2 id="选项">选项</h2>
 
 <p><code class="highlighter-rouge">eleId</code> 分页容器，仅支持ID，默认为： ‘gbpaging’    <br />
 <code class="highlighter-rouge">total</code>: 总记录数          <br />
@@ -148,7 +148,7 @@
 <code class="highlighter-rouge">eventType</code>: 事件方式，’click’ || ‘link’    <br />
 <code class="highlighter-rouge">goUrl</code>： 链接URL，’?type=1&amp;name=2&amp;’ || ‘‘，为分页参数名+值，如：’p=1’</p>
 
-<h2 id="section-7">演示</h2>
+<h2 id="演示">演示</h2>
 
 <p><a href="http://blog.givebest.cn/GB-paging.html">http://blog.givebest.cn/GB-paging.html</a></p>
 
