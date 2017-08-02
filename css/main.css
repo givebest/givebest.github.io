@@ -112,16 +112,16 @@ pre {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(800px - (30px * 2));
-  max-width: calc(800px - (30px * 2));
+  max-width: -webkit-calc(1000px - (30px * 2));
+  max-width: calc(1000px - (30px * 2));
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
   padding-left: 30px; }
   @media screen and (max-width: 800px) {
     .wrapper {
-      max-width: -webkit-calc(800px - (30px));
-      max-width: calc(800px - (30px));
+      max-width: -webkit-calc(1000px - (30px));
+      max-width: calc(1000px - (30px));
       padding-right: 15px;
       padding-left: 15px; } }
 
@@ -151,7 +151,12 @@ pre {
   border-top: 5px solid #424242;
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
+  background-color: #1abc9c;
+  color: #fff;
   position: relative; }
+  .site-header a.site-title {
+    color: #fff;
+    text-shadow: 1px 1px 5px #424242; }
 
 .site-title {
   font-size: 26px;
@@ -273,11 +278,16 @@ pre {
   margin-left: 0;
   list-style: none; }
   .post-list > li {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    border-bottom: 1px dotted #e8e8e8; }
 
 .post-meta {
+  display: inline-block;
+  padding: 0 4px;
   font-size: 14px;
-  color: #828282; }
+  color: #eee;
+  border-radius: 4px;
+  background-color: #1abc9c; }
 
 .post-link {
   display: block;
@@ -321,7 +331,7 @@ pre {
 .highlight {
   background: #fff; }
   .highlighter-rouge .highlight {
-    background: #f7f7f9; }
+    background: #fff; }
   .highlight .c {
     color: #998;
     font-style: italic; }
