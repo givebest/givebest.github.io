@@ -6,8 +6,8 @@
 </description>
     <link>http://blog.givebest.cn/</link>
     <atom:link href="http://blog.givebest.cn/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Aug 2017 18:32:15 +0800</pubDate>
-    <lastBuildDate>Tue, 01 Aug 2017 18:32:15 +0800</lastBuildDate>
+    <pubDate>Wed, 02 Aug 2017 09:32:52 +0800</pubDate>
+    <lastBuildDate>Wed, 02 Aug 2017 09:32:52 +0800</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -83,7 +83,7 @@
 &lt;h3 id=&quot;mdnmozilla-developer-network&quot;&gt;MDN（Mozilla Developer Network）&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;useCapture  可选  &lt;br /&gt;
+  &lt;p&gt;useCapture  可选
 Boolean，是指在DOM树中，注册了该listener的元素，是否会先于它下方的任何事件目标，接收到该事件。沿着DOM树向上冒泡的事件不会触发被指定为use capture（也就是设为true）的listener。当一个元素嵌套了另一个元素，两个元素都对同一个事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。事件传播模式决定了元素以哪个顺序接收事件。进一步的解释可以查看 事件流 及 JavaScript Event order 文档。 如果没有指定， useCapture 默认为 false 。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -102,17 +102,17 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
 &lt;p&gt;事件捕捉与冒泡：&lt;a href=&quot;http://javascript.info/bubbling-and-capturing&quot;&gt;http://javascript.info/bubbling-and-capturing&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;来源参考&quot;&gt;来源/参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener&lt;/a&gt;
 &lt;a href=&quot;https://blog.othree.net/log/2007/02/06/third-argument-of-addeventlistener/&quot;&gt;https://blog.othree.net/log/2007/02/06/third-argument-of-addeventlistener/&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;转载请注明出处：&lt;a href=&quot;http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html&quot;&gt;http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;转载请注明出处：&lt;a href=&quot;http://blog.givebest.cn/javascript/2017/08/01/javascript-addEventListener-third-parameter.html&quot;&gt;http://blog.givebest.cn/javascript/2017/08/01/javascript-addEventListener-third-parameter.html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
         <pubDate>Tue, 01 Aug 2017 18:23:35 +0800</pubDate>
-        <link>http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html</link>
-        <guid isPermaLink="true">http://blog.givebest.cn/javascript/2017/08/01/JavaScript-addEventListener-Third-Parameter.html</guid>
+        <link>http://blog.givebest.cn/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</link>
+        <guid isPermaLink="true">http://blog.givebest.cn/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</guid>
         
         
         <category>javascript</category>

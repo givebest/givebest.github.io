@@ -321,7 +321,7 @@ pre {
 .highlight {
   background: #fff; }
   .highlighter-rouge .highlight {
-    background: #eef; }
+    background: #f7f7f9; }
   .highlight .c {
     color: #998;
     font-style: italic; }
@@ -455,3 +455,51 @@ pre {
     color: #008080; }
   .highlight .il {
     color: #099; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+code {
+  padding: 0.2rem 0.4rem;
+  font-size: 90%;
+  color: #bd4147;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem; }
+
+a > code {
+  padding: 0;
+  color: inherit;
+  background-color: inherit; }
+
+kbd {
+  padding: 0.2rem 0.4rem;
+  font-size: 90%;
+  color: #fff;
+  background-color: #212529;
+  border-radius: 0.2rem; }
+
+kbd kbd {
+  padding: 0;
+  font-size: 100%;
+  font-weight: bold; }
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 90%;
+  color: #212529; }
+
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+  border-radius: 0; }
+
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll; }
