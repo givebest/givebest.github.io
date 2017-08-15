@@ -10,8 +10,8 @@
   <meta name="description" content="简介基于 webpack2 实现的多入口项目脚手架，主要使用 extract-text-webpack-plugin 实现 js 、css 公共代码提取，html-webpack-plugin 实现 html 多入口，less-loader 实现 less 编译，postcss-loader 配置 autopre...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://blog.givebest.cn/webpack/2017/06/25/webpack-multiple-entry.html">
-  <link rel="alternate" type="application/rss+xml" title="Givebest's Blog" href="http://blog.givebest.cn/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/webpack/2017/06/25/webpack-multiple-entry.html">
+  <link rel="alternate" type="application/rss+xml" title="Givebest's Blog" href="http://localhost:4000/feed.xml">
 </head>
 
 
@@ -430,10 +430,25 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
+
+// baidu 自动推送
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
+
 
   </body>
 

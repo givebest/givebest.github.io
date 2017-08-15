@@ -4,10 +4,10 @@
     <title>Givebest's Blog</title>
     <description>前端开发分享、学习.
 </description>
-    <link>http://blog.givebest.cn/</link>
-    <atom:link href="http://blog.givebest.cn/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Aug 2017 17:05:47 +0800</pubDate>
-    <lastBuildDate>Fri, 04 Aug 2017 17:05:47 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 15 Aug 2017 10:32:39 +0800</pubDate>
+    <lastBuildDate>Tue, 15 Aug 2017 10:32:39 +0800</lastBuildDate>
     <generator>Jekyll v3.5.1</generator>
     
       <item>
@@ -385,8 +385,8 @@
 &lt;h3 id=&quot;转载请注明出处-httpbloggivebestcnjavascript20170802javascript-sorting-algorithmshtml&quot;&gt;转载请注明出处： &lt;a href=&quot;http://blog.givebest.cn/javascript/2017/08/02/javascript-sorting-algorithms.html&quot;&gt;http://blog.givebest.cn/javascript/2017/08/02/javascript-sorting-algorithms.html&lt;/a&gt;&lt;/h3&gt;
 </description>
         <pubDate>Wed, 02 Aug 2017 18:10:35 +0800</pubDate>
-        <link>http://blog.givebest.cn/javascript/2017/08/02/javascript-sorting-algorithms.html</link>
-        <guid isPermaLink="true">http://blog.givebest.cn/javascript/2017/08/02/javascript-sorting-algorithms.html</guid>
+        <link>http://localhost:4000/javascript/2017/08/02/javascript-sorting-algorithms.html</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/2017/08/02/javascript-sorting-algorithms.html</guid>
         
         
         <category>javascript</category>
@@ -494,8 +494,8 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
 
 </description>
         <pubDate>Tue, 01 Aug 2017 18:23:35 +0800</pubDate>
-        <link>http://blog.givebest.cn/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</link>
-        <guid isPermaLink="true">http://blog.givebest.cn/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</guid>
+        <link>http://localhost:4000/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</guid>
         
         
         <category>javascript</category>
@@ -825,8 +825,8 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 25 Jun 2017 16:23:35 +0800</pubDate>
-        <link>http://blog.givebest.cn/webpack/2017/06/25/webpack-multiple-entry.html</link>
-        <guid isPermaLink="true">http://blog.givebest.cn/webpack/2017/06/25/webpack-multiple-entry.html</guid>
+        <link>http://localhost:4000/webpack/2017/06/25/webpack-multiple-entry.html</link>
+        <guid isPermaLink="true">http://localhost:4000/webpack/2017/06/25/webpack-multiple-entry.html</guid>
         
         
         <category>webpack</category>
@@ -859,8 +859,8 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 05 Mar 2017 12:34:35 +0800</pubDate>
-        <link>http://blog.givebest.cn/other/2017/03/05/deliver-documents-to-kindle.html</link>
-        <guid isPermaLink="true">http://blog.givebest.cn/other/2017/03/05/deliver-documents-to-kindle.html</guid>
+        <link>http://localhost:4000/other/2017/03/05/deliver-documents-to-kindle.html</link>
+        <guid isPermaLink="true">http://localhost:4000/other/2017/03/05/deliver-documents-to-kindle.html</guid>
         
         
         <category>Other</category>
@@ -976,8 +976,8 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
 &lt;p&gt;&lt;a href=&quot;http://blog.givebest.cn/GB-paging.html&quot;&gt;http://blog.givebest.cn/GB-paging.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Oct 2016 12:20:35 +0800</pubDate>
-        <link>http://blog.givebest.cn/javascript/2016/10/23/GB-paging.html</link>
-        <guid isPermaLink="true">http://blog.givebest.cn/javascript/2016/10/23/GB-paging.html</guid>
+        <link>http://localhost:4000/javascript/2016/10/23/GB-paging.html</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/2016/10/23/GB-paging.html</guid>
         
         
         <category>JavaScript</category>
@@ -1026,8 +1026,8 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
 
 </description>
         <pubDate>Sun, 23 Oct 2016 11:53:35 +0800</pubDate>
-        <link>http://blog.givebest.cn/javascript/2016/10/23/canvas-turntable.html</link>
-        <guid isPermaLink="true">http://blog.givebest.cn/javascript/2016/10/23/canvas-turntable.html</guid>
+        <link>http://localhost:4000/javascript/2016/10/23/canvas-turntable.html</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/2016/10/23/canvas-turntable.html</guid>
         
         
         <category>JavaScript</category>
