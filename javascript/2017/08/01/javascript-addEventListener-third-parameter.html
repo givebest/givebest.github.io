@@ -66,7 +66,7 @@
 
 <h2 id="code">Code</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh-CN"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;head&gt;</span>
   <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
@@ -92,7 +92,7 @@
     <span class="nt">&lt;/nav&gt;</span>
   <span class="nt">&lt;/header&gt;</span>
   <span class="nt">&lt;script&gt;</span>
-  <span class="kr">const</span> <span class="nx">header</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'header'</span><span class="p">),</span>
+  <span class="kd">const</span> <span class="nx">header</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'header'</span><span class="p">),</span>
     <span class="nx">ul</span> <span class="o">=</span> <span class="nx">header</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">),</span>
     <span class="nx">li</span> <span class="o">=</span> <span class="nx">header</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'li'</span><span class="p">),</span>
     <span class="nx">useCapture</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -105,30 +105,27 @@
   <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h2 id="section">结果</h2>
+<h2 id="结果">结果</h2>
 
-<h3 id="usecapture-falsefalse">1. useCapture: false（默认值也是false）</h3>
+<h3 id="1-usecapture-false默认值也是false">1. useCapture: false（默认值也是false）</h3>
 
 <p>输出：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kc">true</span> <span class="s2">"ul"</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">true</span> <span class="s2">"ul"</span>
 <span class="kc">true</span> <span class="s2">"li"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="usecapture-true">2. useCapture: true</h3>
+<h3 id="2-usecapture-true">2. useCapture: true</h3>
 
 <p>输出：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kc">true</span> <span class="s2">"li"</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">true</span> <span class="s2">"li"</span>
 <span class="kc">true</span> <span class="s2">"ul"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h2 id="section-1">语法</h2>
+<h2 id="语法">语法</h2>
 
 <h3 id="mdnmozilla-developer-network">MDN（Mozilla Developer Network）</h3>
 
@@ -143,7 +140,7 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
   <p>useCapture 這個參數就是在控制這時候兩個 click 事件的先後順序。如果是 false ，那就會使用 bubbling，他是從內而外的流程，如果是 true，那就是 capture，和 bubbling 相反是由外而內。capture 和 bubbling，兩個檔案只有差在此一參數不同，可以發現事件的發生順序不一樣了。</p>
 </blockquote>
 
-<h3 id="baihua">总(bai)结(hua)</h3>
+<h3 id="总bai结hua">总(bai)结(hua)</h3>
 
 <blockquote>
   <p><code class="highlighter-rouge">useCapture</code> 参数默认为 <code class="highlighter-rouge">false</code>，事件执行顺序为 事件冒泡 <code class="highlighter-rouge">bubbling</code> （由内向外），即本示例中顺序是 <code class="highlighter-rouge">li → ul</code>；<code class="highlighter-rouge">useCapture</code> 值为 <code class="highlighter-rouge">true</code>，事件执行顺序为事件捕捉 <code class="highlighter-rouge">capturing</code> （由外向内），即本示例中顺序是 <code class="highlighter-rouge">ul → li</code>。</p>
@@ -151,7 +148,7 @@ Boolean，是指在DOM树中，注册了该listener的元素，是否会先于�
 
 <p>事件捕捉与冒泡：<a href="http://javascript.info/bubbling-and-capturing">http://javascript.info/bubbling-and-capturing</a></p>
 
-<h2 id="section-2">来源/参考</h2>
+<h2 id="来源参考">来源/参考</h2>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener</a>
 <a href="https://blog.othree.net/log/2007/02/06/third-argument-of-addeventlistener/">https://blog.othree.net/log/2007/02/06/third-argument-of-addeventlistener/</a></p>
 

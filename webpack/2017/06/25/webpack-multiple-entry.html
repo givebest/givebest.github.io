@@ -62,12 +62,12 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h2 id="section">简介</h2>
+    <h2 id="简介">简介</h2>
 <p>基于 webpack2 实现的多入口项目脚手架，主要使用 extract-text-webpack-plugin 实现 js 、css 公共代码提取，html-webpack-plugin 实现 html 多入口，less-loader 实现 less 编译，postcss-loader 配置 autoprefixer 实现自动添加浏览器兼容前缀，html-withimg-loader 实现 html 内引入图片版本号添加和模板功能，babel-loader 实现 ES6 转码功能， happypack 多线程加速构建速度。</p>
 
-<h2 id="section-1">目录</h2>
+<h2 id="目录">目录</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>├── dist                     # 构建后的目录
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── dist                     # 构建后的目录
 ├── config                   # 项目配置文件
 │   ├── webpack.config.js    # webpack 配置文件
 │   └── postcss.config.js    # postcss 配置文件
@@ -96,18 +96,17 @@
 │   └── template              # html 模板目录
 │       └── head.html
 │       └── foot.html
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h2 id="section-2">配置</h2>
+<h2 id="配置">配置</h2>
 
-<h3 id="section-3">多入口</h3>
+<h3 id="多入口">多入口</h3>
 
 <blockquote>
   <p>根据 <code class="highlighter-rouge">JS</code> 目录获取多入口数组</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">ROOT</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">();</span>  <span class="c1">// 根目录</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ROOT</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">();</span>  <span class="c1">// 根目录</span>
 
 <span class="kd">let</span> <span class="nx">entryJs</span> <span class="o">=</span> <span class="nx">getEntry</span><span class="p">(</span><span class="s1">'./src/js/**/*.js'</span><span class="p">);</span>
 
@@ -130,7 +129,7 @@
 <span class="p">}</span>
 
 <span class="c1">// webpack 配置</span>
-<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
 	<span class="na">entry</span><span class="p">:</span> <span class="nx">entryJs</span><span class="p">,</span>
 	<span class="na">output</span><span class="p">:</span> <span class="p">{</span>
 		<span class="na">filename</span><span class="p">:</span> <span class="s1">'js/[name].js?[chunkhash:8]'</span><span class="p">,</span>
@@ -139,8 +138,7 @@
 		<span class="na">publicPath</span><span class="p">:</span> <span class="s1">'/'</span>
 	<span class="p">},</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="module">module</h3>
 
@@ -148,7 +146,7 @@
   <p>使用 babel 实现 ES2015 转 ES5，less 转 css 并使用 postcss 实现 autoprefixer 自动添加浏览器兼容，url-loader 实现 css 引用图片、字体添加版本号，html-withimg-loader 实现 html 引用图片添加版本号并实现模板功能。</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">module</span><span class="err">:</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">:</span> <span class="p">{</span>
     <span class="nl">rules</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">js$/</span><span class="p">,</span>
@@ -227,16 +225,15 @@
 		<span class="p">})</span>
 	<span class="p">]</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="view-">View 视图</h3>
+<h3 id="view-视图">View 视图</h3>
 
 <blockquote>
   <p>根据目录对应关系，获取 js 对应的 html 入口</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">entryHtml</span> <span class="o">=</span> <span class="nx">getEntryHtml</span><span class="p">(</span><span class="s1">'./src/view/**/*.html'</span><span class="p">),</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">entryHtml</span> <span class="o">=</span> <span class="nx">getEntryHtml</span><span class="p">(</span><span class="s1">'./src/view/**/*.html'</span><span class="p">),</span>
     <span class="nx">configPlugins</span><span class="p">;</span>
 
 <span class="nx">entryHtml</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
@@ -278,8 +275,7 @@
 	<span class="p">});</span>
 	<span class="k">return</span> <span class="nx">entries</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="plugins">plugins</h3>
 
@@ -287,7 +283,7 @@
   <p>使用 happypack 多线程加快构建速度，CommonsChunkPlugin 实现提取公用 js 为单独文件，extract-text-webpack-plugin 实现提取公用 css 为单独文件，</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">configPlugins</span> <span class="o">=</span> <span class="p">[</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">configPlugins</span> <span class="o">=</span> <span class="p">[</span>
     <span class="k">new</span> <span class="nx">HappyPack</span><span class="p">({</span>
         <span class="na">id</span><span class="p">:</span> <span class="s1">'js'</span><span class="p">,</span>
         <span class="c1">// @see https://github.com/amireh/happypack</span>
@@ -315,37 +311,34 @@
 
 <span class="c1">// webpack 配置</span>
 <span class="nl">plugins</span><span class="p">:</span> <span class="nx">configPlugins</span><span class="p">,</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="section-4">开发</h3>
+<h3 id="开发">开发</h3>
 
 <blockquote>
   <p>webpack-dev-server 实现开发环境自动刷新等功能</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// webpack 配置</span>
-<span class="nl">devServer</span><span class="p">:</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// webpack 配置</span>
+<span class="nx">devServer</span><span class="p">:</span> <span class="p">{</span>
     <span class="nl">contentBase</span><span class="p">:</span> <span class="p">[</span>
         <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">ROOT</span><span class="p">,</span> <span class="s1">'src/'</span><span class="p">)</span>
     <span class="p">],</span>
-    <span class="nx">hot</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nx">host</span><span class="err">:</span> <span class="s1">'0.0.0.0'</span><span class="p">,</span>
-    <span class="nx">port</span><span class="err">:</span> <span class="mi">8080</span>
+    <span class="nx">hot</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">host</span><span class="p">:</span> <span class="s1">'0.0.0.0'</span><span class="p">,</span>
+    <span class="nx">port</span><span class="p">:</span> <span class="mi">8080</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="section-5">开发</h3>
+<h3 id="开发-1">开发</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>npm start
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm start
+</code></pre></div></div>
 <blockquote>
   <p>http://localhost:8080/view</p>
 </blockquote>
 
-<h3 id="section-6">构建</h3>
+<h3 id="构建">构建</h3>
 
 <blockquote>
   <p>cross-env 实现区分开发和生产环境构建</p>
@@ -370,7 +363,7 @@
   </tbody>
 </table>
 
-<h3 id="section-7">仓库</h3>
+<h3 id="仓库">仓库</h3>
 
 <blockquote>
   <p>欢迎 star</p>
