@@ -979,6 +979,7 @@ pre {
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   border-radius: 4px;
+  box-shadow: 0 0 0 0, 0 6px 12px rgba(34, 34, 34, 0.1);
   /*{ background: #f0f3f3; }*/
   /* Comment */
   /* Error */
@@ -1048,9 +1049,11 @@ pre {
     word-break: normal;
     white-space: nowrap;
     background-color: transparent;
-    border: 0; }
+    border: 0;
+    box-shadow: none; }
   .highlight pre code {
     font-size: inherit;
+    white-space: pre-wrap;
     color: #333;
     /* Effectively the base text color */ }
   .highlight .hll {
@@ -1182,8 +1185,8 @@ pre {
   .highlight .css .nt + .nt {
     color: #999; }
 
-.highlight {
-  box-shadow: 0 0 0 0, 0 6px 12px rgba(34, 34, 34, 0.1); }
-
+/* .highlight {
+  box-shadow: 0 0 0 0, 0 6px 12px rgba(34,34,34,.1);
+} */
 tt, code, kbd, samp {
   font-family: sans-serif; }
