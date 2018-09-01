@@ -6,8 +6,8 @@
 </description>
     <link>http://blog.givebest.cn/</link>
     <atom:link href="http://blog.givebest.cn/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Sep 2018 09:15:41 +0800</pubDate>
-    <lastBuildDate>Sat, 01 Sep 2018 09:15:41 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Sep 2018 14:07:59 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Sep 2018 14:07:59 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -49,14 +49,14 @@
     &lt;ul&gt;
       &lt;li&gt;点击加号&lt;/li&gt;
       &lt;li&gt;Desktop
-&lt;img src=&quot;//givebest.github.io/images/microsoft-remote-desktop/add.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;https://givebest.github.io/images/microsoft-remote-desktop/add.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;创建
     &lt;ul&gt;
       &lt;li&gt;PC Name 输入远程 Windows 名或者 IP 地址、端口号（如有需要）&lt;/li&gt;
       &lt;li&gt;User Account 可选择每次连接时输入帐号信息或者添加用户信息
-&lt;img src=&quot;//givebest.github.io/images/microsoft-remote-desktop/create.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;https://givebest.github.io/images/microsoft-remote-desktop/create.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
       &lt;li&gt;这里输入用户 &lt;code class=&quot;highlighter-rouge&quot;&gt;administrator&lt;/code&gt;
 &lt;img src=&quot;//givebest.github.io/images/microsoft-remote-desktop/add-account.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
     &lt;/ul&gt;
@@ -64,9 +64,9 @@
   &lt;li&gt;连接
     &lt;ul&gt;
       &lt;li&gt;选择创建好的主机
-&lt;img src=&quot;//givebest.github.io/images/microsoft-remote-desktop/connect.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;https://givebest.github.io/images/microsoft-remote-desktop/connect.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
       &lt;li&gt;进入熟悉的界面，选择用户输入密码就可以了
-&lt;img src=&quot;//givebest.github.io/images/microsoft-remote-desktop/windows.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;https://givebest.github.io/images/microsoft-remote-desktop/windows.jpg&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
