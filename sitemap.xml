@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+        <loc>/about/</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/feed-bak.xml</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/css/main.css</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/sitemap.xml</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+
+    
+    <url>
+        <loc>/other/2019/04/09/shenzhen-jiazhao.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/other/2019/03/24/fiil-t1-use-experience.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/other/2019/03/09/2019-zhuanzhuan-youpin-goumai.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/other/2018/10/27/upyun-upload-delete-node.js.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/other/2018/09/15/react-ui-component-docz-mdx.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/other/2018/08/31/mac-connect-to-remote-pc.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/other/2018/07/01/hk-to-buy-macbook-pro.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/javascript/2018/04/05/javascript-sync.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/javascript/2017/08/02/javascript-sorting-algorithms.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/webpack/2017/06/25/webpack-multiple-entry.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/other/2017/03/05/deliver-documents-to-kindle.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/javascript/2016/10/23/GB-paging.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/javascript/2016/10/23/canvas-turntable.html</loc>
+        <lastmod>2019-04-16</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+
+</urlset>
