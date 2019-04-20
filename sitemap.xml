@@ -40,6 +40,13 @@
 
     
     <url>
+        <loc>/other/2019/04/20/macos-record-system-sound.html</loc>
+        <lastmod>2019-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
         <loc>/javascript/2019/04/20/vue.js-nuxt.js-use-vee-validate.html</loc>
         <lastmod>2019-04-20</lastmod>
         <changefreq>daily</changefreq>

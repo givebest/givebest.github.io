@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>macOS(苹果电脑)实现录制系统内声音(也可以混合录制麦克风和系统声音)</title>
+    <meta name="description" content="这里的需求是把视频网站上的视频转换为音频文件。原来的办法是通过一系列操作把视频 mp4 文件下载到电脑，然后通过 QuickTime Player 导出为 “仅音频”。这样最麻烦地方就是下载视频，因为视频网站做了限制，下载速度非常慢，几个小时还下载不完一个几十M的视频，相关麻烦。">
+
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://blog.givebest.cn/other/2019/04/20/macos-record-system-sound.html">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Givebest's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">macOS(苹果电脑)实现录制系统内声音(也可以混合录制麦克风和系统声音)</h1>
+    <p class="post-meta"><time datetime="2019-04-20T18:16:35+08:00" itemprop="datePublished">Apr 20, 2019</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>这里的需求是把视频网站上的视频转换为音频文件。原来的办法是通过一系列操作把视频 mp4 文件下载到电脑，然后通过 <code class="highlighter-rouge">QuickTime Player</code> 导出为 “仅音频”。这样最麻烦地方就是下载视频，因为视频网站做了限制，下载速度非常慢，几个小时还下载不完一个几十M的视频，相关麻烦。</p>
+
+<p>后来换了种思路，想着能不能一边播视频一边直接录制声音呢？然后就试了下，录制的是电脑喇叭里的声音，失真且有杂音。后来在网上找了下，发现了一款神器 <code class="highlighter-rouge">Soundflower</code>。通过它就可以直接录制电脑系统内播放出来的声音，真是太方便了。下面介绍一下安装和三种使用方法。</p>
+
+<h2 id="安装-soundflower">安装 Soundflower</h2>
+
+<p>首先这是一个开源项目，官方是：<a href="https://github.com/mattingalls/Soundflower">Soundflower</a>。</p>
+
+<p>最新版的下载地址：<a href="https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg">轻点下载</a> 。</p>
+
+<h3 id="1-安装失败">1. 安装失败</h3>
+
+<blockquote>
+  <p>第一次安装会提示安全问题，不用管，关闭就好了。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/install-1.jpg" alt="" /></p>
+
+<h3 id="2-安全性与隐私">2. 安全性与隐私</h3>
+
+<blockquote>
+  <p>系统偏好设置 =&gt; 安全性与隐私，看到刚才安装由于安全机制被阻止了，直接点击 <code class="highlighter-rouge">仍要打开</code> 即可。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/install-2.jpg" alt="" /></p>
+
+<h3 id="3-打开-soundflower">3. 打开 Soundflower</h3>
+
+<blockquote>
+  <p>接着仍会弹出安全提醒，点击 <code class="highlighter-rouge">打开</code>。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/install-3.jpg" alt="" /></p>
+
+<h3 id="4-安装成功">4. 安装成功</h3>
+
+<blockquote>
+  <p>接着会看到安装界面进行中，稍等几分钟，会看到安装成功界面。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/install-success.jpg" alt="" /></p>
+
+<h2 id="一仅录制电脑系统内声音">一、仅录制电脑系统内声音</h2>
+
+<h3 id="1-设置声音输出">1. 设置声音输出</h3>
+
+<blockquote>
+  <p>系统偏好设置 =&gt; 声音 =&gt; 输出 =&gt; 选择 <code class="highlighter-rouge">Soundflower(2ch)</code>，<code class="highlighter-rouge">Soundflower(64ch)</code>是64声道一般用不到不用管。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/shengyin.jpg" alt="" /></p>
+
+<h3 id="2-打开视频或音频">2. 打开视频或音频</h3>
+
+<blockquote>
+  <p>打开准备录制的视频、音频，现在是听不到声音的，不要慌张，这是正常的。</p>
+</blockquote>
+
+<h3 id="3-开始录制">3. 开始录制</h3>
+
+<blockquote>
+  <p>打开 <code class="highlighter-rouge">QuickTime Player</code> =&gt; 文件 =&gt; 新建音频录制 =&gt; 小红点旁边点击选择 <code class="highlighter-rouge">Soundflower(2ch)</code> =&gt; 点击圆点就开始录音了。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/record.jpg" alt="" /></p>
+
+<h3 id="4-播放录音">4. 播放录音</h3>
+
+<blockquote>
+  <p>录音完成进入，系统偏好设置 =&gt; 声音 =&gt; 输出 =&gt; 选择 <code class="highlighter-rouge">内置扬声器</code>，就可以播放了。录制的音频是不是没有一点杂声，效果特别棒？</p>
+</blockquote>
+
+<h2 id="二边录边听">二、边录边听</h2>
+
+<h3 id="1-音频-midi-设置">1. 音频 MIDI 设置</h3>
+
+<blockquote>
+  <p>打开 <code class="highlighter-rouge">音频 MIDI 设置</code> =&gt; 点击“+” <code class="highlighter-rouge">创建多输出设备</code></p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/midi-dsc.jpg" alt="" /></p>
+
+<h3 id="2-设置声音输出">2. 设置声音输出</h3>
+
+<blockquote>
+  <p>系统偏好设置 =&gt; 声音 =&gt; 输出 =&gt; 选择刚才创建的 <code class="highlighter-rouge">多输出设备</code> ，现在就可以边录边听了。</p>
+</blockquote>
+
+<h3 id="3-录音选择">3. 录音选择</h3>
+
+<blockquote>
+  <p>打开 <code class="highlighter-rouge">QuickTime Player</code> =&gt; 文件 =&gt; 新建音频录制 =&gt; 小红点旁边点击选择 <code class="highlighter-rouge">Soundflower(2ch)</code> =&gt; 点击圆点就开始录音了。</p>
+</blockquote>
+
+<h2 id="三混合录入电脑麦克风电脑系统声音">三、混合录入(电脑麦克风+电脑系统声音)</h2>
+
+<h3 id="1-音频-midi-设置-1">1. 音频 MIDI 设置</h3>
+
+<blockquote>
+  <p>打开 <code class="highlighter-rouge">音频 MIDI 设置</code> =&gt; 点击“+” <code class="highlighter-rouge">创建聚集设备</code>。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/midi-jh.jpg" alt="" /></p>
+
+<h3 id="2-设置声音输出-1">2. 设置声音输出</h3>
+
+<blockquote>
+  <p>系统偏好设置 =&gt; 声音 =&gt; 输出 =&gt; 选择刚才创建的 <code class="highlighter-rouge">多输出设备</code> 。</p>
+</blockquote>
+
+<h3 id="3-设置声音输入">3. 设置声音输入</h3>
+
+<blockquote>
+  <p>系统偏好设置 =&gt; 声音 =&gt; 输入 =&gt; 选择刚才创建的 <code class="highlighter-rouge">聚集设备</code> 。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/sound-jj.jpg" alt="" /></p>
+
+<h3 id="4-录音选择">4. 录音选择</h3>
+
+<blockquote>
+  <p>打开 <code class="highlighter-rouge">QuickTime Player</code> =&gt; 文件 =&gt; 新建音频录制 =&gt; 小红点旁边点击选择 <code class="highlighter-rouge">聚集设备</code> =&gt; 点击圆点就开始录音了。现在可以同时录入电脑系统声音和电脑麦克风（即你说话的声音）的声音了。这样你的电脑就变成了一台可以K歌了专业设备了，:)。</p>
+</blockquote>
+
+<h2 id="卸载-soundflower">卸载 <code class="highlighter-rouge">Soundflower</code></h2>
+
+<blockquote>
+  <p>打开安装软件，打开看到的 <code class="highlighter-rouge">Uninstall Soundflower.scpt</code> =&gt; 按下执行三角按钮即可。</p>
+</blockquote>
+
+<p><img src="https://givebest.github.io/images/macos-soundflower/uninstall.jpg" alt="" /></p>
+
+<h2 id="常见问题">常见问题</h2>
+
+<blockquote>
+  <p>遇到问题欢迎交流，我会记录下来方便其它小伙伴查看。</p>
+</blockquote>
+
+<h3 id="安装失败">安装失败</h3>
+
+<p>第一次使用安装因安全限制，会失败的，尝试重复安装一般都会成功。</p>
+
+<h4 id="转载请注明出处-httpsbloggivebestcnother20190420macos-record-system-soundhtml">转载请注明出处： <a href="https://blog.givebest.cn/other/2019/04/20/macos-record-system-sound.html">https://blog.givebest.cn/other/2019/04/20/macos-record-system-sound.html</a></h4>
+
+  </div>
+
+</article>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/givebest"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">givebest</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+
+// baidu 自动推送
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  </body>
+
+</html>
