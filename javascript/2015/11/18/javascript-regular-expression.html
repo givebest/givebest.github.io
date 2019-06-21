@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JS正则表达式（JavaScript regular expression）</title>
+    <meta name="description" content="RegExp直接量和对象的创建">
+
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://blog.givebest.cn/javascript/2015/11/18/javascript-regular-expression.html">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Givebest's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">JS正则表达式（JavaScript regular expression）</h1>
+    <p class="post-meta"><time datetime="2015-11-18T20:44:35+08:00" itemprop="datePublished">Nov 18, 2015</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h3 id="regexp直接量和对象的创建">RegExp直接量和对象的创建</h3>
+
+<blockquote>
+  <p>就像字符串和数字一样，程序中每个取值相同的原始类型直接量均表示相同的值，这是显而易见的。程序运行时每次遇到对象直接量（初始化表达式）诸如{}和[]的时候都会创建新对象。比如，如果在循环体中写var a = []，则每次遍历都会创建一个新的空数组。正则表达式直接量则与此不同，ECMAScript 3规范规定，一个正则表达式直接量会在执行到它时转换为一个RegExp对象，同一段代码所表示正则表达式直接量的每次运算都返回同一个对象。ECMAScript 5规范则做了相反的规定，同一段代码所表示的正则表达式直接量的每次运算都返回新对象。I E一直都是按照EC-MAScript 5规范实现的，多数最新版本的浏览器也开始遵循EC-MAScript 5，尽管目前该标准并未全面广泛推行。</p>
+</blockquote>
+
+<h2 id="11直接量字符">1.1直接量字符</h2>
+
+<blockquote>
+  <p>正则表达式中的所有字母和数字都是按照字面含义进行匹配的。JavaScript正则表达式语法也支持非字母的字符匹配，这些字符需要通过反斜线（\）作为前缀进行转义。比如，转义字符\n用以匹配换行符。表10-1中列出了这些转义字符。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<caption>表10-1：正则表达式中的直接量字符</caption>
+	<thead>
+		<tr>
+			<th>字符</th>
+			<th>匹配</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>字母和数字字符</td>
+			<td>自身</td>
+		</tr>
+		<tr>
+			<td>\o</td>
+			<td>NUL字符（\u0000）</td>
+		</tr>
+		<tr>
+			<td>\t</td>
+			<td>制表符（\u0009）</td>
+		</tr>
+		<tr>
+			<td>\n</td>
+			<td>换行符（\u000A）</td>
+		</tr>
+		<tr>
+			<td>\v</td>
+			<td>垂直制表符（\u000B）</td>
+		</tr>
+		<tr>
+			<td>\f</td>
+			<td>换页符（\u000C）</td>
+		</tr>
+		<tr>
+			<td>\r</td>
+			<td>回车符（\u000D）</td>
+		</tr>
+		<tr>
+			<td>\xnn</td>
+			<td>由十六进制数nn指定的拉丁字符，例如，\x0A等价于\n</td>
+		</tr>
+		<tr>
+			<td>\uxxxx</td>
+			<td>由十六进制数xxxx指定的Unicode字符，例如\u0009等价于\t</td>
+		</tr>
+		<tr>
+			<td>\cX</td>
+			<td>控制字符^X，例如,\cJ等价于换行符\n</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="2">在正则表达式中，许多标点符号具有特殊含义，它们是：^ $ . * + ? = ! : | \ / ( ) [ ] { }</th>
+		</tr>
+	</tfoot>
+</table>
+
+<blockquote>
+  <p>正则表达式“/\/”用以匹配任何包含反斜线的字符串。</p>
+</blockquote>
+
+<h2 id="12字符类">1.2字符类</h2>
+
+<blockquote>
+  <p>例如，/[\u0400-\u04FF]/用以匹配所有的Cyrillic字符）。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<caption>表10-2：正则表达式的字符类</caption>
+	<thead>
+		<tr>
+			<th>字符</th>
+			<th>匹配</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>[...]</td>
+			<td>方括号内的任意字符</td>
+		</tr>
+		<tr>
+			<td>[^...]</td>
+			<td>不在方括号内的任意字符</td>
+		</tr>
+		<tr>
+			<td>.</td>
+			<td>除换行符和其他Unicode行终止符之外的任意字符</td>
+		</tr>
+		<tr>
+			<td>\w</td>
+			<td>任何ASCII字符组成的单词，等价于[a-zA-Z0-9]</td>
+		</tr>
+		<tr>
+			<td>\W</td>
+			<td>任何不是ASCII字符组成的单词，等价于[^a-zA-Z0-9]</td>
+		</tr>
+		<tr>
+			<td>\s</td>
+			<td>任何Unicode空白符</td>
+		</tr>
+		<tr>
+			<td>\S</td>
+			<td>任何非Unicode空白符的字符，注意\w和\S不同</td>
+		</tr>
+		<tr>
+			<td>\d</td>
+			<td>任何ASCII数字，等价于[0-9]</td>
+		</tr>
+		<tr>
+			<td>\D</td>
+			<td>除了ASCII数字之外的任何字符，等价于[^0-9]</td>
+		</tr>
+		<tr>
+			<td>\b</td>
+			<td>退格直接量(特例)</td>
+		</tr>
+	</tbody>
+</table>
+
+<blockquote>
+  <p>注意，在方括号之内也可以写这些特殊转义字符。比如，由于\s匹配所有的空白字符，\d匹配的是所有数字，因此/[\s\d]/就匹配任意空白符或者数字。注意，这里有一个特例。下面我们将会看到转义符\b具有的特殊含义，当用在字符类中时，它表示的是退格符，所以要在正则表达式中按照直接量表示一个退格符，只需要使用具有一个元素的字符类/[\b]/。</p>
+</blockquote>
+
+<h2 id="13重复">1.3重复</h2>
+
+<blockquote>
+  <p>我们在正则模式之后跟随用以指定字符重复的标记。由于某些重复种类非常常用，因此就有一些专门用于表示这种情况的特殊字符。例如，“+”用以匹配前一个模式的一个或多个副本。表10-3总结了这些表示重复的正则语法。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<caption>表10-3：正则表达式的重复字符语法</caption>
+	<thead>
+		<tr>
+			<th>字符</th>
+			<th>含义</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{n,m}</td>
+			<td>匹配前一项至少n次,但不能超过m次</td>
+		</tr>
+		<tr>
+			<td>{n,}</td>
+			<td>匹配前一项至少n次</td>
+		</tr>
+		<tr>
+			<td>{n}</td>
+			<td>匹配前一顶n次</td>
+		</tr>
+		<tr>
+			<td>?</td>
+			<td>匹配前一项0次或者1次，也就是说前一项是可选的，等价于{0,1}</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>匹配前一项1次或多次，等价于{1,}</td>
+		</tr>
+		<tr>
+			<td>*</td>
+			<td>匹配前一项0次或多次，等价于{0,}</td>
+		</tr>
+	</tbody>
+</table>
+
+<blockquote>
+  <p>这里有一些例子：
+/\d{2,4}/ // 匹配2～4个数字
+/\w{3}\d?/ // 精确匹配三个单词和一个可选的数字
+/\s+java\s+/ // 匹配前后带有一个或多个空格的字符串”java”
+/[^(]<em>/ // 匹配一个或多个非左括号的字符
+在使用“</em>”和“?”时要注意，由于这些字符可能匹配0个字符，因此它们允许什么都不匹配。例如，正则表达式/a*/实际上与字符串“bbbb”匹配，因为这个字符串含有0个a。</p>
+</blockquote>
+
+<h3 id="非贪婪的重复">非贪婪的重复</h3>
+
+<blockquote>
+  <p>表10-3中列出的匹配重复字符是尽可能多地匹配，而且允许后续的正则表达式继续匹配。因此，我们称之为“贪婪的”匹配。我们同样可以使用正则表达式进行非贪婪匹配。只须在待匹配的字符后跟随一个问号即可：“??”、“+?”、“*?”或“{1,5}?”。比如，正则表达式/a+/可以匹配一个或多个连续的字母a。当使用“aaa”作为匹配字符串时，正则表达式会匹配它的三个字符。但是/a+?/也可以匹配一个或多个连续字母a，但它是尽可能少地匹配。我们同样将“aaa”作为匹配字符串，但后一个模式只能匹配第一个a。</p>
+
+  <p>使用非贪婪的匹配模式所得到的结果可能和期望并不一致。考虑以下正则表达式/a+b/，它可以匹配一个或多个a，以及一个b。当使用“aaab”作为匹配字符串时，它会匹配整个字符串。现在再试一下非贪婪匹配的版本/a+?b/，它匹配尽可能少的a和一个b。当用它来匹配“aaab”时，你期望它能匹配一个a和最后一个b。但实际上，这个模式却匹配了整个字符串，和该模式的贪婪匹配一模一样。这是因为正则表达式的模式匹配总是会寻找字符串中第一个可能匹配的位置。由于该匹配是从字符串的第一个字符开始的，因此在这里不考虑它的子串中更短的匹配。</p>
+</blockquote>
+
+<h2 id="14选择分组和引用">1.4选择、分组和引用</h2>
+
+<blockquote>
+  <p>正则表达式的语法还包括指定选择项、子表达式分组和引用前一子表达式的特殊字符。字符<code class="highlighter-rouge">“|”</code>用于分隔供选择的字符。例如，<code class="highlighter-rouge">/ab|cd|ef/</code>可以匹配字符串“ab”，也可以匹配字符串“cd”，还可以匹配字符串“ef”。<code class="highlighter-rouge">/\d{3}|[a-z]{4}/</code>匹配的是三位数字或者四个小写字母。
+注意，选择项的尝试匹配次序是从左到右，直到发现了匹配项。如果左边的选择项匹配，就忽略右边的匹配项，即使它产生更好的匹配。因此，当正则表达式<code class="highlighter-rouge">/a|ab/</code>匹配字符串“ab”时，它只能匹配第一个字符。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<caption>表10-4：正则表达式的选择、分组和引用字符</caption>
+	<thead>
+		<tr>
+			<th>字符</th>
+			<th>含义</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>|</td>
+			<td>选择，匹配的是该符号左边的子表达式或右边的子表达式</td>
+		</tr>
+		<tr>
+			<td>(...)</td>
+			<td>组合，将几个项组合为一个单元，这个单元可通过“*”、“+”、“？”和“|”等符号加以修饰，而且可以记住和这个组合相匹配的字符串以供此后的引用使用</td>
+		</tr>
+		<tr>
+			<td>(?:...)</td>
+			<td>只组合，把项组合到一个单元，但不记忆与该组相匹配的字符</td>
+		</tr>
+		<tr>
+			<td>\n</td>
+			<td>和第n个分组第一次匹配的字符相匹配，组是圆括号中的子表达式（也有可能是嵌套的），组索引是从左到右的左括号数，“(?:”形式的分组不编码</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="15指定匹配位置">1.5指定匹配位置</h2>
+
+<blockquote>
+  <p>正如前面所介绍的，正则表达式中的多个元素才能够匹配字符串的一个字符。例如，\s匹配的只是一个空白符。还有一些正则表达式的元素匹配的是字符之间的位置，而不是实际的字符。
+最常用的锚元素是<code class="highlighter-rouge">^</code>，它用来匹配字符串的开始，锚元素<code class="highlighter-rouge">$</code>用以匹配字符串的结束。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<caption>表10-5：正则表达式中的锚字符</caption>
+	<colgroup>
+		<col width="20%" />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>字符</th>
+			<th>含义</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>^</td>
+			<td>匹配字符串的开头，在多行检索中，匹配一行的开头</td>
+		</tr>
+		<tr>
+			<td>$</td>
+			<td>匹配字符串的结尾，在多行检索中，匹配一行的结尾</td>
+		</tr>
+		<tr>
+			<td>\b</td>
+			<td>匹配一个单词的边界，简言之，就是位于字符\w和\W之间的位置，或位于字符\w和字符串的开头或者结尾之间的位置（但需要注意，[\b]匹配的是退格符）</td>
+		</tr>
+		<tr>
+			<td>\B</td>
+			<td>匹配非单词边界的位置</td>
+		</tr>
+		<tr>
+			<td>(?=p)</td>
+			<td>零宽正向先行断言，要求接下来的字符都与p匹配，但不能包括匹配p的那些字符</td>
+		</tr>
+		<tr>
+			<td>(?!p)</td>
+			<td>零宽负向先行断言，要求接下来的字符不与p匹配</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="16修饰符">1.6修饰符</h2>
+
+<blockquote>
+  <p>正则表达式中的语法还有最后一个知识点，即正则表达式的修饰符，用以说明高级匹配模式的规则。和之前讨论的正则表达式语法不同，修饰符是放在“/”符号之外的，也就是说，它们不是出现在两条斜线之间，而是第二条斜线之后。JavaScript支持三个修饰符，修饰符“i”用以说明模式匹配是不区分大小写的。修饰符“g”说明模式匹配应该是全局的，也就是说，应该找出被检索字符串中所有的匹配。修饰符“m”用以在多行模式中执行匹配，在这种模式下，如果待检索的字符串包含多行，那么^和$锚字符除了匹配整个字符串的开始和结尾之外，还能匹配每行的开始和结尾。比如正则表达式/java$/im可以匹配“java”也可以匹配“Java\nis fun”。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<caption>表10-6：正则表达式修饰符</caption>
+	<thead>
+		<tr>
+			<th>字符</th>
+			<th>含义</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>i</td>
+			<td>执行不区分大小写的匹配</td>
+		</tr>
+		<tr>
+			<td>g</td>
+			<td>执行一个全局匹配，简言之，即找到所有的匹配，而不是在找到第一个之后就停止</td>
+		</tr>
+		<tr>
+			<td>m</td>
+			<td>多行匹配模式，^匹配一行的开头和字符串的开头，$匹配行的结束和字符串的结束</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="2用于模式匹配的string方法">2.用于模式匹配的String方法</h2>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <th style="width:20%">方法</th>
+    <th style="width:66%">描述</th>
+    <th style="width:7%">FF</th>
+    <th style="width:7%">IE</th>
+  </tr>
+  <tr>
+    <td>search</td>
+    <td>检索与正则表达式相匹配的值。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>match</td>
+    <td>找到一个或多个正则表达式的匹配。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>replace</td>
+    <td>替换与正则表达式匹配的子串。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>split</td>
+    <td>把字符串分割为字符串数组。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+</tbody></table>
+
+<h3 id="21search">2.1search()</h3>
+
+<blockquote>
+  <p>它的参数是一个正则表达式，返回第一个与之匹配的子串的起始位置，如果找不到匹配的子串，它将返回-1。
+如果search()的参数不是正则表达式，则首先会通过RegExp构造函数将它转换成正则表达式，search()方法不支持全局检索，因为它忽略正则表达式参数中的修饰符g。</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"JavaScript"</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/script/i</span><span class="p">);</span>  <span class="c1">//4</span>
+</code></pre></div></div>
+
+<h3 id="22replace">2.2replace()</h3>
+
+<blockquote>
+  <p>replace()方法用以执行检索与替换操作。其中第一个参数是一个正则表达式，第二个参数是要进行替换的字符串。</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"JavaScript"</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/javascript/gi</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)</span>   <span class="c1">//"a"</span>
+<span class="c1">// 一段引用文本起始于引号，结束于引号	// 中间的内容区域不能包含引号</span>
+<span class="kd">var</span> <span class="nx">quote</span> <span class="o">=</span> <span class="sr">/"</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"/g</span><span class="p">;</span>
+<span class="c1">// 用中文半角引号替换英文引号，同时要保持引号之间的内容（存储在$1中）没有被修改</span>
+<span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">quote</span><span class="p">,</span> <span class="s1">'“$1”'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="23match">2.3match()</h3>
+
+<blockquote>
+  <p>match()方法是最常用的String正则表达式方法。它的唯一参数就是一个正则表达式（或通过RegExp()构造函数将其转换为正则表达式），返回的是一个由匹配结果组成的数组。</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"1 plus 2 equals 3"</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\d</span><span class="sr">+/g</span><span class="p">)</span> <span class="c1">// 返回 ["1", "2", "3"]</span>
+<span class="err">例如，使用如下的代码来解析一个</span><span class="nx">URL</span><span class="err">：</span>
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(\w</span><span class="sr">+</span><span class="se">)</span><span class="sr">:</span><span class="se">\/\/([\w</span><span class="sr">.</span><span class="se">]</span><span class="sr">+</span><span class="se">)\/(\S</span><span class="sr">*</span><span class="se">)</span><span class="sr">/</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"Visit my blog at http://www.example.com/~david"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">result</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">fullurl</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="c1">// 包含 "http://www.example.com/~david"</span>
+  <span class="kd">var</span> <span class="nx">protocol</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="c1">// 包含 "http"</span>
+  <span class="kd">var</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+  <span class="c1">// 包含 "www.example.com"</span>
+  <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+  <span class="c1">// 包含 "~david"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="24split">2.4split()</h3>
+
+<blockquote>
+  <p>这个方法用以将调用它的字符串拆分为一个子串组成的数组，使用的分隔符是split()的参数</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"123,456,789"</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">","</span><span class="p">);</span> <span class="c1">// 返回 ["123","456","789"]</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>split()方法的参数也可以是一个正则表达式，这使得split()方法异常强大。例如，可以指定分隔符，允许两边可以留有任意多的空白符：</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"1, 2, 3, 4, 5"</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">*,</span><span class="se">\s</span><span class="sr">*/</span><span class="p">);</span> <span class="c1">// 返回 ["1","2","3","4","5"]</span>
+</code></pre></div></div>
+
+<h2 id="3regexp对象">3.RegExp对象</h2>
+
+<blockquote>
+  <p>正则表达式是通过RegExp对象来表示的。除了RegExp()构造函数之外，RegExp对象还支持三个方法和一些属性。
+RegExp()构造函数带有两个字符串参数，其中第二个参数是可选的，RegExp()用以创建新的RegExp对象。第一个参数包含正则表达式的主体部分，也就是正则表达式直接量中两条斜线之间的文本。需要注意的是，不论是字符串直接量还是正则表达式，都使用“\”字符作为转义字符的前缀，因此当给RegExp()传入一个字符串表述的正则表达式时，必须将“\”替换成“\”。RegExp()的第二个参数是可选的，如果提供第二个参数，它就指定正则表达式的修饰符。不过只能传入修饰符g、i、m或者它们的组合。比如：</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 全局匹配字符串中的5个数字，注意这里使用了"\\"，而不是"\"var zipcode = new RegExp("\\d{5}", "g");</span>
+</code></pre></div></div>
+
+<h3 id="31-regexp的属性">3.1 RegExp的属性</h3>
+
+<blockquote>
+  <p>每个RegExp对象都包含5个属性。属性source是一个只读的字符串，包含正则表达式的文本。属性global是一个只读的布尔值，用以说明这个正则表达式是否带有修饰符g。属性ignore-Case也是一个只读的布尔值，用以说明正则表达式是否带有修饰符i。属性multiline是一个只读的布尔值，用以说明正则表达式是否带有修饰符m。最后一个属性lastIndex，它是一个可读/写的整数。如果匹配模式带有g修饰符，这个属性存储在整个字符串中下一次检索的开始位置，这个属性会被exec()和test()方法用到，下面会讲到。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <th style="width:20%">属性</th>
+    <th style="width:66%">描述</th>
+    <th style="width:7%">FF</th>
+    <th style="width:7%">IE</th>
+  </tr>
+  <tr>
+    <td>global</td>
+    <td>RegExp 对象是否具有标志 g。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>ignoreCase</td>
+    <td>RegExp 对象是否具有标志 i。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>lastIndex</td>
+    <td>一个整数，标示开始下一次匹配的字符位置。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>multiline</td>
+    <td>RegExp 对象是否具有标志 m。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>source</td>
+    <td>正则表达式的源文本。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+</tbody></table>
+
+<h3 id="32-regexp的方法">3.2 RegExp的方法</h3>
+
+<blockquote>
+  <p>RegExp对象定义了两个用于执行模式匹配操作的方法。它们的行为和上文介绍过的String方法很类似。RegExp最主要的执行模式匹配的方法是exec()，它与10.2节介绍过的String方法match()相似，只是RegExp方法的参数是一个字符串，而String方法的参数是一个RegExp对象。</p>
+</blockquote>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <th style="width:20%">方法</th>
+    <th style="width:66%">描述</th>
+    <th style="width:7%">FF</th>
+    <th style="width:7%">IE</th>
+  </tr>
+  <tr>
+    <td>compile</td>
+    <td>编译正则表达式。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>exec</td>
+    <td>检索字符串中指定的值。返回找到的值，并确定其位置。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>test</td>
+    <td>检索字符串中指定的值。返回 true 或 false。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+</tbody></table>
+
+<h4 id="321exec">3.2.1exec()</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/Java/g</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">"JavaScript is more fun than Java!"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">result</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">((</span><span class="nx">result</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">))</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Matched '"</span> <span class="o">+</span>
+  <span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"'"</span> <span class="o">+</span>
+  <span class="s2">" at position "</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span>        <span class="s2">";
+  next search begins at "</span> <span class="o">+</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="322test">3.2.2test()</h4>
+
+<blockquote>
+  <p>另外一个RegExp方法是test()，它比exec()更简单一些。它的参数是一个字符串，用test()对某个字符串进行检测，如果包含正则表达式的一个匹配结果，则返回true：</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/java/i</span><span class="p">;</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"JavaScript"</span><span class="p">);</span> <span class="c1">// 返回 true</span>
+</code></pre></div></div>
+
+<h2 id="4常用正则表达式">4.常用正则表达式</h2>
+
+<blockquote>
+  <p>电话号码</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="p">([</span><span class="err">\</span><span class="o">+</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">}([</span> <span class="err">\</span><span class="p">.</span><span class="err">\</span><span class="o">-</span><span class="p">])?)?([</span><span class="err">\</span><span class="p">(][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">}[</span><span class="err">\</span><span class="p">)])?([</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span> <span class="err">\</span><span class="p">.</span><span class="err">\</span><span class="o">-</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">})(([</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z</span> <span class="err">\</span><span class="p">:]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">})?[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">}?)</span><span class="nx">$</span><span class="o">/</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>邮箱</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="p">((([</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">|</span><span class="err">\</span><span class="nx">d</span><span class="o">|</span><span class="p">[</span><span class="o">!</span><span class="err">#\</span><span class="nx">$</span><span class="o">%&amp;</span><span class="s1">'</span><span class="err">\</span><span class="s1">*</span><span class="err">\</span><span class="s1">+</span><span class="err">\</span><span class="s1">-</span><span class="err">\</span><span class="s1">/=</span><span class="err">\</span><span class="s1">?</span><span class="err">\</span><span class="s1">^_`{</span><span class="err">\</span><span class="s1">|}~]|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])+(</span><span class="err">\</span><span class="s1">.([a-z]|</span><span class="err">\</span><span class="s1">d|[!#</span><span class="err">\</span><span class="s1">$%&amp;'</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">+</span><span class="err">\</span><span class="o">-</span><span class="err">\</span><span class="o">/=</span><span class="err">\</span><span class="p">?</span><span class="err">\</span><span class="o">^</span><span class="nx">_</span><span class="s2">`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>日期(YYYY-MM-DD)</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">4</span><span class="p">}[</span><span class="err">\</span><span class="o">/</span><span class="err">\</span><span class="o">-</span><span class="p">](</span><span class="mi">0</span><span class="p">?[</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="mi">1</span><span class="p">[</span><span class="mi">012</span><span class="p">])[</span><span class="err">\</span><span class="o">/</span><span class="err">\</span><span class="o">-</span><span class="p">](</span><span class="mi">0</span><span class="p">?[</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="mi">3</span><span class="p">[</span><span class="mi">01</span><span class="p">])</span><span class="nx">$</span><span class="o">/</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>IPV4</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="p">((([</span><span class="mi">01</span><span class="p">]?[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">})</span><span class="o">|</span><span class="p">(</span><span class="mi">2</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span><span class="o">|</span><span class="p">(</span><span class="mi">25</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="p">]))[.]){</span><span class="mi">3</span><span class="p">}(([</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="p">]?[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">})</span><span class="o">|</span><span class="p">(</span><span class="mi">2</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span><span class="o">|</span><span class="p">(</span><span class="mi">25</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="p">]))</span><span class="nx">$</span><span class="o">/</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>URL</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="p">(</span><span class="nx">https</span><span class="p">?</span><span class="o">|</span><span class="nx">ftp</span><span class="p">):</span><span class="err">\</span><span class="o">/</span><span class="err">\</span><span class="o">/</span><span class="p">(((([</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">|</span><span class="err">\</span><span class="nx">d</span><span class="o">|-|</span><span class="err">\</span><span class="p">.</span><span class="o">|</span><span class="nx">_</span><span class="o">|~|</span><span class="p">[</span><span class="err">\</span><span class="nx">u00A0</span><span class="o">-</span><span class="err">\</span><span class="nx">uD7FF</span><span class="err">\</span><span class="nx">uF900</span><span class="o">-</span><span class="err">\</span><span class="nx">uFDCF</span><span class="err">\</span><span class="nx">uFDF0</span><span class="o">-</span><span class="err">\</span><span class="nx">uFFEF</span><span class="p">])</span><span class="o">|</span><span class="p">(</span><span class="o">%</span><span class="p">[</span><span class="err">\</span><span class="nx">da</span><span class="o">-</span><span class="nx">f</span><span class="p">]{</span><span class="mi">2</span><span class="p">})</span><span class="o">|</span><span class="p">[</span><span class="o">!</span><span class="err">\</span><span class="nx">$</span><span class="o">&amp;</span><span class="s1">'</span><span class="err">\</span><span class="s1">(</span><span class="err">\</span><span class="s1">)</span><span class="err">\</span><span class="s1">*</span><span class="err">\</span><span class="s1">+,;=]|:)*@)?(((</span><span class="err">\</span><span class="s1">d|[1-9]</span><span class="err">\</span><span class="s1">d|1</span><span class="err">\</span><span class="s1">d</span><span class="err">\</span><span class="s1">d|2[0-4]</span><span class="err">\</span><span class="s1">d|25[0-5])</span><span class="err">\</span><span class="s1">.(</span><span class="err">\</span><span class="s1">d|[1-9]</span><span class="err">\</span><span class="s1">d|1</span><span class="err">\</span><span class="s1">d</span><span class="err">\</span><span class="s1">d|2[0-4]</span><span class="err">\</span><span class="s1">d|25[0-5])</span><span class="err">\</span><span class="s1">.(</span><span class="err">\</span><span class="s1">d|[1-9]</span><span class="err">\</span><span class="s1">d|1</span><span class="err">\</span><span class="s1">d</span><span class="err">\</span><span class="s1">d|2[0-4]</span><span class="err">\</span><span class="s1">d|25[0-5])</span><span class="err">\</span><span class="s1">.(</span><span class="err">\</span><span class="s1">d|[1-9]</span><span class="err">\</span><span class="s1">d|1</span><span class="err">\</span><span class="s1">d</span><span class="err">\</span><span class="s1">d|2[0-4]</span><span class="err">\</span><span class="s1">d|25[0-5]))|((([a-z]|</span><span class="err">\</span><span class="s1">d|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])|(([a-z]|</span><span class="err">\</span><span class="s1">d|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])([a-z]|</span><span class="err">\</span><span class="s1">d|-|</span><span class="err">\</span><span class="s1">.|_|~|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])*([a-z]|</span><span class="err">\</span><span class="s1">d|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])))</span><span class="err">\</span><span class="s1">.)+(([a-z]|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])|(([a-z]|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])([a-z]|</span><span class="err">\</span><span class="s1">d|-|</span><span class="err">\</span><span class="s1">.|_|~|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])*([a-z]|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])))</span><span class="err">\</span><span class="s1">.?)(:</span><span class="err">\</span><span class="s1">d*)?)(</span><span class="err">\</span><span class="s1">/((([a-z]|</span><span class="err">\</span><span class="s1">d|-|</span><span class="err">\</span><span class="s1">.|_|~|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])|(%[</span><span class="err">\</span><span class="s1">da-f]{2})|[!</span><span class="err">\</span><span class="s1">$&amp;'</span><span class="err">\</span><span class="p">(</span><span class="err">\</span><span class="p">)</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">+</span><span class="p">,;</span><span class="o">=</span><span class="p">]</span><span class="o">|</span><span class="p">:</span><span class="o">|</span><span class="p">@)</span><span class="o">+</span><span class="p">(</span><span class="err">\</span><span class="o">/</span><span class="p">(([</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">|</span><span class="err">\</span><span class="nx">d</span><span class="o">|-|</span><span class="err">\</span><span class="p">.</span><span class="o">|</span><span class="nx">_</span><span class="o">|~|</span><span class="p">[</span><span class="err">\</span><span class="nx">u00A0</span><span class="o">-</span><span class="err">\</span><span class="nx">uD7FF</span><span class="err">\</span><span class="nx">uF900</span><span class="o">-</span><span class="err">\</span><span class="nx">uFDCF</span><span class="err">\</span><span class="nx">uFDF0</span><span class="o">-</span><span class="err">\</span><span class="nx">uFFEF</span><span class="p">])</span><span class="o">|</span><span class="p">(</span><span class="o">%</span><span class="p">[</span><span class="err">\</span><span class="nx">da</span><span class="o">-</span><span class="nx">f</span><span class="p">]{</span><span class="mi">2</span><span class="p">})</span><span class="o">|</span><span class="p">[</span><span class="o">!</span><span class="err">\</span><span class="nx">$</span><span class="o">&amp;</span><span class="s1">'</span><span class="err">\</span><span class="s1">(</span><span class="err">\</span><span class="s1">)</span><span class="err">\</span><span class="s1">*</span><span class="err">\</span><span class="s1">+,;=]|:|@)*)*)?)?(</span><span class="err">\</span><span class="s1">?((([a-z]|</span><span class="err">\</span><span class="s1">d|-|</span><span class="err">\</span><span class="s1">.|_|~|[</span><span class="err">\</span><span class="s1">u00A0-</span><span class="err">\</span><span class="s1">uD7FF</span><span class="err">\</span><span class="s1">uF900-</span><span class="err">\</span><span class="s1">uFDCF</span><span class="err">\</span><span class="s1">uFDF0-</span><span class="err">\</span><span class="s1">uFFEF])|(%[</span><span class="err">\</span><span class="s1">da-f]{2})|[!</span><span class="err">\</span><span class="s1">$&amp;'</span><span class="err">\</span><span class="p">(</span><span class="err">\</span><span class="p">)</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">+</span><span class="p">,;</span><span class="o">=</span><span class="p">]</span><span class="o">|</span><span class="p">:</span><span class="o">|</span><span class="p">@)</span><span class="o">|</span><span class="p">[</span><span class="err">\</span><span class="nx">uE000</span><span class="o">-</span><span class="err">\</span><span class="nx">uF8FF</span><span class="p">]</span><span class="o">|</span><span class="err">\</span><span class="o">/|</span><span class="err">\</span><span class="p">?)</span><span class="o">*</span><span class="p">)?(</span><span class="err">\#</span><span class="p">((([</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">|</span><span class="err">\</span><span class="nx">d</span><span class="o">|-|</span><span class="err">\</span><span class="p">.</span><span class="o">|</span><span class="nx">_</span><span class="o">|~|</span><span class="p">[</span><span class="err">\</span><span class="nx">u00A0</span><span class="o">-</span><span class="err">\</span><span class="nx">uD7FF</span><span class="err">\</span><span class="nx">uF900</span><span class="o">-</span><span class="err">\</span><span class="nx">uFDCF</span><span class="err">\</span><span class="nx">uFDF0</span><span class="o">-</span><span class="err">\</span><span class="nx">uFFEF</span><span class="p">])</span><span class="o">|</span><span class="p">(</span><span class="o">%</span><span class="p">[</span><span class="err">\</span><span class="nx">da</span><span class="o">-</span><span class="nx">f</span><span class="p">]{</span><span class="mi">2</span><span class="p">})</span><span class="o">|</span><span class="p">[</span><span class="o">!</span><span class="err">\</span><span class="nx">$</span><span class="o">&amp;</span><span class="s1">'</span><span class="err">\</span><span class="s1">(</span><span class="err">\</span><span class="s1">)</span><span class="err">\</span><span class="s1">*</span><span class="err">\</span><span class="s1">+,;=]|:|@)|</span><span class="err">\</span><span class="s1">/|</span><span class="err">\</span><span class="s1">?)*)?$/i
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>数字(允许 +-123,123.123)</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">/^</span><span class="p">[</span><span class="err">\</span><span class="o">-</span><span class="err">\</span><span class="o">+</span><span class="p">]?((([</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">})([,][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]{</span><span class="mi">3</span><span class="p">})</span><span class="o">*</span><span class="p">)</span><span class="o">|</span><span class="p">([</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">+</span><span class="p">))?([</span><span class="err">\</span><span class="p">.]([</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">+</span><span class="p">))?</span><span class="nx">$</span><span class="o">/</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>2-20个英文或中文字符</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="p">([</span><span class="err">\</span><span class="nx">u4e00</span><span class="o">-</span><span class="err">\</span><span class="nx">u9fa5</span><span class="p">]{</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">})</span><span class="nx">$</span><span class="o">|^</span><span class="p">([</span><span class="nx">a</span><span class="o">-</span><span class="nx">zA</span><span class="o">-</span><span class="nx">Z</span><span class="p">]{</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">})</span><span class="nx">$</span>
+</code></pre></div></div>
+
+<p>更多常用可访问：<a href="https://github.com/posabsolute/jQuery-Validation-Engine/blob/master/js/languages/jquery.validationEngine-zh_CN.js">https://github.com/posabsolute/jQuery-Validation-Engine/blob/master/js/languages/jquery.validationEngine-zh_CN.js</a></p>
+
+<h3 id="来源参考">来源&amp;参考</h3>
+
+<p><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&amp;f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D%252F7JzxwpxOyXghojqVNxKse1fTp4wEJzLKhDZ7QUCp22LltG5xFicOdXrTUTgh9sMDPIwxrc30rjMMEkER9S2vh%252BFKDzPBEaDpu%252Bh%252FJ76bWHTCAJJrzx0r1Rmtaud%252B0v%252BIJ2wzfWz%252BMnLIgyUuDs17A%253D%253D%26ptype%3D100010%26from%3Dbasic&amp;k=5ccfdb950740ca16&amp;c=un&amp;b=alimm_0&amp;p=mm_29268566_11822212_41672168">《JavaScript权威指南》</a>
+<a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp">http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp</a>
+<a href="https://github.com/posabsolute/jQuery-Validation-Engine/">https://github.com/posabsolute/jQuery-Validation-Engine/</a></p>
+
+<h4 id="转载请注明出处-httpsbloggivebestcnother20151118javascript-regular-expressionhtml">转载请注明出处： <a href="https://blog.givebest.cn/other/2015/11/18/javascript-regular-expression.html">https://blog.givebest.cn/other/2015/11/18/javascript-regular-expression.html</a></h4>
+
+  </div>
+
+</article>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/givebest"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">givebest</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+
+// baidu 自动推送
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  </body>
+
+</html>
