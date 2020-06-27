@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript Object 拷贝</title>
+    <meta name="description" content="创建一个对象```jslet obj1 = {  a: 1,  b: 2,  c: 3,  d: {    e: 4,  },  f: function () {    return this.a  }};">
+
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://blog.givebest.cn/javascript/2020/06/27/javascript-object-clone.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	     (adsbygoogle = window.adsbygoogle || []).push({
+	          google_ad_client: "ca-pub-2508802053034860",
+	          enable_page_level_ads: true
+	     });
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Givebest's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">JavaScript Object 拷贝</h1>
+    <p class="post-meta"><time datetime="2020-06-27T16:44:35+08:00" itemprop="datePublished">Jun 27, 2020</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="创建一个对象">创建一个对象</h2>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">c</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="na">d</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">e</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">f</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+Object.prototype.__proto__
+改变一个对象的 [[Prototype]] 属性。
+已经废弃，建议只使用 Object.setPrototypeOf/Object.getPrototypeOf，
+或者 Object.create
+*/</span>
+<span class="nx">obj1</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="cm">/*
+Object.setPrototypeOf() 设置一个指定的对象的原型（内部[[Prototype]]属性）到另一个对象或 null。
+性能缓慢，应避免使用。
+*/</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">obj1</span><span class="p">,</span> <span class="p">{</span><span class="na">h</span><span class="p">:</span> <span class="mi">6</span><span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj1--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span> <span class="c1">// 1 5 6 1</span>
+</code></pre></div></div>
+<h2 id="拷贝">拷贝</h2>
+
+<h3 id="浅拷贝">浅拷贝</h3>
+
+<h4 id="json">JSON</h4>
+
+<ul>
+  <li>Function 不能拷贝</li>
+  <li>Object.setPrototypeOf 设置的对象不能拷贝</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">obj1</span><span class="p">));</span>
+<span class="c1">// obj1.a = '0'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj2--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj2</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj2</span><span class="p">.</span><span class="nx">h</span><span class="p">);</span> <span class="c1">// 1 5 undefined</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'obj2.f() 不能访问'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// obj2.f() 不能访问</span>
+</code></pre></div></div>
+
+<h3 id="深拷贝">深拷贝</h3>
+
+<h4 id="for-in--hasownproperty">For in &amp; hasOwnProperty</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">cloneObj1</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">!==</span> <span class="s1">'[object Object]'</span><span class="p">)</span> <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+
+  <span class="kd">let</span> <span class="nx">tempObj</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="c1">// let tempObj = obj.constructor();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">tempObj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">tempObj</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kd">let</span> <span class="nx">obj3</span> <span class="o">=</span> <span class="nx">cloneObj1</span><span class="p">(</span><span class="nx">obj1</span><span class="p">);</span>
+<span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj3--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj3</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj3</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj3</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj3</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>  <span class="c1">// 1 5 undefined 1</span>
+</code></pre></div></div>
+
+<h4 id="objectassign">Object.assign()</h4>
+
+<blockquote>
+  <p>将所有可枚举属性的值从一个或多个源对象复制到目标对象。</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj4</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">obj1</span><span class="p">);</span>
+<span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj4--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj4</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj4</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj4</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj4</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>  <span class="c1">// 3 5 undefined 3</span>
+</code></pre></div></div>
+
+<h2 id="继承">继承</h2>
+
+<h3 id="objectcreate">Object.create()</h3>
+
+<blockquote>
+  <p>创建新对象，使用现有的对象来提供新创建的对象的__proto__。</p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj5</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">obj1</span><span class="p">);</span>
+<span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="c1">// obj5.a = 'x';</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj5--------'</span><span class="p">);</span>
+<span class="c1">// obj5 继承 obj1，obj1.a 的值改变， obj5 也改变</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj5</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj5</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj5</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj5</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>  <span class="c1">// 5 5 6 5</span>
+</code></pre></div></div>
+
+<h4 id="转载请注明出处-httpsbloggivebestcnjavascript20200627javascript-object-clonehtml">转载请注明出处： <a href="https://blog.givebest.cn/javascript/2020/06/27/javascript-object-clone.html">https://blog.givebest.cn/javascript/2020/06/27/javascript-object-clone.html</a></h4>
+
+  </div>
+
+</article>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/givebest"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">givebest</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+
+// baidu 自动推送
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  </body>
+
+</html>
