@@ -47,6 +47,20 @@
     </url>
     
     <url>
+        <loc>/javascript/2020/06/26/javascript-array-clone-flaten-unique.html</loc>
+        <lastmod>2020-06-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/javascript/2020/06/25/javascript-inheritance.html</loc>
+        <lastmod>2020-06-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
         <loc>/other/2019/06/07/iis10-proxy-cross-domain.html</loc>
         <lastmod>2020-06-27</lastmod>
         <changefreq>daily</changefreq>

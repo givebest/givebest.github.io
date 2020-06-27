@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript 继承</title>
+    <meta name="description" content="原型链">
+
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://blog.givebest.cn/javascript/2020/06/25/javascript-inheritance.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	     (adsbygoogle = window.adsbygoogle || []).push({
+	          google_ad_client: "ca-pub-2508802053034860",
+	          enable_page_level_ads: true
+	     });
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Givebest's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">JavaScript 继承</h1>
+    <p class="post-meta"><time datetime="2020-06-25T21:44:35+08:00" itemprop="datePublished">Jun 25, 2020</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="原型链">原型链</h2>
+
+<p>构造函数、原型和实例的关系：</p>
+
+<ul>
+  <li>每个构造函数都有一个<strong>原型对象</strong>，原型对象都包含一个<strong>指向构造函数</strong>的指针；</li>
+  <li>实例都包含了一个<strong>指向原型对象</strong>的内部指针。</li>
+</ul>
+
+<h2 id="继承">继承</h2>
+
+<h3 id="1-组合继承">1. 组合继承</h3>
+
+<p>组合继承（伪经典继承），将原型链和借用构造函数的技术组合到一块。</p>
+
+<ul>
+  <li>使用原型链实现对原型属性和方法的继承。</li>
+  <li>借用构造函数来实现对实例属性的继承。</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 1. 组合继承（伪经典继承），将原型链和借用构造函数的技术组合到一块。
+ * 使用原型链实现对原型属性和方法的继承。
+ * 借用构造函数来实现对实例属性的继承。
+ */</span>
+<span class="kd">function</span> <span class="nx">SuperType</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+   <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">];</span>
+ <span class="p">}</span>
+
+ <span class="nx">SuperType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+ <span class="p">}</span>
+
+ <span class="kd">function</span> <span class="nx">SubType</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// 继承属性</span>
+   <span class="nx">SuperType</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+
+   <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="c1">// 继承方法</span>
+ <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SuperType</span><span class="p">();</span>
+ <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">SubType</span><span class="p">;</span> <span class="c1">//增强对象</span>
+ <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayAge</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+ <span class="p">}</span>
+
+ <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'组合继承'</span><span class="p">);</span>
+ <span class="kd">let</span> <span class="nx">instance1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="s1">'TB'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+ <span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'yellow'</span><span class="p">);</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green", "yellow"]</span>
+<span class="nx">instance1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// TB</span>
+<span class="nx">instance1</span><span class="p">.</span><span class="nx">sayAge</span><span class="p">();</span>  <span class="c1">// 20</span>
+
+<span class="kd">let</span> <span class="nx">instance2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="s1">'JD'</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green"]</span>
+<span class="nx">instance2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// JD</span>
+<span class="nx">instance2</span><span class="p">.</span><span class="nx">sayAge</span><span class="p">();</span> <span class="c1">// 15</span>
+</code></pre></div></div>
+
+<h3 id="2-objectcreate-继承">2. Object.create() 继承</h3>
+
+<p>Object.create() 创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cm">/**
+  * 2. Object.create() 继承
+  * 创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。
+  * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+  */</span>
+<span class="kd">function</span> <span class="nx">SuperCar</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'white'</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">SubCar</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 继承属性</span>
+  <span class="nx">SuperCar</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 继承方法</span>
+<span class="nx">SubCar</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<span class="nx">SubCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">SubCar</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'Object.create 继承'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="s1">'TSL'</span><span class="p">);</span>
+<span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'yellow'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white", "yellow"]</span>
+<span class="nx">car1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// TSL</span>
+
+<span class="kd">let</span> <span class="nx">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="s1">'KLL'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white"]</span>
+<span class="nx">car2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// KLL</span>
+</code></pre></div></div>
+
+<h3 id="3-class--extends-继承">3. class &amp; extends 继承</h3>
+
+<ul>
+  <li>class 声明创建一个基于原型继承的具有给定名称的新类。 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class</li>
+  <li>extends 关键字用于类声明或者类表达式中，以创建一个类，该类是另一个类的子类。 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/extends</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 3. class &amp; extends继承
+ * class 声明创建一个基于原型继承的具有给定名称的新类。
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class
+ * extends 关键字用于类声明或者类表达式中，以创建一个类，该类是另一个类的子类。
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/extends
+ */</span>
+<span class="kd">class</span> <span class="nx">SuperPen</span> <span class="p">{</span>
+  <span class="kd">constructor</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'black'</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="nx">sayName</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">SubPen</span> <span class="kd">extends</span> <span class="nx">SuperPen</span> <span class="p">{</span>
+  <span class="kd">constructor</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">sayColrs</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'class 继承'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">pen1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="s1">'pencil'</span><span class="p">);</span>
+<span class="nx">pen1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'gray'</span><span class="p">);</span>
+<span class="nx">pen1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// pencil</span>
+<span class="nx">pen1</span><span class="p">.</span><span class="nx">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black", "gray"]</span>
+
+<span class="kd">let</span> <span class="nx">pen2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="s1">'ball-pen'</span><span class="p">);</span>
+<span class="nx">pen2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// ball-pen</span>
+<span class="nx">pen2</span><span class="p">.</span><span class="nx">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black"]</span>
+<span class="s2">``</span>
+
+</code></pre></div></div>
+
+<h4 id="转载请注明出处-httpsbloggivebestcnjavascript20200625javascript-inheritancehtml">转载请注明出处： <a href="https://blog.givebest.cn/javascript/2020/06/25/javascript-inheritance.html">https://blog.givebest.cn/javascript/2020/06/25/javascript-inheritance.html</a></h4>
+
+  </div>
+
+</article>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/givebest"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">givebest</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+
+// baidu 自动推送
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  </body>
+
+</html>
