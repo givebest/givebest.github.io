@@ -96,7 +96,7 @@ Object.setPrototypeOf() 设置一个指定的对象的原型（内部[[Prototype
 性能缓慢，应避免使用。
 */</span>
 <span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">obj1</span><span class="p">,</span> <span class="p">{</span><span class="na">h</span><span class="p">:</span> <span class="mi">6</span><span class="p">});</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj1--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">------obj1--------</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span> <span class="c1">// 1 5 6 1</span>
 </code></pre></div></div>
 <h2 id="拷贝">拷贝</h2>
@@ -112,12 +112,12 @@ Object.setPrototypeOf() 设置一个指定的对象的原型（内部[[Prototype
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">obj1</span><span class="p">));</span>
 <span class="c1">// obj1.a = '0'</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj2--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">------obj2--------</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj2</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj2</span><span class="p">.</span><span class="nx">h</span><span class="p">);</span> <span class="c1">// 1 5 undefined</span>
 <span class="k">try</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'obj2.f() 不能访问'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">obj2.f() 不能访问</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">// obj2.f() 不能访问</span>
 </code></pre></div></div>
@@ -127,7 +127,7 @@ Object.setPrototypeOf() 设置一个指定的对象的原型（内部[[Prototype
 <h4 id="for-in--hasownproperty">For in &amp; hasOwnProperty</h4>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">cloneObj1</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">!==</span> <span class="s1">'[object Object]'</span><span class="p">)</span> <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">[object Object]</span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
 
   <span class="kd">let</span> <span class="nx">tempObj</span> <span class="o">=</span> <span class="p">{};</span>
   <span class="c1">// let tempObj = obj.constructor();</span>
@@ -142,7 +142,7 @@ Object.setPrototypeOf() 设置一个指定的对象的原型（内部[[Prototype
 
 <span class="kd">let</span> <span class="nx">obj3</span> <span class="o">=</span> <span class="nx">cloneObj1</span><span class="p">(</span><span class="nx">obj1</span><span class="p">);</span>
 <span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj3--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">------obj3--------</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj3</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj3</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj3</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj3</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>  <span class="c1">// 1 5 undefined 1</span>
 </code></pre></div></div>
 
@@ -154,7 +154,7 @@ Object.setPrototypeOf() 设置一个指定的对象的原型（内部[[Prototype
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj4</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">obj1</span><span class="p">);</span>
 <span class="nx">obj1</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj4--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">------obj4--------</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj4</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj4</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj4</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj4</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>  <span class="c1">// 3 5 undefined 3</span>
 </code></pre></div></div>
 
@@ -171,7 +171,7 @@ Object.setPrototypeOf() 设置一个指定的对象的原型（内部[[Prototype
 <span class="c1">// obj5.a = 'x';</span>
 
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'------obj5--------'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">------obj5--------</span><span class="dl">'</span><span class="p">);</span>
 <span class="c1">// obj5 继承 obj1，obj1.a 的值改变， obj5 也改变</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj5</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">obj5</span><span class="p">.</span><span class="nx">g</span><span class="p">,</span> <span class="nx">obj5</span><span class="p">.</span><span class="nx">h</span><span class="p">,</span> <span class="nx">obj5</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span>  <span class="c1">// 5 5 6 5</span>
 </code></pre></div></div>

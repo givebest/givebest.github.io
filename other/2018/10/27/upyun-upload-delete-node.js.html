@@ -76,18 +76,18 @@
 
 <h3 id="使用-nodejs--expressjs-实现-服务端">使用 Node.js + Express.js 实现 服务端</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"express"</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'axios'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'port'</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">8082</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">'</span><span class="s1">port</span><span class="dl">'</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">8082</span><span class="p">);</span>
 
 <span class="c1">// 静态资源目录，这里放在了根目录，生产环境不允许这样</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kd">static</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">));</span>
 
 <span class="c1">// 启动一个端口为 8082 的服务器</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'port'</span><span class="p">),</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"http://localhost:"</span> <span class="o">+</span>  <span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'port'</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">port</span><span class="dl">'</span><span class="p">),</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://localhost:</span><span class="dl">"</span> <span class="o">+</span>  <span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">port</span><span class="dl">'</span><span class="p">));</span>
 <span class="p">});</span>
 </code></pre></div></div>
 
@@ -97,58 +97,58 @@
   <p>详见：http://docs.upyun.com/api/authorization/#_5</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"crypto"</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">crypto</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// MD5</span>
 <span class="kd">function</span> <span class="nx">MD5</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">crypto</span>
-    <span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s2">"md5"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="dl">"</span><span class="s2">md5</span><span class="dl">"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">digest</span><span class="p">(</span><span class="s2">"hex"</span><span class="p">);</span>
+    <span class="p">.</span><span class="nx">digest</span><span class="p">(</span><span class="dl">"</span><span class="s2">hex</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// Base64</span>
 <span class="kd">function</span> <span class="nx">base64</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">value</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s2">"base64"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">value</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="dl">"</span><span class="s2">base64</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// hmacsha1</span>
 <span class="kd">function</span> <span class="nx">hmacsha1</span><span class="p">(</span><span class="nx">secret</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHmac</span><span class="p">(</span><span class="s1">'sha1'</span><span class="p">,</span> <span class="nx">secret</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="s1">'utf-8'</span><span class="p">).</span><span class="nx">digest</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="s1">'base64'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHmac</span><span class="p">(</span><span class="dl">'</span><span class="s1">sha1</span><span class="dl">'</span><span class="p">,</span> <span class="nx">secret</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf-8</span><span class="dl">'</span><span class="p">).</span><span class="nx">digest</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="dl">'</span><span class="s1">base64</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h3 id="上传删除接口">上传、删除接口</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toGMTString</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">bucketname</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>  <span class="c1">// 空间名</span>
-<span class="kd">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">// 操作员</span>
-<span class="kd">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">// 密码</span>
-<span class="kd">const</span> <span class="nx">upyunUrl</span> <span class="o">=</span> <span class="s1">'http://v0.api.upyun.com/'</span>
+<span class="kd">const</span> <span class="nx">bucketname</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>  <span class="c1">// 空间名</span>
+<span class="kd">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span> <span class="c1">// 操作员</span>
+<span class="kd">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span> <span class="c1">// 密码</span>
+<span class="kd">const</span> <span class="nx">upyunUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://v0.api.upyun.com/</span><span class="dl">'</span>
 
 <span class="c1">// Upload</span>
-<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"/api/token/upload"</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/api/token/upload</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">fileName</span> <span class="o">=</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100000000</span><span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">expiration</span> <span class="o">=</span> <span class="p">((</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">60</span><span class="p">;</span>  <span class="c1">// 请求的过期时间，UNIX UTC 时间戳，单位秒。建议设为 30 分钟 http://docs.upyun.com/api/form_api/</span>
-  <span class="kd">let</span> <span class="nx">method</span> <span class="o">=</span> <span class="s2">"POST"</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">method</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="kd">let</span> <span class="nx">policy</span> <span class="o">=</span> <span class="nx">base64</span><span class="p">(</span>
     <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
       <span class="na">bucket</span><span class="p">:</span> <span class="nx">bucketname</span><span class="p">,</span>
       <span class="c1">// "save-key": "/" + fileName + "{.suffix}",</span>
-      <span class="s2">"save-key"</span><span class="p">:</span> <span class="s2">"/{filename}{.suffix}"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">save-key</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/{filename}{.suffix}</span><span class="dl">"</span><span class="p">,</span>
       <span class="na">expiration</span><span class="p">:</span> <span class="nx">expiration</span>
     <span class="p">})</span>
   <span class="p">);</span>
 
   <span class="kd">let</span> <span class="nx">authorization</span> <span class="o">=</span>
-    <span class="s2">"UPYUN "</span> <span class="o">+</span>
+    <span class="dl">"</span><span class="s2">UPYUN </span><span class="dl">"</span> <span class="o">+</span>
     <span class="nx">key</span> <span class="o">+</span>
-    <span class="s2">":"</span> <span class="o">+</span>
-    <span class="nx">hmacsha1</span><span class="p">(</span><span class="nx">MD5</span><span class="p">(</span><span class="nx">secret</span><span class="p">),</span> <span class="nx">method</span> <span class="o">+</span> <span class="s2">"&amp;/"</span> <span class="o">+</span> <span class="nx">bucketname</span> <span class="o">+</span> <span class="s2">"&amp;"</span> <span class="o">+</span> <span class="nx">policy</span><span class="p">);</span>
+    <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span> <span class="o">+</span>
+    <span class="nx">hmacsha1</span><span class="p">(</span><span class="nx">MD5</span><span class="p">(</span><span class="nx">secret</span><span class="p">),</span> <span class="nx">method</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">&amp;/</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">bucketname</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">&amp;</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">policy</span><span class="p">);</span>
 
   <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
-    <span class="na">msg</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="na">msg</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="na">code</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
     <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">authorization</span><span class="p">:</span> <span class="nx">authorization</span><span class="p">,</span>
@@ -158,37 +158,37 @@
 <span class="p">});</span>
 
 <span class="c1">// Delete</span>
-<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/api/token/del'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/token/del</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">item</span><span class="p">;</span>
-  <span class="kd">let</span> <span class="nx">method</span> <span class="o">=</span> <span class="s2">"DELETE"</span>
-  <span class="kd">let</span> <span class="nx">authorization</span> <span class="o">=</span> <span class="s2">"UPYUN "</span> <span class="o">+</span>
+  <span class="kd">let</span> <span class="nx">method</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">DELETE</span><span class="dl">"</span>
+  <span class="kd">let</span> <span class="nx">authorization</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">UPYUN </span><span class="dl">"</span> <span class="o">+</span>
     <span class="nx">key</span> <span class="o">+</span>
-    <span class="s2">":"</span> <span class="o">+</span> 
-    <span class="nx">hmacsha1</span><span class="p">(</span><span class="nx">MD5</span><span class="p">(</span><span class="nx">secret</span><span class="p">),</span> <span class="nx">method</span> <span class="o">+</span> <span class="s1">'&amp;/'</span> <span class="o">+</span> <span class="nx">bucketname</span> <span class="o">+</span> <span class="nx">item</span> <span class="o">+</span> <span class="s1">'&amp;'</span><span class="o">+</span> <span class="nx">date</span><span class="p">);</span>
+    <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span> <span class="o">+</span> 
+    <span class="nx">hmacsha1</span><span class="p">(</span><span class="nx">MD5</span><span class="p">(</span><span class="nx">secret</span><span class="p">),</span> <span class="nx">method</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&amp;/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">bucketname</span> <span class="o">+</span> <span class="nx">item</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&amp;</span><span class="dl">'</span><span class="o">+</span> <span class="nx">date</span><span class="p">);</span>
 
 
   <span class="nx">axios</span><span class="p">({</span>
     <span class="na">url</span><span class="p">:</span> <span class="nx">upyunUrl</span> <span class="o">+</span> <span class="nx">bucketname</span> <span class="o">+</span> <span class="nx">item</span><span class="p">,</span>
-    <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s1">'Authorization'</span><span class="p">:</span> <span class="nx">authorization</span><span class="p">,</span>
-      <span class="s1">'Date'</span><span class="p">:</span> <span class="nx">date</span>
+      <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="nx">authorization</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">Date</span><span class="dl">'</span><span class="p">:</span> <span class="nx">date</span>
     <span class="p">}</span>
   <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
-      <span class="na">msg</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+      <span class="na">msg</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
       <span class="na">code</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
       <span class="na">data</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">});</span>  
   <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'err'</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">err</span><span class="dl">'</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
   <span class="p">})</span>
 <span class="p">})</span>
 </code></pre></div></div>
 
 <h3 id="跨域接口调用">跨域接口调用</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cors'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">cors</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="c1">// CORS @see https://github.com/expressjs/cors</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cors</span><span class="p">());</span>
@@ -233,12 +233,12 @@
 
 <h3 id="js">JS</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">upUrl</span> <span class="o">=</span> <span class="s1">'http://v0.api.upyun.com/'</span>  <span class="c1">// +空间名，如：http://v0.api.upyun.com/yun-temp</span>
-    <span class="kd">const</span> <span class="nx">baseApi</span> <span class="o">=</span> <span class="s1">'http://localhost:8082/api/'</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">upUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://v0.api.upyun.com/</span><span class="dl">'</span>  <span class="c1">// +空间名，如：http://v0.api.upyun.com/yun-temp</span>
+    <span class="kd">const</span> <span class="nx">baseApi</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://localhost:8082/api/</span><span class="dl">'</span>
     <span class="kd">let</span> <span class="nx">uploadInput</span><span class="p">;</span>
 
     <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
-      <span class="na">el</span><span class="p">:</span> <span class="s1">'#app'</span><span class="p">,</span>
+      <span class="na">el</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#app</span><span class="dl">'</span><span class="p">,</span>
       <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
         <span class="na">files</span><span class="p">:</span> <span class="p">[]</span>
       <span class="p">},</span>
@@ -246,25 +246,25 @@
         <span class="na">onChange</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
           <span class="nx">getToken</span><span class="p">(</span><span class="nx">token</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="kd">let</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
-            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"file"</span><span class="p">,</span> <span class="nx">uploadInput</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'policy'</span><span class="p">,</span> <span class="nx">token</span><span class="p">.</span><span class="nx">policy</span><span class="p">)</span>
-            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="nx">token</span><span class="p">.</span><span class="nx">authorization</span><span class="p">)</span>
+            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">file</span><span class="dl">"</span><span class="p">,</span> <span class="nx">uploadInput</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">policy</span><span class="dl">'</span><span class="p">,</span> <span class="nx">token</span><span class="p">.</span><span class="nx">policy</span><span class="p">)</span>
+            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">authorization</span><span class="dl">"</span><span class="p">,</span> <span class="nx">token</span><span class="p">.</span><span class="nx">authorization</span><span class="p">)</span>
 
             <span class="nx">axios</span><span class="p">({</span>
-              <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+              <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
               <span class="na">url</span><span class="p">:</span> <span class="nx">upUrl</span><span class="p">,</span>
               <span class="na">data</span><span class="p">:</span> <span class="nx">formData</span>
             <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
               <span class="nx">res</span> <span class="o">=</span> <span class="nx">res</span> <span class="o">||</span> <span class="p">{}</span>
 
               <span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span> <span class="o">!==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'error'</span><span class="p">)</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">)</span>
                 <span class="k">return</span>
               <span class="p">}</span>
 
               <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span> <span class="o">||</span> <span class="p">{}</span>
               <span class="k">this</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
-              <span class="nx">alert</span><span class="p">(</span><span class="s1">'Success'</span><span class="p">)</span>
+              <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">Success</span><span class="dl">'</span><span class="p">)</span>
             <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
               <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
             <span class="p">});</span>
@@ -273,20 +273,20 @@
         <span class="na">onDel</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
           <span class="k">this</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
           <span class="nx">axios</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
-            <span class="na">url</span><span class="p">:</span> <span class="nx">baseApi</span> <span class="o">+</span> <span class="s1">'token/del'</span><span class="p">,</span>
-            <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+            <span class="na">url</span><span class="p">:</span> <span class="nx">baseApi</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">token/del</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
             <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
               <span class="na">item</span><span class="p">:</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
             <span class="p">}</span>
           <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s1">'Deleted.'</span><span class="p">)</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">Deleted.</span><span class="dl">'</span><span class="p">)</span>
           <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
           <span class="p">})</span>
         <span class="p">}</span>
       <span class="p">},</span>
       <span class="nx">mounted</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">uploadInput</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'file'</span><span class="p">)</span>
+        <span class="nx">uploadInput</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">file</span><span class="dl">'</span><span class="p">)</span>
       <span class="p">}</span>
     <span class="p">})</span>
 
@@ -297,7 +297,7 @@
 
     <span class="c1">// 获取 token</span>
     <span class="kd">function</span> <span class="nx">getToken</span> <span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">let</span> <span class="nx">token</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">'token'</span><span class="p">);</span>
+      <span class="kd">let</span> <span class="nx">token</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">token</span><span class="dl">'</span><span class="p">);</span>
       <span class="nx">token</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">token</span><span class="p">)</span> <span class="o">||</span> <span class="p">{};</span>
       <span class="kd">let</span> <span class="nx">nowTime</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
 
@@ -307,8 +307,8 @@
       <span class="p">}</span>
 
       <span class="nx">axios</span><span class="p">({</span>
-        <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
-        <span class="na">url</span><span class="p">:</span> <span class="nx">baseApi</span> <span class="o">+</span> <span class="s1">'token/upload'</span>
+        <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">url</span><span class="p">:</span> <span class="nx">baseApi</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">token/upload</span><span class="dl">'</span>
       <span class="p">})</span>
       <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span> <span class="o">||</span> <span class="p">{}</span>
@@ -324,7 +324,7 @@
         <span class="p">}</span>
 
         <span class="nx">fn</span><span class="p">(</span><span class="nx">token</span><span class="p">)</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'token'</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">token</span><span class="p">))</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">token</span><span class="dl">'</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">token</span><span class="p">))</span>
       <span class="p">});</span>
     <span class="p">}</span>
 </code></pre></div></div>

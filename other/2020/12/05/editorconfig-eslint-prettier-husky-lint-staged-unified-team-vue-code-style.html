@@ -169,10 +169,10 @@
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">root</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="na">extends</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"eslint:recommended"</span><span class="p">,</span>
-    <span class="s2">"plugin:vue/essential"</span><span class="p">,</span>
-    <span class="s2">"@vue/prettier"</span><span class="p">,</span>
-    <span class="s2">"prettier"</span>
+    <span class="dl">"</span><span class="s2">eslint:recommended</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">plugin:vue/essential</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">@vue/prettier</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">prettier</span><span class="dl">"</span>
   <span class="p">],</span>
   <span class="na">env</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">es6</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -181,14 +181,14 @@
   <span class="p">},</span>
 
   <span class="na">parserOptions</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">parser</span><span class="p">:</span> <span class="s2">"babel-eslint"</span>
+    <span class="na">parser</span><span class="p">:</span> <span class="dl">"</span><span class="s2">babel-eslint</span><span class="dl">"</span>
   <span class="p">},</span>
 
-  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="s2">"vue"</span><span class="p">],</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">vue</span><span class="dl">"</span><span class="p">],</span>
 
   <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"no-console"</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="s2">"production"</span> <span class="p">?</span> <span class="s2">"warn"</span> <span class="p">:</span> <span class="s2">"off"</span><span class="p">,</span>
-    <span class="s2">"no-debugger"</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="s2">"production"</span> <span class="p">?</span> <span class="s2">"warn"</span> <span class="p">:</span> <span class="s2">"off"</span>
+    <span class="dl">"</span><span class="s2">no-console</span><span class="dl">"</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">production</span><span class="dl">"</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">warn</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">off</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">no-debugger</span><span class="dl">"</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">production</span><span class="dl">"</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">warn</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">off</span><span class="dl">"</span>
   <span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></div>
@@ -236,11 +236,11 @@
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// .prettierrc.js</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">trailingComma</span><span class="p">:</span> <span class="s2">"es5"</span><span class="p">,</span>
+  <span class="na">trailingComma</span><span class="p">:</span> <span class="dl">"</span><span class="s2">es5</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">tabWidth</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
   <span class="na">semi</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="na">singleQuote</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="na">endOfLine</span><span class="p">:</span> <span class="s1">'lf'</span>
+  <span class="na">endOfLine</span><span class="p">:</span> <span class="dl">'</span><span class="s1">lf</span><span class="dl">'</span>
 <span class="p">};</span>
 </code></pre></div></div>
 
@@ -253,13 +253,13 @@
 
 <h3 id="配置packagejson">配置(package.json)</h3>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"husky"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"pre-commit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lint-staged"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"husky"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"pre-commit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lint-staged"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="s2">"lint-staged"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"src/**/*.{js,vue}"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span><span class="nl">"lint-staged"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"src/**/*.{js,vue}"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"eslint --fix"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -285,7 +285,7 @@
 
 <h3 id="手动格式化代码">手动格式化代码</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. CMD/CTRL + Shift + P -&gt; Format Document
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. CMD/CTRL + Shift + P -&gt; Format Document
 OR
 1. Select the text you want to Prettify
 2. CMD/CTRL + Shift + P -&gt; Format Selection

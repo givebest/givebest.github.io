@@ -97,7 +97,7 @@
  */</span>
 <span class="kd">function</span> <span class="nx">SuperType</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-   <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">];</span>
+   <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span><span class="p">];</span>
  <span class="p">}</span>
 
  <span class="nx">SuperType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -118,14 +118,14 @@
    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
  <span class="p">}</span>
 
- <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'组合继承'</span><span class="p">);</span>
- <span class="kd">let</span> <span class="nx">instance1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="s1">'TB'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
- <span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'yellow'</span><span class="p">);</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">组合继承</span><span class="dl">'</span><span class="p">);</span>
+ <span class="kd">let</span> <span class="nx">instance1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="dl">'</span><span class="s1">TB</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+ <span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">);</span>
  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green", "yellow"]</span>
 <span class="nx">instance1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// TB</span>
 <span class="nx">instance1</span><span class="p">.</span><span class="nx">sayAge</span><span class="p">();</span>  <span class="c1">// 20</span>
 
-<span class="kd">let</span> <span class="nx">instance2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="s1">'JD'</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">instance2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="dl">'</span><span class="s1">JD</span><span class="dl">'</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green"]</span>
 <span class="nx">instance2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// JD</span>
 <span class="nx">instance2</span><span class="p">.</span><span class="nx">sayAge</span><span class="p">();</span> <span class="c1">// 15</span>
@@ -142,7 +142,7 @@
   */</span>
 <span class="kd">function</span> <span class="nx">SuperCar</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'white'</span><span class="p">];</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">black</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">white</span><span class="dl">'</span><span class="p">];</span>
 <span class="p">}</span>
 
 <span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -158,13 +158,13 @@
 <span class="nx">SubCar</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
 <span class="nx">SubCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">SubCar</span><span class="p">;</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'Object.create 继承'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="s1">'TSL'</span><span class="p">);</span>
-<span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'yellow'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Object.create 继承</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="dl">'</span><span class="s1">TSL</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white", "yellow"]</span>
 <span class="nx">car1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// TSL</span>
 
-<span class="kd">let</span> <span class="nx">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="s1">'KLL'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="dl">'</span><span class="s1">KLL</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white"]</span>
 <span class="nx">car2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// KLL</span>
 </code></pre></div></div>
@@ -186,7 +186,7 @@
 <span class="kd">class</span> <span class="nx">SuperPen</span> <span class="p">{</span>
   <span class="kd">constructor</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'black'</span><span class="p">];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">white</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">black</span><span class="dl">'</span><span class="p">];</span>
   <span class="p">}</span>
 
   <span class="nx">sayName</span> <span class="p">()</span> <span class="p">{</span>
@@ -204,13 +204,13 @@
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">'class 继承'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">pen1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="s1">'pencil'</span><span class="p">);</span>
-<span class="nx">pen1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'gray'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">class 继承</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">pen1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="dl">'</span><span class="s1">pencil</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">pen1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">gray</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">pen1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// pencil</span>
 <span class="nx">pen1</span><span class="p">.</span><span class="nx">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black", "gray"]</span>
 
-<span class="kd">let</span> <span class="nx">pen2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="s1">'ball-pen'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">pen2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="dl">'</span><span class="s1">ball-pen</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">pen2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// ball-pen</span>
 <span class="nx">pen2</span><span class="p">.</span><span class="nx">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black"]</span>
 <span class="s2">``</span>

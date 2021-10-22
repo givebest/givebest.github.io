@@ -74,15 +74,15 @@
 
 <h4 id="前言">前言</h4>
 
-<p>为了提升开发效率，创建一套 UI 组件库是一种较为有效的方式之一：可以减少重复工作、提高可复用，所以现在越来越多团队开始创建自己的 UI 组件库。较早的  Twitter  的 <a href="http://getbootstrap.com/">Bootstrap</a> 虽然只能称为 UI 库，但也大大提升了开发效率。后面 <code class="highlighter-rouge">MVVM</code> 大行其道 ，前端终于可以把 HTML、CSS、JS 放在一起开发包含 UI 、交互真正意义上的组件了，现在有基于 <code class="highlighter-rouge">React</code> 的 <a href="https://material-ui.com/demos/app-bar/">Material-UI</a>、国内阿里金服基于 <code class="highlighter-rouge">React</code> 的  <a href="https://ant.design/docs/react/introduce-cn">Ant Design</a>、饿了么基于 <code class="highlighter-rouge">Vue.js</code> 的 <a href="https://element.eleme.io/">Element</a>、TalkingData 基于 <code class="highlighter-rouge">Vue.js</code> 的 <a href="https://iviewui.com/">iView</a> 等。有了这些 UI 组件，让前端开发变得前所未有的方便，完成一个项目就像是拿一块块的积木(组件)堆成一个完整项目。</p>
+<p>为了提升开发效率，创建一套 UI 组件库是一种较为有效的方式之一：可以减少重复工作、提高可复用，所以现在越来越多团队开始创建自己的 UI 组件库。较早的  Twitter  的 <a href="http://getbootstrap.com/">Bootstrap</a> 虽然只能称为 UI 库，但也大大提升了开发效率。后面 <code class="language-plaintext highlighter-rouge">MVVM</code> 大行其道 ，前端终于可以把 HTML、CSS、JS 放在一起开发包含 UI 、交互真正意义上的组件了，现在有基于 <code class="language-plaintext highlighter-rouge">React</code> 的 <a href="https://material-ui.com/demos/app-bar/">Material-UI</a>、国内阿里金服基于 <code class="language-plaintext highlighter-rouge">React</code> 的  <a href="https://ant.design/docs/react/introduce-cn">Ant Design</a>、饿了么基于 <code class="language-plaintext highlighter-rouge">Vue.js</code> 的 <a href="https://element.eleme.io/">Element</a>、TalkingData 基于 <code class="language-plaintext highlighter-rouge">Vue.js</code> 的 <a href="https://iviewui.com/">iView</a> 等。有了这些 UI 组件，让前端开发变得前所未有的方便，完成一个项目就像是拿一块块的积木(组件)堆成一个完整项目。</p>
 
 <p>考虑到前期开发 UI 组件的工作量及后期维护成本，我认为在大厂开源 UI 组件库的基础上个性化色彩（一般都提供颜色定制）、增加团队的个性化需求组件、减少不需要的组件是个不错的主意。</p>
 
-<p>有了团队的 UI 组件库就少不了使用文档，毕竟文档还是比口口相传要靠谱的多。这里介绍一个可以快速创建 React UI 组件库使用、演示文档的项目：<a href="https://github.com/pedronauck/docz">Docz</a>。<a href="https://github.com/pedronauck/docz">Docz</a> 的特色是零配置、简单、快速，它使用 <code class="highlighter-rouge">Markdown</code> 语法的扩展 <a href="https://github.com/mdx-js/mdx">MDX</a> (在 Markdown 里引入 React  组件并渲染出组件)来书写文档，对于熟悉 <code class="highlighter-rouge">Markdown</code> 的开发者是可以直接上手的。下面贴一张官方的图看看有多简单：
+<p>有了团队的 UI 组件库就少不了使用文档，毕竟文档还是比口口相传要靠谱的多。这里介绍一个可以快速创建 React UI 组件库使用、演示文档的项目：<a href="https://github.com/pedronauck/docz">Docz</a>。<a href="https://github.com/pedronauck/docz">Docz</a> 的特色是零配置、简单、快速，它使用 <code class="language-plaintext highlighter-rouge">Markdown</code> 语法的扩展 <a href="https://github.com/mdx-js/mdx">MDX</a> (在 Markdown 里引入 React  组件并渲染出组件)来书写文档，对于熟悉 <code class="language-plaintext highlighter-rouge">Markdown</code> 的开发者是可以直接上手的。下面贴一张官方的图看看有多简单：
 <img src="https://givebest.github.io/images/docz/docz.png" alt="Docz" /></p>
 
 <blockquote>
-  <p>左边是创建的 <code class="highlighter-rouge">MDX</code> 文档，右边是 Docz 渲染出的组件及组件代码。</p>
+  <p>左边是创建的 <code class="language-plaintext highlighter-rouge">MDX</code> 文档，右边是 Docz 渲染出的组件及组件代码。</p>
 </blockquote>
 
 <p>是不是很方便？那下面简单介绍一下使用步骤。</p>
@@ -91,17 +91,17 @@
 
 <h5 id="1-在你的项目里安装-docz">1. 在你的项目里安装 Docz：</h5>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add docz --dev 或者 npm install docz --save-dev
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add docz --dev 或者 npm install docz --save-dev
 </code></pre></div></div>
 
-<h5 id="2-创建-mdx-文件并输入">2. 创建 <code class="highlighter-rouge">.mdx</code> 文件并输入：</h5>
+<h5 id="2-创建-mdx-文件并输入">2. 创建 <code class="language-plaintext highlighter-rouge">.mdx</code> 文件并输入：</h5>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">---</span>
 <span class="nx">name</span><span class="p">:</span> <span class="nx">Button</span>
 <span class="o">---</span>
 
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Playground</span><span class="p">,</span> <span class="nx">PropsTable</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'docz'</span>
-<span class="k">import</span> <span class="nx">Button</span> <span class="k">from</span> <span class="s1">'./'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Playground</span><span class="p">,</span> <span class="nx">PropsTable</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">docz</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Button</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./</span><span class="dl">'</span>
 
 <span class="err">#</span> <span class="nx">Button</span>
 
@@ -111,13 +111,13 @@
 
 <span class="o">&lt;</span><span class="nx">Playground</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="nx">Button</span><span class="o">&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="o">&lt;</span><span class="sr">/Button</span><span class="err">&gt;
-</span>  <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">kind</span><span class="o">=</span><span class="s2">"secondary"</span><span class="o">&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="o">&lt;</span><span class="sr">/Button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">kind</span><span class="o">=</span><span class="dl">"</span><span class="s2">secondary</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="o">&lt;</span><span class="sr">/Button</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/Playground</span><span class="err">&gt;
 </span></code></pre></div></div>
 
 <h5 id="3-运行">3. 运行：</h5>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn docz dev
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn docz dev
 </code></pre></div></div>
 
 <p>然后就完成了一个简单的 Button 组件的演示、使用文档。
@@ -131,13 +131,13 @@
 
 <p>零配置方便是方便，但有时想界面个性化点还是很费事的(官方提供 Themes 支持，但现仅有一套官方的默认主题)，下面分享一个通过引入本地 CSS 的方式来改变默认主题的配置。</p>
 
-<h5 id="1-创建配置文件-doczrcjs增加-htmlcontext-内容">1. 创建配置文件 <code class="highlighter-rouge">doczrc.js</code>，增加 htmlContext 内容。</h5>
+<h5 id="1-创建配置文件-doczrcjs增加-htmlcontext-内容">1. 创建配置文件 <code class="language-plaintext highlighter-rouge">doczrc.js</code>，增加 htmlContext 内容。</h5>
 
 <blockquote>
   <p>更多配置：https://www.docz.site/documentation/project-configuration</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export default {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export default {
   htmlContext: {
     head: {
       links: [
@@ -148,7 +148,7 @@
 }
 </code></pre></div></div>
 
-<h5 id="2--docz-目录下创建-public-文件夹并创建-basecss在-basecss-里写自己的样式覆盖默认的即可">2.  <code class="highlighter-rouge">.docz</code> 目录下创建 <code class="highlighter-rouge">public</code> 文件夹并创建 <code class="highlighter-rouge">base.css</code>，在 <code class="highlighter-rouge">base.css</code> 里写自己的样式覆盖默认的即可。</h5>
+<h5 id="2--docz-目录下创建-public-文件夹并创建-basecss在-basecss-里写自己的样式覆盖默认的即可">2.  <code class="language-plaintext highlighter-rouge">.docz</code> 目录下创建 <code class="language-plaintext highlighter-rouge">public</code> 文件夹并创建 <code class="language-plaintext highlighter-rouge">base.css</code>，在 <code class="language-plaintext highlighter-rouge">base.css</code> 里写自己的样式覆盖默认的即可。</h5>
 
 <h4 id="最后">最后</h4>
 

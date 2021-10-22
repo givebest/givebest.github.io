@@ -70,12 +70,12 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><code class="highlighter-rouge">vee-validate</code> 是为 Vue.js 量身打造的表单校验框架，允许您校验输入的内容并显示对应的错误提示信息。它内置了很多常见的校验规则，可以组合使用多种校验规则，大部分场景只需要配置就能实现开箱即用，还支持自定义正则表达式。而且支持 40 多种语言，对本地化、多语言支持非常友好。</p>
+    <p><code class="language-plaintext highlighter-rouge">vee-validate</code> 是为 Vue.js 量身打造的表单校验框架，允许您校验输入的内容并显示对应的错误提示信息。它内置了很多常见的校验规则，可以组合使用多种校验规则，大部分场景只需要配置就能实现开箱即用，还支持自定义正则表达式。而且支持 40 多种语言，对本地化、多语言支持非常友好。</p>
 
-<p>国内饿了么团队开源项目 <code class="highlighter-rouge">Element UI</code> 就用到了 <code class="highlighter-rouge">vee-validate</code>。</p>
+<p>国内饿了么团队开源项目 <code class="language-plaintext highlighter-rouge">Element UI</code> 就用到了 <code class="language-plaintext highlighter-rouge">vee-validate</code>。</p>
 
 <blockquote>
-  <p><code class="highlighter-rouge">vee-validate</code>官网：https://baianat.github.io/vee-validate/</p>
+  <p><code class="language-plaintext highlighter-rouge">vee-validate</code>官网：https://baianat.github.io/vee-validate/</p>
 </blockquote>
 
 <h2 id="使用方法">使用方法</h2>
@@ -100,10 +100,10 @@
 
 <span class="nt">&lt;script&gt;</span>
 <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
-  <span class="na">name</span><span class="p">:</span> <span class="s2">"Username"</span><span class="p">,</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Username</span><span class="dl">"</span><span class="p">,</span>
   <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
-      <span class="na">username</span><span class="p">:</span> <span class="s1">''</span>
+      <span class="na">username</span><span class="p">:</span> <span class="dl">''</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
@@ -130,8 +130,8 @@
 <span class="nt">&lt;/template&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
-<span class="k">import</span> <span class="nx">Username</span> <span class="k">from</span> <span class="s2">"~/components/username.vue"</span>
-<span class="k">import</span> <span class="nx">Password</span> <span class="k">from</span> <span class="s2">"~/components/password.vue"</span>
+<span class="k">import</span> <span class="nx">Username</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">~/components/username.vue</span><span class="dl">"</span>
+<span class="k">import</span> <span class="nx">Password</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">~/components/password.vue</span><span class="dl">"</span>
 
 <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
@@ -153,12 +153,12 @@
       <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">vf1</span><span class="p">,</span> <span class="nx">vf2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="c1">// 有一个组件未通过，就提示错误信息</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"全部校验未通过"</span><span class="p">)</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验未通过</span><span class="dl">"</span><span class="p">)</span>
           <span class="k">return</span>
         <span class="p">}</span>
 
         <span class="c1">// 校验全部通过处理</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"全部校验通过"</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验通过</span><span class="dl">"</span><span class="p">)</span>
       <span class="p">})</span>
     <span class="p">},</span>
   <span class="p">}</span>
@@ -168,7 +168,7 @@
 
 <h2 id="总结">总结</h2>
 
-<p>其实组件内使用 Vee-validate 校验很方便，主要问题可能是父组件怎么触发子组件内的校验，并获取校验结果。这里用到 Vue.js 里的 <a href="https://cn.vuejs.org/v2/api/#ref">ref</a> 特性，给子组件赋值一个 ID 引用，然后就可以使用 <code class="highlighter-rouge">this.$refs.childComponent</code> 获得子组件实例引用，再分别调起子组件写好的校验方法，如：</p>
+<p>其实组件内使用 Vee-validate 校验很方便，主要问题可能是父组件怎么触发子组件内的校验，并获取校验结果。这里用到 Vue.js 里的 <a href="https://cn.vuejs.org/v2/api/#ref">ref</a> 特性，给子组件赋值一个 ID 引用，然后就可以使用 <code class="language-plaintext highlighter-rouge">this.$refs.childComponent</code> 获得子组件实例引用，再分别调起子组件写好的校验方法，如：</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 父组件触发子组件校验，并通过 Promise 返回值
@@ -183,12 +183,12 @@
 <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">vf1</span><span class="p">,</span> <span class="nx">vf2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// 有一个组件未通过，就提示错误信息</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"全部校验未通过"</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验未通过</span><span class="dl">"</span><span class="p">)</span>
     <span class="k">return</span>
   <span class="p">}</span>
 
   <span class="c1">// 校验全部通过处理</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"全部校验通过"</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验通过</span><span class="dl">"</span><span class="p">)</span>
 <span class="p">})</span>
 </code></pre></div></div>
 

@@ -4,35 +4,42 @@
     
     <url>
         <loc>/about/</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/feed-bak.xml</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/css/main.css</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/sitemap.xml</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/css/main.css.map</loc>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
@@ -40,162 +47,169 @@
 
     
     <url>
+        <loc>/nodejs/2021/10/22/node.js-cms-based-nest.js-nuxt.js-vue.js.html</loc>
+        <lastmod>2021-10-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
         <loc>/other/2020/12/05/editorconfig-eslint-prettier-husky-lint-staged-unified-team-vue-code-style.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2020/06/27/javascript-object-clone.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2020/06/26/javascript-array-clone-flaten-unique.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2020/06/25/javascript-inheritance.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2019/06/07/iis10-proxy-cross-domain.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2019/05/18/vee-validate-get-subcomponent-verification-results.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2019/04/20/macos-record-system-sound.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2019/04/20/vue.js-nuxt.js-use-vee-validate.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2019/04/09/shenzhen-jiazhao.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2019/03/24/fiil-t1-use-experience.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2019/03/09/2019-zhuanzhuan-youpin-goumai.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2018/10/27/upyun-upload-delete-node.js.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2018/09/15/react-ui-component-docz-mdx.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2018/08/31/mac-connect-to-remote-pc.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2018/07/01/hk-to-buy-macbook-pro.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2018/04/05/javascript-sync.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2017/08/02/javascript-sorting-algorithms.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2017/08/01/javascript-addEventListener-third-parameter.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/webpack/2017/06/25/webpack-multiple-entry.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/other/2017/03/05/deliver-documents-to-kindle.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2016/10/23/GB-paging.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2016/10/23/canvas-turntable.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/javascript/2015/11/18/javascript-regular-expression.html</loc>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2021-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>

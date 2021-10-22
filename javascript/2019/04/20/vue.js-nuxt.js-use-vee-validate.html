@@ -70,53 +70,53 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><code class="highlighter-rouge">vee-validate</code> 是为 Vue.js 量身打造的表单校验框架，允许您校验输入的内容并显示对应的错误提示信息。它内置了很多常见的校验规则，可以组合使用多种校验规则，大部分场景只需要配置就能实现开箱即用，还支持自定义正则表达式。而且支持 40 多种语言，对本地化、多语言支持非常友好。</p>
+    <p><code class="language-plaintext highlighter-rouge">vee-validate</code> 是为 Vue.js 量身打造的表单校验框架，允许您校验输入的内容并显示对应的错误提示信息。它内置了很多常见的校验规则，可以组合使用多种校验规则，大部分场景只需要配置就能实现开箱即用，还支持自定义正则表达式。而且支持 40 多种语言，对本地化、多语言支持非常友好。</p>
 
-<p>国内饿了么团队开源项目 <code class="highlighter-rouge">Element UI</code> 就用到了 <code class="highlighter-rouge">vee-validate</code>。</p>
+<p>国内饿了么团队开源项目 <code class="language-plaintext highlighter-rouge">Element UI</code> 就用到了 <code class="language-plaintext highlighter-rouge">vee-validate</code>。</p>
 
 <blockquote>
-  <p><code class="highlighter-rouge">vee-validate</code>官网：https://baianat.github.io/vee-validate/</p>
+  <p><code class="language-plaintext highlighter-rouge">vee-validate</code>官网：https://baianat.github.io/vee-validate/</p>
 </blockquote>
 
 <h2 id="1-安装">1. 安装</h2>
 
 <blockquote>
-  <p>安装 <code class="highlighter-rouge">vee-validate</code> 到项目中</p>
+  <p>安装 <code class="language-plaintext highlighter-rouge">vee-validate</code> 到项目中</p>
 </blockquote>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>vee-validate <span class="nt">--save</span>
 </code></pre></div></div>
 
-<h2 id="2-创建-vee-validate-插件">2. 创建 <code class="highlighter-rouge">vee-validate</code> 插件</h2>
+<h2 id="2-创建-vee-validate-插件">2. 创建 <code class="language-plaintext highlighter-rouge">vee-validate</code> 插件</h2>
 
 <h3 id="a-创建插件">a. 创建插件</h3>
 
-<p>在 Nuxt.js 项目 <code class="highlighter-rouge">plugins</code> 目录下创建 <code class="highlighter-rouge">veevalidate.js</code> 。</p>
+<p>在 Nuxt.js 项目 <code class="language-plaintext highlighter-rouge">plugins</code> 目录下创建 <code class="language-plaintext highlighter-rouge">veevalidate.js</code> 。</p>
 
-<h3 id="b-引入配置-vee-validate">b. 引入、配置 <code class="highlighter-rouge">vee-validate</code></h3>
+<h3 id="b-引入配置-vee-validate">b. 引入、配置 <code class="language-plaintext highlighter-rouge">vee-validate</code></h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="s1">'vue'</span>
-<span class="k">import</span> <span class="nx">zhCN</span> <span class="k">from</span> <span class="s1">'vee-validate/dist/locale/zh_CN'</span> <span class="c1">// 引入本地化语言</span>
-<span class="k">import</span> <span class="nx">VeeValidate</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Validator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'vee-validate'</span> <span class="c1">// 引入 vee-validate</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">zhCN</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vee-validate/dist/locale/zh_CN</span><span class="dl">'</span> <span class="c1">// 引入本地化语言</span>
+<span class="k">import</span> <span class="nx">VeeValidate</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Validator</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vee-validate</span><span class="dl">'</span> <span class="c1">// 引入 vee-validate</span>
 
 <span class="c1">// 覆盖默认错误信息提示</span>
-<span class="nx">zhCN</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s1">'请输入正确的邮箱地址'</span>
+<span class="nx">zhCN</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="dl">'</span><span class="s1">请输入正确的邮箱地址</span><span class="dl">'</span>
 
 <span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VeeValidate</span><span class="p">)</span>
 
 <span class="c1">// 本地化</span>
-<span class="nx">Validator</span><span class="p">.</span><span class="nx">localize</span><span class="p">(</span><span class="s1">'zh_CN'</span><span class="p">,</span> <span class="nx">zhCN</span><span class="p">)</span>
+<span class="nx">Validator</span><span class="p">.</span><span class="nx">localize</span><span class="p">(</span><span class="dl">'</span><span class="s1">zh_CN</span><span class="dl">'</span><span class="p">,</span> <span class="nx">zhCN</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="3-引入-vee-validate-到项目中">3. 引入 <code class="highlighter-rouge">vee-validate</code> 到项目中</h2>
+<h2 id="3-引入-vee-validate-到项目中">3. 引入 <code class="language-plaintext highlighter-rouge">vee-validate</code> 到项目中</h2>
 
-<p>在 <code class="highlighter-rouge">nuxt.config.js</code> 中引入刚才配置好的插件 <code class="highlighter-rouge">veevalidate.js</code></p>
+<p>在 <code class="language-plaintext highlighter-rouge">nuxt.config.js</code> 中引入刚才配置好的插件 <code class="language-plaintext highlighter-rouge">veevalidate.js</code></p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
 ** Plugins to load before mounting the App
 */</span>
 <span class="nx">plugins</span><span class="p">:</span> <span class="p">[</span>
-	<span class="s1">'@/plugins/veevalidate'</span>
+	<span class="dl">'</span><span class="s1">@/plugins/veevalidate</span><span class="dl">'</span>
 <span class="p">],</span>
 </code></pre></div></div>
 
@@ -143,13 +143,13 @@
 <span class="kd">const</span> <span class="nx">validateDict</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">custom</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">email</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">required</span><span class="p">:</span> <span class="s1">'请输入电子邮箱'</span><span class="p">,</span>  <span class="c1">// 覆盖 email 字段的 required 规则默认信息提示</span>
-      <span class="na">email</span><span class="p">:</span> <span class="s1">'请输入有效的电子邮箱地址'</span> <span class="c1">// 覆盖 email 字段的 email 规则默认信息提示</span>
+      <span class="na">required</span><span class="p">:</span> <span class="dl">'</span><span class="s1">请输入电子邮箱</span><span class="dl">'</span><span class="p">,</span>  <span class="c1">// 覆盖 email 字段的 required 规则默认信息提示</span>
+      <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">请输入有效的电子邮箱地址</span><span class="dl">'</span> <span class="c1">// 覆盖 email 字段的 email 规则默认信息提示</span>
     <span class="p">},</span>
     <span class="na">password</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">min</span><span class="p">:</span> <span class="s1">'密码长度在7-26个字符'</span><span class="p">,</span> <span class="c1">// 覆盖 password 字段的 min 规则默认信息提示</span>
-      <span class="na">max</span><span class="p">:</span> <span class="s1">'密码长度在7-26个字符'</span><span class="p">,</span> <span class="c1">// 覆盖 password 字段的 max 规则默认信息提示</span>
-      <span class="na">regex</span><span class="p">:</span> <span class="s1">'需包含大写字母、小写字母、数字、特殊字符中任意三项'</span> <span class="c1">// 覆盖 email 字段的 regex 规则默认信息提示</span>
+      <span class="na">min</span><span class="p">:</span> <span class="dl">'</span><span class="s1">密码长度在7-26个字符</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// 覆盖 password 字段的 min 规则默认信息提示</span>
+      <span class="na">max</span><span class="p">:</span> <span class="dl">'</span><span class="s1">密码长度在7-26个字符</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// 覆盖 password 字段的 max 规则默认信息提示</span>
+      <span class="na">regex</span><span class="p">:</span> <span class="dl">'</span><span class="s1">需包含大写字母、小写字母、数字、特殊字符中任意三项</span><span class="dl">'</span> <span class="c1">// 覆盖 email 字段的 regex 规则默认信息提示</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -159,11 +159,11 @@
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nl">regexps</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nl">password</span><span class="p">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span> <span class="c1">// 密码检验自定义正则表达式</span>
+    <span class="na">password</span><span class="p">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">''</span><span class="p">)</span> <span class="c1">// 密码检验自定义正则表达式</span>
   <span class="p">},</span>
 <span class="p">},</span>
 <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">$validator</span><span class="p">.</span><span class="nx">localize</span><span class="p">(</span><span class="s1">'zh_CN'</span><span class="p">,</span> <span class="nx">validateDict</span><span class="p">)</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">$validator</span><span class="p">.</span><span class="nx">localize</span><span class="p">(</span><span class="dl">'</span><span class="s1">zh_CN</span><span class="dl">'</span><span class="p">,</span> <span class="nx">validateDict</span><span class="p">)</span>
 <span class="p">},</span>
 </code></pre></div></div>
 
