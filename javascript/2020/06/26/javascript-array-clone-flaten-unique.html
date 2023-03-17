@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -79,18 +77,18 @@
 
 <h3 id="1-slice">1. slice</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array2</span> <span class="o">=</span> <span class="nx">array1</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array2</span> <span class="o">=</span> <span class="nx">array1</span><span class="p">.</span><span class="nf">slice</span><span class="p">();</span>
 <span class="nx">array1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 拷贝 slice</span><span class="dl">"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array2</span><span class="p">,</span> <span class="nx">array2</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// [1, 2, 3, 4, 5, Array(3)]  1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 拷贝 slice</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array2</span><span class="p">,</span> <span class="nx">array2</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// [1, 2, 3, 4, 5, Array(3)]  1</span>
 </code></pre></div></div>
 
 <h3 id="2-展开语法">2. 展开语法(…)</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array21</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">array1</span><span class="p">];</span>
 <span class="nx">array1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 拷贝 ...</span><span class="dl">"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array21</span><span class="p">,</span> <span class="nx">array21</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// ["a", 2, 3, 4, 5, Array(3)] "a"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 拷贝 ...</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array21</span><span class="p">,</span> <span class="nx">array21</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// ["a", 2, 3, 4, 5, Array(3)] "a"</span>
 </code></pre></div></div>
 
 <h3 id="3-arrayfrom">3. Array.from()</h3>
@@ -99,10 +97,10 @@
   <p>Array.from() 从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array22</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array22</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
 <span class="nx">array1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Array 拷贝 Array.from()</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array22</span><span class="p">);</span>  <span class="c1">// ["b", 2, 3, 4, 5, Array(3)]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Array 拷贝 Array.from()</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array22</span><span class="p">);</span>  <span class="c1">// ["b", 2, 3, 4, 5, Array(3)]</span>
 </code></pre></div></div>
 
 <h2 id="扁平化展开">扁平化（展开）</h2>
@@ -115,31 +113,31 @@
   <li>null 和 undefined 会转换为 “”</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">flattenArray</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">array</span><span class="p">))</span> <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">flattenArray</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nf">isArray</span><span class="p">(</span><span class="nx">array</span><span class="p">))</span> <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
 
-  <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">).</span><span class="nf">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="kd">let</span> <span class="nx">array3</span> <span class="o">=</span> <span class="nx">flattenArray</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 扁平化 1</span><span class="dl">"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array3</span><span class="p">);</span> <span class="c1">// ["c", "2", "3", "4", "5", "6", "7", "8", "9", "", "", "true", "false", "a", "b", "c"]</span>
+<span class="kd">let</span> <span class="nx">array3</span> <span class="o">=</span> <span class="nf">flattenArray</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 扁平化 1</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array3</span><span class="p">);</span> <span class="c1">// ["c", "2", "3", "4", "5", "6", "7", "8", "9", "", "", "true", "false", "a", "b", "c"]</span>
 </code></pre></div></div>
 
 <h3 id="2-遍历递归">2. 遍历递归</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">flattenArray1</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">flattenArray1</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
 
-  <span class="nx">array</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">?</span>
-      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">flattenArray1</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span> <span class="p">:</span>
-      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nb">Array</span><span class="p">.</span><span class="nf">isArray</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">?</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(...</span><span class="nf">flattenArray1</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span> <span class="p">:</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
   <span class="p">});</span>
   <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="kd">let</span> <span class="nx">array4</span> <span class="o">=</span> <span class="nx">flattenArray1</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 扁平化 2</span><span class="dl">"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array4</span><span class="p">);</span> <span class="c1">// ["c", 2, 3, 4, 5, 6, 7, 8, 9, null, undefined, true, false, "a", "b", "c"]</span>
+<span class="kd">let</span> <span class="nx">array4</span> <span class="o">=</span> <span class="nf">flattenArray1</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 扁平化 2</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array4</span><span class="p">);</span> <span class="c1">// ["c", 2, 3, 4, 5, 6, 7, 8, 9, null, undefined, true, false, "a", "b", "c"]</span>
 </code></pre></div></div>
 
 <h3 id="3-es2019-arrayprototypeflat">3. ES2019 Array.prototype.flat()</h3>
@@ -148,25 +146,25 @@
   <p>flat() 方法会按照一个可指定的尝试递归遍历数据，并将所有元素和遍历到的子数组中的元素合并为一个新数组返回。</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array5</span> <span class="o">=</span> <span class="nx">array1</span><span class="p">.</span><span class="nx">flat</span><span class="p">(</span><span class="kc">Infinity</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array5</span> <span class="o">=</span> <span class="nx">array1</span><span class="p">.</span><span class="nf">flat</span><span class="p">(</span><span class="kc">Infinity</span><span class="p">);</span>
 <span class="nx">array1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 扁平化 flat</span><span class="dl">"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array5</span><span class="p">);</span> <span class="c1">//  ["c", 2, 3, 4, 5, 6, 7, 8, 9, null, undefined, true, false, "a", "b", "c"]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">"</span><span class="s2">Array 扁平化 flat</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array5</span><span class="p">);</span> <span class="c1">//  ["c", 2, 3, 4, 5, 6, 7, 8, 9, null, undefined, true, false, "a", "b", "c"]</span>
 </code></pre></div></div>
 
 <h2 id="array-去重">Array 去重</h2>
 
 <h3 id="1-筛选-filter">1. 筛选 filter</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">uniqueArray</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="nx">i</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">uniqueArray</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nf">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nf">indexOf</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="nx">i</span>
   <span class="p">});</span>
 <span class="p">}</span>
 <span class="kd">let</span> <span class="nx">array11</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">6</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">];</span>
-<span class="kd">let</span> <span class="nx">array6</span> <span class="o">=</span> <span class="nx">uniqueArray</span><span class="p">(</span><span class="nx">array11</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Array 去重 fliter</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array6</span><span class="p">);</span>  <span class="c1">// [1, 2, 5, 4, 3, 7, 8, 9, "1", "3", "6", "2"]</span>
+<span class="kd">let</span> <span class="nx">array6</span> <span class="o">=</span> <span class="nf">uniqueArray</span><span class="p">(</span><span class="nx">array11</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Array 去重 fliter</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array6</span><span class="p">);</span>  <span class="c1">// [1, 2, 5, 4, 3, 7, 8, 9, "1", "3", "6", "2"]</span>
 </code></pre></div></div>
 
 <h3 id="2-new-set">2. new Set()</h3>
@@ -175,12 +173,12 @@
   <p>传递一个可迭代对象，它的所有元素将不重复地被添加到新的 Set 中。</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">uniqueArray1</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">array</span><span class="p">));</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">uniqueArray1</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="k">new</span> <span class="nc">Set</span><span class="p">(</span><span class="nx">array</span><span class="p">));</span>
 <span class="p">}</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Array 去重 new Set</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">array7</span> <span class="o">=</span> <span class="nx">uniqueArray1</span><span class="p">(</span><span class="nx">array11</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array7</span><span class="p">);</span> <span class="c1">// [1, 2, 5, 4, 3, 7, 8, 9, "1", "3", "6", "2"]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Array 去重 new Set</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">array7</span> <span class="o">=</span> <span class="nf">uniqueArray1</span><span class="p">(</span><span class="nx">array11</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array7</span><span class="p">);</span> <span class="c1">// [1, 2, 5, 4, 3, 7, 8, 9, "1", "3", "6", "2"]</span>
 </code></pre></div></div>
 
 <h4 id="转载请注明出处-httpsbloggivebestcnjavascript20200626javascript-array-clone-flaten-uniquehtml">转载请注明出处： <a href="https://blog.givebest.cn/javascript/2020/06/26/javascript-array-clone-flaten-unique.html">https://blog.givebest.cn/javascript/2020/06/26/javascript-array-clone-flaten-unique.html</a></h4>

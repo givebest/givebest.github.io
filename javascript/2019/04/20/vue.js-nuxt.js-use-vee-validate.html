@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -97,10 +95,10 @@
 <span class="c1">// 覆盖默认错误信息提示</span>
 <span class="nx">zhCN</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="dl">'</span><span class="s1">请输入正确的邮箱地址</span><span class="dl">'</span>
 
-<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VeeValidate</span><span class="p">)</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nf">use</span><span class="p">(</span><span class="nx">VeeValidate</span><span class="p">)</span>
 
 <span class="c1">// 本地化</span>
-<span class="nx">Validator</span><span class="p">.</span><span class="nx">localize</span><span class="p">(</span><span class="dl">'</span><span class="s1">zh_CN</span><span class="dl">'</span><span class="p">,</span> <span class="nx">zhCN</span><span class="p">)</span>
+<span class="nx">Validator</span><span class="p">.</span><span class="nf">localize</span><span class="p">(</span><span class="dl">'</span><span class="s1">zh_CN</span><span class="dl">'</span><span class="p">,</span> <span class="nx">zhCN</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h2 id="3-引入-vee-validate-到项目中">3. 引入 <code class="language-plaintext highlighter-rouge">vee-validate</code> 到项目中</h2>
@@ -152,13 +150,13 @@
 
 <h4 id="b-vue-中覆盖默认配置使用自定义提示信息">b. Vue 中覆盖默认配置，使用自定义提示信息</h4>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">data </span><span class="p">()</span> <span class="p">{</span>
   <span class="nl">regexps</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">password</span><span class="p">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">''</span><span class="p">)</span> <span class="c1">// 密码检验自定义正则表达式</span>
+    <span class="na">password</span><span class="p">:</span> <span class="k">new</span> <span class="nc">RegExp</span><span class="p">(</span><span class="dl">''</span><span class="p">)</span> <span class="c1">// 密码检验自定义正则表达式</span>
   <span class="p">},</span>
 <span class="p">},</span>
-<span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">$validator</span><span class="p">.</span><span class="nx">localize</span><span class="p">(</span><span class="dl">'</span><span class="s1">zh_CN</span><span class="dl">'</span><span class="p">,</span> <span class="nx">validateDict</span><span class="p">)</span>
+<span class="nf">created</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">$validator</span><span class="p">.</span><span class="nf">localize</span><span class="p">(</span><span class="dl">'</span><span class="s1">zh_CN</span><span class="dl">'</span><span class="p">,</span> <span class="nx">validateDict</span><span class="p">)</span>
 <span class="p">},</span>
 </code></pre></div></div>
 

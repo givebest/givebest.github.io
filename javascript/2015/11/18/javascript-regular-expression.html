@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -413,7 +411,7 @@
 如果search()的参数不是正则表达式，则首先会通过RegExp构造函数将它转换成正则表达式，search()方法不支持全局检索，因为它忽略正则表达式参数中的修饰符g。</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">JavaScript</span><span class="dl">"</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/script/i</span><span class="p">);</span>  <span class="c1">//4</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">JavaScript</span><span class="dl">"</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="sr">/script/i</span><span class="p">);</span>  <span class="c1">//4</span>
 </code></pre></div></div>
 
 <h3 id="22replace">2.2replace()</h3>
@@ -422,11 +420,11 @@
   <p>replace()方法用以执行检索与替换操作。其中第一个参数是一个正则表达式，第二个参数是要进行替换的字符串。</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">JavaScript</span><span class="dl">"</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/javascript/gi</span><span class="p">,</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">)</span>   <span class="c1">//"a"</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">JavaScript</span><span class="dl">"</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sr">/javascript/gi</span><span class="p">,</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">)</span>   <span class="c1">//"a"</span>
 <span class="c1">// 一段引用文本起始于引号，结束于引号	// 中间的内容区域不能包含引号</span>
 <span class="kd">var</span> <span class="nx">quote</span> <span class="o">=</span> <span class="sr">/"</span><span class="se">([^</span><span class="sr">"</span><span class="se">]</span><span class="sr">*</span><span class="se">)</span><span class="sr">"/g</span><span class="p">;</span>
 <span class="c1">// 用中文半角引号替换英文引号，同时要保持引号之间的内容（存储在$1中）没有被修改</span>
-<span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">quote</span><span class="p">,</span> <span class="dl">'</span><span class="s1">“$1”</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="nx">quote</span><span class="p">,</span> <span class="dl">'</span><span class="s1">“$1”</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div></div>
 
 <h3 id="23match">2.3match()</h3>
@@ -435,12 +433,12 @@
   <p>match()方法是最常用的String正则表达式方法。它的唯一参数就是一个正则表达式（或通过RegExp()构造函数将其转换为正则表达式），返回的是一个由匹配结果组成的数组。</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">1 plus 2 equals 3</span><span class="dl">"</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\d</span><span class="sr">+/g</span><span class="p">)</span> <span class="c1">// 返回 ["1", "2", "3"]</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">1 plus 2 equals 3</span><span class="dl">"</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\d</span><span class="sr">+/g</span><span class="p">)</span> <span class="c1">// 返回 ["1", "2", "3"]</span>
 <span class="nx">例如</span><span class="err">，</span><span class="nx">使用如下的代码来解析一个URL</span><span class="err">：</span>
 <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="sr">/</span><span class="se">(\w</span><span class="sr">+</span><span class="se">)</span><span class="sr">:</span><span class="se">\/\/([\w</span><span class="sr">.</span><span class="se">]</span><span class="sr">+</span><span class="se">)\/(\S</span><span class="sr">*</span><span class="se">)</span><span class="sr">/</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Visit my blog at http://www.example.com/~david</span><span class="dl">"</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">result</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="nf">if </span><span class="p">(</span><span class="nx">result</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">fullurl</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
   <span class="c1">// 包含 "http://www.example.com/~david"</span>
   <span class="kd">var</span> <span class="nx">protocol</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
@@ -458,14 +456,14 @@
   <p>这个方法用以将调用它的字符串拆分为一个子串组成的数组，使用的分隔符是split()的参数</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">123,456,789</span><span class="dl">"</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 返回 ["123","456","789"]</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">123,456,789</span><span class="dl">"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 返回 ["123","456","789"]</span>
 </code></pre></div></div>
 
 <blockquote>
   <p>split()方法的参数也可以是一个正则表达式，这使得split()方法异常强大。例如，可以指定分隔符，允许两边可以留有任意多的空白符：</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">1, 2, 3, 4, 5</span><span class="dl">"</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">*,</span><span class="se">\s</span><span class="sr">*/</span><span class="p">);</span> <span class="c1">// 返回 ["1","2","3","4","5"]</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">1, 2, 3, 4, 5</span><span class="dl">"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">*,</span><span class="se">\s</span><span class="sr">*/</span><span class="p">);</span> <span class="c1">// 返回 ["1","2","3","4","5"]</span>
 </code></pre></div></div>
 
 <h2 id="3regexp对象">3.RegExp对象</h2>
@@ -561,8 +559,8 @@ RegExp()构造函数带有两个字符串参数，其中第二个参数是可选
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/Java/g</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">JavaScript is more fun than Java!</span><span class="dl">"</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">result</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">((</span><span class="nx">result</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">))</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Matched '</span><span class="dl">"</span> <span class="o">+</span>
+<span class="nf">while </span><span class="p">((</span><span class="nx">result</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nf">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">))</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Matched '</span><span class="dl">"</span> <span class="o">+</span>
   <span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">'</span><span class="dl">"</span> <span class="o">+</span>
   <span class="dl">"</span><span class="s2"> at position </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span>        <span class="dl">"</span><span class="s2">;
   next search begins at </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span>
@@ -575,7 +573,7 @@ RegExp()构造函数带有两个字符串参数，其中第二个参数是可选
   <p>另外一个RegExp方法是test()，它比exec()更简单一些。它的参数是一个字符串，用test()对某个字符串进行检测，如果包含正则表达式的一个匹配结果，则返回true：</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/java/i</span><span class="p">;</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="dl">"</span><span class="s2">JavaScript</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 返回 true</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/java/i</span><span class="p">;</span><span class="nx">pattern</span><span class="p">.</span><span class="nf">test</span><span class="p">(</span><span class="dl">"</span><span class="s2">JavaScript</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 返回 true</span>
 </code></pre></div></div>
 
 <h2 id="4常用正则表达式">4.常用正则表达式</h2>
@@ -591,7 +589,7 @@ RegExp()构造函数带有两个字符串参数，其中第二个参数是可选
   <p>邮箱</p>
 </blockquote>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="p">((([</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">|</span><span class="err">\</span><span class="nx">d</span><span class="o">|</span><span class="p">[</span><span class="o">!</span><span class="err">#\</span><span class="nx">$</span><span class="o">%&amp;</span><span class="dl">'</span><span class="se">\</span><span class="s1">*</span><span class="se">\</span><span class="s1">+</span><span class="se">\</span><span class="s1">-</span><span class="se">\</span><span class="s1">/=</span><span class="se">\</span><span class="s1">?</span><span class="se">\</span><span class="s1">^_`{</span><span class="se">\</span><span class="s1">|}~]|[</span><span class="se">\</span><span class="s1">u00A0-</span><span class="se">\</span><span class="s1">uD7FF</span><span class="se">\</span><span class="s1">uF900-</span><span class="se">\</span><span class="s1">uFDCF</span><span class="se">\</span><span class="s1">uFDF0-</span><span class="se">\</span><span class="s1">uFFEF])+(</span><span class="se">\</span><span class="s1">.([a-z]|</span><span class="se">\</span><span class="s1">d|[!#</span><span class="se">\</span><span class="s1">$%&amp;</span><span class="dl">'</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">+</span><span class="err">\</span><span class="o">-</span><span class="err">\</span><span class="o">/=</span><span class="err">\</span><span class="p">?</span><span class="err">\</span><span class="o">^</span><span class="nx">_</span><span class="s2">`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/^</span><span class="p">((([</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">]</span><span class="o">|</span><span class="err">\</span><span class="nx">d</span><span class="o">|</span><span class="p">[</span><span class="o">!</span><span class="err">#\</span><span class="nx">$</span><span class="o">%&amp;</span><span class="dl">'</span><span class="se">\</span><span class="s1">*</span><span class="se">\</span><span class="s1">+</span><span class="se">\</span><span class="s1">-</span><span class="se">\</span><span class="s1">/=</span><span class="se">\</span><span class="s1">?</span><span class="se">\</span><span class="s1">^_`{</span><span class="se">\</span><span class="s1">|}~]|[</span><span class="se">\</span><span class="s1">u00A0-</span><span class="se">\</span><span class="s1">uD7FF</span><span class="se">\</span><span class="s1">uF900-</span><span class="se">\</span><span class="s1">uFDCF</span><span class="se">\</span><span class="s1">uFDF0-</span><span class="se">\</span><span class="s1">uFFEF])+(</span><span class="se">\</span><span class="s1">.([a-z]|</span><span class="se">\</span><span class="s1">d|[!#</span><span class="se">\</span><span class="s1">$%&amp;</span><span class="dl">'</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">+</span><span class="err">\</span><span class="o">-</span><span class="err">\</span><span class="o">/=</span><span class="err">\</span><span class="p">?</span><span class="err">\</span><span class="o">^</span><span class="nx">_</span><span class="s2">`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(</span><span class="se">\\</span><span class="s2">([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i
 </span></code></pre></div></div>
 
 <blockquote>

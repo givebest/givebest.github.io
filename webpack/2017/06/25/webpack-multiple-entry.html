@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -109,23 +107,23 @@
   <p>根据 <code class="language-plaintext highlighter-rouge">JS</code> 目录获取多入口数组</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ROOT</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">();</span>  <span class="c1">// 根目录</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ROOT</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nf">cwd</span><span class="p">();</span>  <span class="c1">// 根目录</span>
 
-<span class="kd">let</span> <span class="nx">entryJs</span> <span class="o">=</span> <span class="nx">getEntry</span><span class="p">(</span><span class="dl">'</span><span class="s1">./src/js/**/*.js</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">entryJs</span> <span class="o">=</span> <span class="nf">getEntry</span><span class="p">(</span><span class="dl">'</span><span class="s1">./src/js/**/*.js</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="cm">/**
  * 根据目录获取入口
  * @param  {[type]} globPath [description]
  * @return {[type]}          [description]
  */</span>
-<span class="kd">function</span> <span class="nx">getEntry</span> <span class="p">(</span><span class="nx">globPath</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">getEntry</span> <span class="p">(</span><span class="nx">globPath</span><span class="p">)</span> <span class="p">{</span>
 	<span class="kd">let</span> <span class="nx">entries</span> <span class="o">=</span> <span class="p">{};</span>
-	<span class="nx">Glob</span><span class="p">.</span><span class="nx">sync</span><span class="p">(</span><span class="nx">globPath</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
-		<span class="kd">let</span> <span class="nx">basename</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nx">entry</span><span class="p">,</span> <span class="nx">path</span><span class="p">.</span><span class="nx">extname</span><span class="p">(</span><span class="nx">entry</span><span class="p">)),</span>
-			<span class="nx">pathname</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+	<span class="nx">Glob</span><span class="p">.</span><span class="nf">sync</span><span class="p">(</span><span class="nx">globPath</span><span class="p">).</span><span class="nf">forEach</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">let</span> <span class="nx">basename</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="nx">entry</span><span class="p">,</span> <span class="nx">path</span><span class="p">.</span><span class="nf">extname</span><span class="p">(</span><span class="nx">entry</span><span class="p">)),</span>
+			<span class="nx">pathname</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
 		<span class="c1">// js/lib/*.js 不作为入口</span>
-		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">entry</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\/</span><span class="sr">js</span><span class="se">\/</span><span class="sr">lib</span><span class="se">\/</span><span class="sr">/</span><span class="p">))</span> <span class="p">{</span>
-			<span class="nx">entries</span><span class="p">[</span><span class="nx">pathname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">).</span><span class="nx">splice</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">)</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">basename</span><span class="p">]</span> <span class="o">=</span> <span class="nx">pathname</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">basename</span><span class="p">;</span>
+		<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nx">entry</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sr">/</span><span class="se">\/</span><span class="sr">js</span><span class="se">\/</span><span class="sr">lib</span><span class="se">\/</span><span class="sr">/</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nx">entries</span><span class="p">[</span><span class="nx">pathname</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">).</span><span class="nf">splice</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">)</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">basename</span><span class="p">]</span> <span class="o">=</span> <span class="nx">pathname</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">basename</span><span class="p">;</span>
 		<span class="p">}</span>
 	<span class="p">});</span>
 	<span class="k">return</span> <span class="nx">entries</span><span class="p">;</span>
@@ -137,7 +135,7 @@
 	<span class="na">output</span><span class="p">:</span> <span class="p">{</span>
 		<span class="na">filename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">js/[name].js?[chunkhash:8]</span><span class="dl">'</span><span class="p">,</span>
 		<span class="na">chunkFilename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">js/[name].js?[chunkhash:8]</span><span class="dl">'</span><span class="p">,</span>
-		<span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">ROOT</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span><span class="p">),</span>
+		<span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nf">resolve</span><span class="p">(</span><span class="nx">ROOT</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span><span class="p">),</span>
 		<span class="na">publicPath</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span>
 	<span class="p">},</span>
 <span class="p">}</span>
@@ -163,7 +161,7 @@
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">less|css</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
-            <span class="na">use</span><span class="p">:</span> <span class="nx">ExtractTextPlugin</span><span class="p">.</span><span class="nx">extract</span><span class="p">({</span>
+            <span class="na">use</span><span class="p">:</span> <span class="nx">ExtractTextPlugin</span><span class="p">.</span><span class="nf">extract</span><span class="p">({</span>
                 <span class="na">fallback</span><span class="p">:</span> <span class="dl">'</span><span class="s1">style-loader?id=styles</span><span class="dl">'</span><span class="p">,</span>
                 <span class="na">use</span><span class="p">:</span> <span class="p">[{</span>
                         <span class="na">loader</span><span class="p">:</span> <span class="dl">'</span><span class="s1">css-loader?id=styles</span><span class="dl">'</span><span class="p">,</span>
@@ -223,7 +221,7 @@
 <span class="c1">// postcss.config.js</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
 	<span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
-		<span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">autoprefixer</span><span class="dl">'</span><span class="p">)({</span>
+		<span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">autoprefixer</span><span class="dl">'</span><span class="p">)({</span>
 			<span class="na">browsers</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">&gt; 1%</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">last 5 versions</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">not ie &lt;= 9</span><span class="dl">'</span><span class="p">],</span>
 		<span class="p">})</span>
 	<span class="p">]</span>
@@ -236,17 +234,17 @@
   <p>根据目录对应关系，获取 js 对应的 html 入口</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">entryHtml</span> <span class="o">=</span> <span class="nx">getEntryHtml</span><span class="p">(</span><span class="dl">'</span><span class="s1">./src/view/**/*.html</span><span class="dl">'</span><span class="p">),</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">entryHtml</span> <span class="o">=</span> <span class="nf">getEntryHtml</span><span class="p">(</span><span class="dl">'</span><span class="s1">./src/view/**/*.html</span><span class="dl">'</span><span class="p">),</span>
     <span class="nx">configPlugins</span><span class="p">;</span>
 
-<span class="nx">entryHtml</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">configPlugins</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">(</span><span class="nx">v</span><span class="p">));</span>
+<span class="nx">entryHtml</span><span class="p">.</span><span class="nf">forEach</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">configPlugins</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="k">new</span> <span class="nc">HtmlWebpackPlugin</span><span class="p">(</span><span class="nx">v</span><span class="p">));</span>
 <span class="p">});</span>
 
 <span class="c1">// webpack 配置</span>
 <span class="nl">resolve</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">alias</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">views</span><span class="p">:</span>  <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">ROOT</span><span class="p">,</span> <span class="dl">'</span><span class="s1">./src/view</span><span class="dl">'</span><span class="p">)</span>
+        <span class="na">views</span><span class="p">:</span>  <span class="nx">path</span><span class="p">.</span><span class="nf">resolve</span><span class="p">(</span><span class="nx">ROOT</span><span class="p">,</span> <span class="dl">'</span><span class="s1">./src/view</span><span class="dl">'</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">},</span>
 
@@ -255,11 +253,11 @@
  * @param  {[type]} globPath [description]
  * @return {[type]}          [description]
  */</span>
-<span class="kd">function</span> <span class="nx">getEntryHtml</span> <span class="p">(</span><span class="nx">globPath</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">getEntryHtml</span> <span class="p">(</span><span class="nx">globPath</span><span class="p">)</span> <span class="p">{</span>
 	<span class="kd">let</span> <span class="nx">entries</span> <span class="o">=</span> <span class="p">[];</span>
-	<span class="nx">Glob</span><span class="p">.</span><span class="nx">sync</span><span class="p">(</span><span class="nx">globPath</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
-		<span class="kd">let</span> <span class="nx">basename</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nx">entry</span><span class="p">,</span> <span class="nx">path</span><span class="p">.</span><span class="nx">extname</span><span class="p">(</span><span class="nx">entry</span><span class="p">)),</span>
-			<span class="nx">pathname</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">entry</span><span class="p">),</span>
+	<span class="nx">Glob</span><span class="p">.</span><span class="nf">sync</span><span class="p">(</span><span class="nx">globPath</span><span class="p">).</span><span class="nf">forEach</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">let</span> <span class="nx">basename</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="nx">entry</span><span class="p">,</span> <span class="nx">path</span><span class="p">.</span><span class="nf">extname</span><span class="p">(</span><span class="nx">entry</span><span class="p">)),</span>
+			<span class="nx">pathname</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="nx">entry</span><span class="p">),</span>
 			<span class="c1">// @see https://github.com/kangax/html-minifier#options-quick-reference</span>
 			<span class="nx">minifyConfig</span> <span class="o">=</span> <span class="nx">IsDev</span> <span class="p">?</span> <span class="dl">''</span> <span class="p">:</span> <span class="p">{</span>
 				<span class="na">removeComments</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -268,10 +266,10 @@
 				<span class="na">minifyJS</span><span class="p">:</span> <span class="kc">true</span>
 			<span class="p">};</span>
 
-		<span class="nx">entries</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-			<span class="na">filename</span><span class="p">:</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">).</span><span class="nx">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">),</span>
+		<span class="nx">entries</span><span class="p">.</span><span class="nf">push</span><span class="p">({</span>
+			<span class="na">filename</span><span class="p">:</span> <span class="nx">entry</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">).</span><span class="nf">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nf">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">),</span>
 			<span class="na">template</span><span class="p">:</span> <span class="nx">entry</span><span class="p">,</span>
-			<span class="na">chunks</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">common</span><span class="dl">'</span><span class="p">,</span> <span class="nx">pathname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">).</span><span class="nx">splice</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">)</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">basename</span><span class="p">],</span>
+			<span class="na">chunks</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">common</span><span class="dl">'</span><span class="p">,</span> <span class="nx">pathname</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">).</span><span class="nf">splice</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">)</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">basename</span><span class="p">],</span>
 			<span class="na">minify</span><span class="p">:</span> <span class="nx">minifyConfig</span>
 		<span class="p">});</span>
 
@@ -287,29 +285,29 @@
 </blockquote>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">configPlugins</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="k">new</span> <span class="nx">HappyPack</span><span class="p">({</span>
+    <span class="k">new</span> <span class="nc">HappyPack</span><span class="p">({</span>
         <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">js</span><span class="dl">'</span><span class="p">,</span>
         <span class="c1">// @see https://github.com/amireh/happypack</span>
         <span class="na">threadPool</span><span class="p">:</span> <span class="nx">HappyThreadPool</span><span class="p">,</span>
         <span class="na">loaders</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">babel-loader</span><span class="dl">'</span><span class="p">]</span>
     <span class="p">}),</span>
-    <span class="k">new</span> <span class="nx">HappyPack</span><span class="p">({</span>
+    <span class="k">new</span> <span class="nc">HappyPack</span><span class="p">({</span>
         <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">styles</span><span class="dl">'</span><span class="p">,</span>
         <span class="na">threadPool</span><span class="p">:</span> <span class="nx">HappyThreadPool</span><span class="p">,</span>
         <span class="na">loaders</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">style-loader</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">css-loader</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">less-loader</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">postcss-loader</span><span class="dl">'</span><span class="p">]</span>
     <span class="p">}),</span>
-    <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">optimize</span><span class="p">.</span><span class="nx">CommonsChunkPlugin</span><span class="p">({</span>
+    <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">optimize</span><span class="p">.</span><span class="nc">CommonsChunkPlugin</span><span class="p">({</span>
         <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">common</span><span class="dl">'</span>
     <span class="p">}),</span>
     <span class="c1">// @see https://github.com/webpack/webpack/tree/master/examples/multiple-entry-points-commons-chunk-css-bundle</span>
-    <span class="k">new</span> <span class="nx">ExtractTextPlugin</span><span class="p">({</span>
+    <span class="k">new</span> <span class="nc">ExtractTextPlugin</span><span class="p">({</span>
         <span class="na">filename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">css/[name].css?[contenthash:8]</span><span class="dl">'</span><span class="p">,</span>
         <span class="na">allChunks</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">})</span>
 <span class="p">];</span>
 
-<span class="nx">entryHtml</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">configPlugins</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">(</span><span class="nx">v</span><span class="p">));</span>
+<span class="nx">entryHtml</span><span class="p">.</span><span class="nf">forEach</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">configPlugins</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="k">new</span> <span class="nc">HtmlWebpackPlugin</span><span class="p">(</span><span class="nx">v</span><span class="p">));</span>
 <span class="p">});</span>
 
 <span class="c1">// webpack 配置</span>
@@ -325,7 +323,7 @@
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// webpack 配置</span>
 <span class="nx">devServer</span><span class="p">:</span> <span class="p">{</span>
     <span class="nl">contentBase</span><span class="p">:</span> <span class="p">[</span>
-        <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">ROOT</span><span class="p">,</span> <span class="dl">'</span><span class="s1">src/</span><span class="dl">'</span><span class="p">)</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="nx">ROOT</span><span class="p">,</span> <span class="dl">'</span><span class="s1">src/</span><span class="dl">'</span><span class="p">)</span>
     <span class="p">],</span>
     <span class="nx">hot</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nx">host</span><span class="p">:</span> <span class="dl">'</span><span class="s1">0.0.0.0</span><span class="dl">'</span><span class="p">,</span>

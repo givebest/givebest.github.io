@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -90,40 +88,40 @@
  * 使用原型链实现对原型属性和方法的继承。
  * 借用构造函数来实现对实例属性的继承。
  */</span>
-<span class="kd">function</span> <span class="nx">SuperType</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">SuperType</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
    <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">blue</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span><span class="p">];</span>
  <span class="p">}</span>
 
- <span class="nx">SuperType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+ <span class="nx">SuperType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
  <span class="p">}</span>
 
- <span class="kd">function</span> <span class="nx">SubType</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+ <span class="kd">function</span> <span class="nf">SubType</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
    <span class="c1">// 继承属性</span>
-   <span class="nx">SuperType</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+   <span class="nx">SuperType</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
 
    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
  <span class="p">}</span>
 
  <span class="c1">// 继承方法</span>
- <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SuperType</span><span class="p">();</span>
+ <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SuperType</span><span class="p">();</span>
  <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">SubType</span><span class="p">;</span> <span class="c1">//增强对象</span>
- <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayAge</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+ <span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayAge</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
  <span class="p">}</span>
 
- <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">组合继承</span><span class="dl">'</span><span class="p">);</span>
- <span class="kd">let</span> <span class="nx">instance1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="dl">'</span><span class="s1">TB</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
- <span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">);</span>
- <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green", "yellow"]</span>
-<span class="nx">instance1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// TB</span>
-<span class="nx">instance1</span><span class="p">.</span><span class="nx">sayAge</span><span class="p">();</span>  <span class="c1">// 20</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">组合继承</span><span class="dl">'</span><span class="p">);</span>
+ <span class="kd">let</span> <span class="nx">instance1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SubType</span><span class="p">(</span><span class="dl">'</span><span class="s1">TB</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+ <span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">);</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">instance1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green", "yellow"]</span>
+<span class="nx">instance1</span><span class="p">.</span><span class="nf">sayName</span><span class="p">();</span>  <span class="c1">// TB</span>
+<span class="nx">instance1</span><span class="p">.</span><span class="nf">sayAge</span><span class="p">();</span>  <span class="c1">// 20</span>
 
-<span class="kd">let</span> <span class="nx">instance2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="dl">'</span><span class="s1">JD</span><span class="dl">'</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green"]</span>
-<span class="nx">instance2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// JD</span>
-<span class="nx">instance2</span><span class="p">.</span><span class="nx">sayAge</span><span class="p">();</span> <span class="c1">// 15</span>
+<span class="kd">let</span> <span class="nx">instance2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SubType</span><span class="p">(</span><span class="dl">'</span><span class="s1">JD</span><span class="dl">'</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">instance2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>  <span class="c1">// ["red", "blue", "green"]</span>
+<span class="nx">instance2</span><span class="p">.</span><span class="nf">sayName</span><span class="p">();</span>  <span class="c1">// JD</span>
+<span class="nx">instance2</span><span class="p">.</span><span class="nf">sayAge</span><span class="p">();</span> <span class="c1">// 15</span>
 </code></pre></div></div>
 
 <h3 id="2-objectcreate-继承">2. Object.create() 继承</h3>
@@ -135,33 +133,33 @@
   * 创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。
   * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create
   */</span>
-<span class="kd">function</span> <span class="nx">SuperCar</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">SuperCar</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">black</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">white</span><span class="dl">'</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">SubCar</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">SubCar</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// 继承属性</span>
-  <span class="nx">SuperCar</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+  <span class="nx">SuperCar</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1">// 继承方法</span>
-<span class="nx">SubCar</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<span class="nx">SubCar</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="nx">SuperCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
 <span class="nx">SubCar</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">SubCar</span><span class="p">;</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Object.create 继承</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="dl">'</span><span class="s1">TSL</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white", "yellow"]</span>
-<span class="nx">car1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// TSL</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Object.create 继承</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SubCar</span><span class="p">(</span><span class="dl">'</span><span class="s1">TSL</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">yellow</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">car1</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white", "yellow"]</span>
+<span class="nx">car1</span><span class="p">.</span><span class="nf">sayName</span><span class="p">();</span>  <span class="c1">// TSL</span>
 
-<span class="kd">let</span> <span class="nx">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubCar</span><span class="p">(</span><span class="dl">'</span><span class="s1">KLL</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">car2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white"]</span>
-<span class="nx">car2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// KLL</span>
+<span class="kd">let</span> <span class="nx">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SubCar</span><span class="p">(</span><span class="dl">'</span><span class="s1">KLL</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">car2</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span> <span class="c1">// ["black", "white"]</span>
+<span class="nx">car2</span><span class="p">.</span><span class="nf">sayName</span><span class="p">();</span> <span class="c1">// KLL</span>
 </code></pre></div></div>
 
 <h3 id="3-class--extends-继承">3. class &amp; extends 继承</h3>
@@ -178,36 +176,36 @@
  * extends 关键字用于类声明或者类表达式中，以创建一个类，该类是另一个类的子类。
  * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/extends
  */</span>
-<span class="kd">class</span> <span class="nx">SuperPen</span> <span class="p">{</span>
-  <span class="kd">constructor</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="nc">SuperPen</span> <span class="p">{</span>
+  <span class="nf">constructor </span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">white</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">black</span><span class="dl">'</span><span class="p">];</span>
   <span class="p">}</span>
 
-  <span class="nx">sayName</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nf">sayName </span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">class</span> <span class="nx">SubPen</span> <span class="kd">extends</span> <span class="nx">SuperPen</span> <span class="p">{</span>
-  <span class="kd">constructor</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nc">SubPen</span> <span class="kd">extends</span> <span class="nc">SuperPen</span> <span class="p">{</span>
+  <span class="nf">constructor </span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">super</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
   <span class="p">}</span>
 
-  <span class="nx">sayColrs</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>
+  <span class="nf">sayColrs </span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">class 继承</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">pen1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="dl">'</span><span class="s1">pencil</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">pen1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">gray</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">pen1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// pencil</span>
-<span class="nx">pen1</span><span class="p">.</span><span class="nx">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black", "gray"]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">class 继承</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">pen1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SubPen</span><span class="p">(</span><span class="dl">'</span><span class="s1">pencil</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">pen1</span><span class="p">.</span><span class="nx">colors</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">gray</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">pen1</span><span class="p">.</span><span class="nf">sayName</span><span class="p">();</span> <span class="c1">// pencil</span>
+<span class="nx">pen1</span><span class="p">.</span><span class="nf">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black", "gray"]</span>
 
-<span class="kd">let</span> <span class="nx">pen2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubPen</span><span class="p">(</span><span class="dl">'</span><span class="s1">ball-pen</span><span class="dl">'</span><span class="p">);</span>
-<span class="nx">pen2</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>  <span class="c1">// ball-pen</span>
-<span class="nx">pen2</span><span class="p">.</span><span class="nx">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black"]</span>
+<span class="kd">let</span> <span class="nx">pen2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SubPen</span><span class="p">(</span><span class="dl">'</span><span class="s1">ball-pen</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">pen2</span><span class="p">.</span><span class="nf">sayName</span><span class="p">();</span>  <span class="c1">// ball-pen</span>
+<span class="nx">pen2</span><span class="p">.</span><span class="nf">sayColrs</span><span class="p">();</span> <span class="c1">// ["white", "black"]</span>
 <span class="s2">``</span>
 
 </code></pre></div></div>

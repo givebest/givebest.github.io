@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -96,15 +94,15 @@
 <span class="nt">&lt;script&gt;</span>
 <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Username</span><span class="dl">"</span><span class="p">,</span>
-  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="na">username</span><span class="p">:</span> <span class="dl">''</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
     <span class="c1">// 表单校验</span>
-    <span class="nx">validateForm</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$validator</span><span class="p">.</span><span class="nx">validateAll</span><span class="p">();</span>
+    <span class="nf">validateForm</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$validator</span><span class="p">.</span><span class="nf">validateAll</span><span class="p">();</span>
     <span class="p">},</span>
   <span class="p">}</span>
 <span class="p">};</span>
@@ -133,27 +131,27 @@
     <span class="nx">Username</span><span class="p">,</span>
     <span class="nx">Password</span>
   <span class="p">},</span>
-  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{}</span>
   <span class="p">},</span>
   <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nx">onSubmit</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>  <span class="c1">// 阻止默认事件</span>
+    <span class="nf">onSubmit </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">()</span>  <span class="c1">// 阻止默认事件</span>
 
       <span class="c1">// 父组件触发子组件校验，并通过 Promise 返回值</span>
-      <span class="kd">let</span> <span class="nx">vf1</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">usernameComponent</span><span class="p">.</span><span class="nx">validateForm</span><span class="p">()</span>
-      <span class="kd">let</span> <span class="nx">vf2</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">passwordComponent</span><span class="p">.</span><span class="nx">validateForm</span><span class="p">()</span>
+      <span class="kd">let</span> <span class="nx">vf1</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">usernameComponent</span><span class="p">.</span><span class="nf">validateForm</span><span class="p">()</span>
+      <span class="kd">let</span> <span class="nx">vf2</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">passwordComponent</span><span class="p">.</span><span class="nf">validateForm</span><span class="p">()</span>
 
       <span class="c1">// 提交表单前，校验所有子组件，全部通过才允许下面操作</span>
-      <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">vf1</span><span class="p">,</span> <span class="nx">vf2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nb">Promise</span><span class="p">.</span><span class="nf">all</span><span class="p">([</span><span class="nx">vf1</span><span class="p">,</span> <span class="nx">vf2</span><span class="p">]).</span><span class="nf">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="c1">// 有一个组件未通过，就提示错误信息</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验未通过</span><span class="dl">"</span><span class="p">)</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nf">indexOf</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验未通过</span><span class="dl">"</span><span class="p">)</span>
           <span class="k">return</span>
         <span class="p">}</span>
 
         <span class="c1">// 校验全部通过处理</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验通过</span><span class="dl">"</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验通过</span><span class="dl">"</span><span class="p">)</span>
       <span class="p">})</span>
     <span class="p">},</span>
   <span class="p">}</span>
@@ -168,22 +166,22 @@
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
 父组件触发子组件校验，并通过 Promise 返回值
 */</span>
-<span class="kd">let</span> <span class="nx">vf1</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">usernameComponent</span><span class="p">.</span><span class="nx">validateForm</span><span class="p">()</span> <span class="c1">// 父组件调用 usernameComponent 组件里的 validateForm 方法</span>
-<span class="kd">let</span> <span class="nx">vf2</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">passwordComponent</span><span class="p">.</span><span class="nx">validateForm</span><span class="p">()</span> <span class="c1">// 父组件调用 passwordComponent 组件里的 validateForm 方法</span>
+<span class="kd">let</span> <span class="nx">vf1</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">usernameComponent</span><span class="p">.</span><span class="nf">validateForm</span><span class="p">()</span> <span class="c1">// 父组件调用 usernameComponent 组件里的 validateForm 方法</span>
+<span class="kd">let</span> <span class="nx">vf2</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">passwordComponent</span><span class="p">.</span><span class="nf">validateForm</span><span class="p">()</span> <span class="c1">// 父组件调用 passwordComponent 组件里的 validateForm 方法</span>
 </code></pre></div></div>
 
 <p>然后通过 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all</a> 获取全部子组件校验结果后，再根据结果来判断，是否全部通过，分别做出不同处理。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 提交表单前，校验所有子组件，全部通过才允许下面操作</span>
-<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">vf1</span><span class="p">,</span> <span class="nx">vf2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nf">all</span><span class="p">([</span><span class="nx">vf1</span><span class="p">,</span> <span class="nx">vf2</span><span class="p">]).</span><span class="nf">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// 有一个组件未通过，就提示错误信息</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验未通过</span><span class="dl">"</span><span class="p">)</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nf">indexOf</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验未通过</span><span class="dl">"</span><span class="p">)</span>
     <span class="k">return</span>
   <span class="p">}</span>
 
   <span class="c1">// 校验全部通过处理</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验通过</span><span class="dl">"</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">全部校验通过</span><span class="dl">"</span><span class="p">)</span>
 <span class="p">})</span>
 </code></pre></div></div>
 

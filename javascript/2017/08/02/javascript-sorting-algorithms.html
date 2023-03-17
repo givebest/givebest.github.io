@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -73,30 +71,30 @@
   <p>以下几种排序算法做为方法放在构造函数里。</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">ArrayList</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">ArrayList</span> <span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
 
   <span class="c1">// 交换位置</span>
-  <span class="kd">var</span> <span class="nx">swap</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">index1</span><span class="p">,</span> <span class="nx">index2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">swap</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">index1</span><span class="p">,</span> <span class="nx">index2</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">aux</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">index1</span><span class="p">];</span>
     <span class="nx">array</span><span class="p">[</span><span class="nx">index1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">index2</span><span class="p">];</span>
     <span class="nx">array</span><span class="p">[</span><span class="nx">index2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">aux</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="k">this</span><span class="p">.</span><span class="nx">insert</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">insert</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">array</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
   <span class="p">};</span>
 
-  <span class="k">this</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nf">join</span><span class="p">();</span>
   <span class="p">};</span>
 
-  <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// 冒泡排序</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">bubbleSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">bubbleSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">//etc</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -111,17 +109,17 @@
 </blockquote>
 
 <h4 id="代码">代码</h4>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">bubbleSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">Bubble Sort</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">bubbleSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">Bubble Sort</span><span class="dl">'</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
-        <span class="nx">swap</span><span class="p">(</span><span class="nx">j</span><span class="p">,</span> <span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nf">swap</span><span class="p">(</span><span class="nx">j</span><span class="p">,</span> <span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">Bubble Sort</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">Bubble Sort</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -138,24 +136,24 @@
 
 <h4 id="代码-1">代码</h4>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">selectionSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">selectionSort</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">selectionSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">selectionSort</span><span class="dl">'</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
       <span class="nx">indexMin</span><span class="p">;</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">indexMin</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">indexMin</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">indexMin</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="p">{</span>
         <span class="nx">indexMin</span> <span class="o">=</span> <span class="nx">j</span><span class="p">;</span>
       <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">!==</span> <span class="nx">indexMin</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">indexMin</span><span class="p">);</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">i</span> <span class="o">!==</span> <span class="nx">indexMin</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">indexMin</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">selectionSort</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">selectionSort</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -173,21 +171,21 @@
 
 <h4 id="代码-2">代码</h4>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">insertionSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">insertionSort</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">insertionSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">insertionSort</span><span class="dl">'</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
       <span class="nx">j</span><span class="p">,</span> <span class="nx">temp</span><span class="p">;</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
     <span class="nx">temp</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">temp</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">while </span><span class="p">(</span><span class="nx">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">temp</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
       <span class="nx">j</span><span class="o">--</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">insertionSort</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">insertionSort</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -205,42 +203,42 @@
 
 <h4 id="代码-3">代码</h4>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">mergeSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">mergeSort</span><span class="dl">'</span><span class="p">);</span>
-  <span class="nx">array</span> <span class="o">=</span> <span class="nx">mergeSortRec</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">mergeSort</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">mergeSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">mergeSort</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">array</span> <span class="o">=</span> <span class="nf">mergeSortRec</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">mergeSort</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="kd">var</span> <span class="nx">mergeSortRec</span>  <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">mergeSortRec</span>  <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="kd">var</span> <span class="nx">mid</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>
-      <span class="nx">left</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">mid</span><span class="p">),</span>
-      <span class="nx">right</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">mid</span><span class="p">,</span> <span class="nx">length</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">mid</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nf">floor</span><span class="p">(</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>
+      <span class="nx">left</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">mid</span><span class="p">),</span>
+      <span class="nx">right</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="nx">mid</span><span class="p">,</span> <span class="nx">length</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">mergeSortRec</span><span class="p">(</span><span class="nx">left</span><span class="p">),</span> <span class="nx">mergeSortRec</span><span class="p">(</span><span class="nx">right</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nf">merge</span><span class="p">(</span><span class="nf">mergeSortRec</span><span class="p">(</span><span class="nx">left</span><span class="p">),</span> <span class="nf">mergeSortRec</span><span class="p">(</span><span class="nx">right</span><span class="p">));</span>
 <span class="p">}</span>
-<span class="kd">var</span> <span class="nx">merge</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">merge</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[],</span>
       <span class="nx">il</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
       <span class="nx">ir</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="nx">il</span> <span class="o">&lt;</span> <span class="nx">left</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">ir</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="nx">il</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">[</span><span class="nx">ir</span><span class="p">])</span> <span class="p">{</span>
-      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="nx">il</span><span class="o">++</span><span class="p">]);</span>
+  <span class="nf">while </span><span class="p">(</span><span class="nx">il</span> <span class="o">&lt;</span> <span class="nx">left</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">ir</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="nx">il</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">[</span><span class="nx">ir</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="nx">il</span><span class="o">++</span><span class="p">]);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">right</span><span class="p">[</span><span class="nx">ir</span><span class="o">++</span><span class="p">]);</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">right</span><span class="p">[</span><span class="nx">ir</span><span class="o">++</span><span class="p">]);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="nx">il</span> <span class="o">&lt;</span> <span class="nx">left</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="nx">il</span><span class="o">++</span><span class="p">]);</span>
+  <span class="nf">while </span><span class="p">(</span><span class="nx">il</span> <span class="o">&lt;</span> <span class="nx">left</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="nx">il</span><span class="o">++</span><span class="p">]);</span>
   <span class="p">}</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="nx">ir</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">right</span><span class="p">[</span><span class="nx">ir</span><span class="o">++</span><span class="p">]);</span>
+  <span class="nf">while </span><span class="p">(</span><span class="nx">ir</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">right</span><span class="p">[</span><span class="nx">ir</span><span class="o">++</span><span class="p">]);</span>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
@@ -263,44 +261,44 @@
 
 <h4 id="代码-4">代码</h4>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">quickSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">quickSort</span><span class="dl">'</span><span class="p">);</span>
-  <span class="nx">quick</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">quickSort</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">quickSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">quickSort</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nf">quick</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">quickSort</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">quick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">quick</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">index</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">index</span> <span class="o">=</span> <span class="nx">partition</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">);</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">index</span> <span class="o">=</span> <span class="nf">partition</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">);</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nx">left</span> <span class="o">&lt;</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">quick</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">left</span> <span class="o">&lt;</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">quick</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">quick</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">right</span><span class="p">);</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">quick</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">right</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="c1">// 划分过程</span>
-<span class="kd">var</span> <span class="nx">partition</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">pivot</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">right</span> <span class="o">+</span> <span class="nx">left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)],</span>
+<span class="kd">var</span> <span class="nx">partition</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">pivot</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nf">floor</span><span class="p">((</span><span class="nx">right</span> <span class="o">+</span> <span class="nx">left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)],</span>
       <span class="nx">i</span> <span class="o">=</span> <span class="nx">left</span><span class="p">,</span>
       <span class="nx">j</span> <span class="o">=</span> <span class="nx">right</span><span class="p">;</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">pivot</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">while </span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">while </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">pivot</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">pivot</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">while </span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">pivot</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">j</span><span class="o">--</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">swapQuickSort</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">);</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">swapQuickSort</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">);</span>
       <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
       <span class="nx">j</span><span class="o">--</span><span class="p">;</span>
     <span class="p">}</span>
@@ -308,7 +306,7 @@
   <span class="k">return</span> <span class="nx">i</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">swapQuickSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">index1</span><span class="p">,</span> <span class="nx">index2</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">swapQuickSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">index1</span><span class="p">,</span> <span class="nx">index2</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">aux</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">index1</span><span class="p">];</span>
   <span class="nx">array</span><span class="p">[</span><span class="nx">index1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">index2</span><span class="p">];</span>
   <span class="nx">array</span><span class="p">[</span><span class="nx">index2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">aux</span><span class="p">;</span>
@@ -329,13 +327,13 @@
   <p>ECMAScript没有定义用哪个排序算法，所以浏览器厂商可以自行去实现算法。例如，Mozilla  Firefox使用归并排序作为Array.prototype.sort的实现，而Chrome使用了一个快速排序（下面我们会学习的）的变体。</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">esSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">esSort</span><span class="dl">'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">esSort</span> <span class="o">=</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">time</span><span class="p">(</span><span class="dl">'</span><span class="s1">esSort</span><span class="dl">'</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">tempArray</span> <span class="o">=</span> <span class="p">[];</span>
-  <span class="nx">tempArray</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">tempArray</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
   <span class="p">});</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">esSort</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">timeEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">esSort</span><span class="dl">'</span><span class="p">);</span>
   <span class="k">return</span> <span class="nx">tempArray</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -360,58 +358,58 @@
 * @param  {[type]} size [description]
 * @return {[type]}      [description]
 */</span>
-<span class="kd">function</span> <span class="nx">createNonSortedArray</span> <span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="p">();</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">tempNum</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="nx">array</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">tempNum</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">createNonSortedArray</span> <span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="p">();</span>
+  <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">tempNum</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nf">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">i</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">array</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="nx">tempNum</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// 冒泡排序</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="nx">array</span><span class="p">.</span><span class="nx">bubbleSort</span><span class="p">();</span> <span class="c1">// Bubble Sort: 2.625ms</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nf">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nf">bubbleSort</span><span class="p">();</span> <span class="c1">// Bubble Sort: 2.625ms</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nf">val</span><span class="p">());</span>
 <span class="p">}());</span>
 
 
 <span class="c1">// 选择排序</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="nx">array</span><span class="p">.</span><span class="nx">selectionSort</span><span class="p">();</span> <span class="c1">// selectionSort: 1.986083984375ms</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nf">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nf">selectionSort</span><span class="p">();</span> <span class="c1">// selectionSort: 1.986083984375ms</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nf">val</span><span class="p">());</span>
 <span class="p">}());</span>
 
 <span class="c1">// 插入排序</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="nx">array</span><span class="p">.</span><span class="nx">insertionSort</span><span class="p">();</span> <span class="c1">// insertionSort: 1.825927734375ms</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nf">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nf">insertionSort</span><span class="p">();</span> <span class="c1">// insertionSort: 1.825927734375ms</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nf">val</span><span class="p">());</span>
 <span class="p">}());</span>
 
 <span class="c1">// 归并排序</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="nx">array</span><span class="p">.</span><span class="nx">mergeSort</span><span class="p">();</span> <span class="c1">// mergeSort: 0.76416015625ms</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nf">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nf">mergeSort</span><span class="p">();</span> <span class="c1">// mergeSort: 0.76416015625ms</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nf">val</span><span class="p">());</span>
 <span class="p">}());</span>
 
 
 <span class="c1">// 快速排序</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="nx">array</span><span class="p">.</span><span class="nx">quickSort</span><span class="p">();</span> <span class="c1">// quickSort: 0.39111328125ms</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nf">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nf">quickSort</span><span class="p">();</span> <span class="c1">// quickSort: 0.39111328125ms</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nf">val</span><span class="p">());</span>
 <span class="p">}());</span>
 
 
 <span class="c1">// ES排序</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="nx">array</span><span class="p">.</span><span class="nx">esSort</span><span class="p">();</span> <span class="c1">// esSort: 0.34130859375ms</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+<span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nf">createNonSortedArray</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="nx">array</span><span class="p">.</span><span class="nf">esSort</span><span class="p">();</span> <span class="c1">// esSort: 0.34130859375ms</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nf">val</span><span class="p">());</span>
 <span class="p">}());</span>
 </code></pre></div></div>
 

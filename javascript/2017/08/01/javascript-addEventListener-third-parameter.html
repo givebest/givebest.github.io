@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -95,15 +93,15 @@
     <span class="nt">&lt;/nav&gt;</span>
   <span class="nt">&lt;/header&gt;</span>
   <span class="nt">&lt;script&gt;</span>
-  <span class="kd">const</span> <span class="nx">header</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">header</span><span class="dl">'</span><span class="p">),</span>
-    <span class="nx">ul</span> <span class="o">=</span> <span class="nx">header</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">ul</span><span class="dl">'</span><span class="p">),</span>
-    <span class="nx">li</span> <span class="o">=</span> <span class="nx">header</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">),</span>
+  <span class="kd">const</span> <span class="nx">header</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">header</span><span class="dl">'</span><span class="p">),</span>
+    <span class="nx">ul</span> <span class="o">=</span> <span class="nx">header</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">ul</span><span class="dl">'</span><span class="p">),</span>
+    <span class="nx">li</span> <span class="o">=</span> <span class="nx">header</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">),</span>
     <span class="nx">useCapture</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="nx">ul</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">useCapture</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ul</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">ul</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">useCapture</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ul</span><span class="dl">'</span><span class="p">);</span>
   <span class="p">},</span> <span class="nx">useCapture</span><span class="p">);</span>
-  <span class="nx">li</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">useCapture</span><span class="p">,</span> <span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">li</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">useCapture</span><span class="p">,</span> <span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">);</span>
   <span class="p">},</span> <span class="nx">useCapture</span><span class="p">);</span>
   <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>

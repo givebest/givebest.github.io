@@ -45,8 +45,6 @@
         
           
         
-          
-        
       </div>
     </nav>
 
@@ -82,37 +80,37 @@
 <p>随着应用复杂度几何式增加，我们可能遇到下面“回调地狱”式的代码。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 第一个任务</span>
-<span class="kd">function</span> <span class="nx">task1</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第一个任务，必须第一个执行</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">task1</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第一个任务，必须第一个执行</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nf">callback</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
   <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// 第二个任务</span>
-<span class="kd">function</span> <span class="nx">task2</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第二个任务</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">task2</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第二个任务</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nf">callback</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
   <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// 第三个任务</span>
-<span class="kd">function</span> <span class="nx">task3</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第三个任务</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nx">callback</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">task3</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第三个任务</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="nf">callback</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
   <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// 所有任务</span>
-<span class="kd">function</span> <span class="nx">allTasks</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">task1</span><span class="p">((</span><span class="nx">cb1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">cb1</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">task2</span><span class="p">((</span><span class="nx">cb2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">cb2</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">task3</span><span class="p">((</span><span class="nx">cb3</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">cb3</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">allTasks</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nf">task1</span><span class="p">((</span><span class="nx">cb1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">cb1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">task2</span><span class="p">((</span><span class="nx">cb2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nx">cb2</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nf">task3</span><span class="p">((</span><span class="nx">cb3</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nf">if </span><span class="p">(</span><span class="nx">cb3</span><span class="p">)</span> <span class="p">{</span>
               <span class="c1">// 顺序完成所有任务</span>
             <span class="p">}</span>
           <span class="p">})</span>
@@ -122,7 +120,7 @@
   <span class="p">});</span>
 <span class="p">}</span>
 
-<span class="nx">allTasks</span><span class="p">();</span>
+<span class="nf">allTasks</span><span class="p">();</span>
 
 <span class="cm">/**
  * 3秒后
@@ -142,21 +140,21 @@
 
 <p>为了避免“回调地狱”带来的复杂性和不易阅读，ES6 推出了 Promise。这次实现起来简单多了，但还存在 Promise 中嵌套多层 Promise 的问题，似乎又回到了类似“回调地狱”的问题上。</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第一个任务，必须第一个执行</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第一个任务，必须第一个执行</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nf">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
   <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="p">}).</span><span class="nf">then</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
-  <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第二个任务</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">resolve</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第二个任务</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nf">resolve</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
-  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">val</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第三个任务</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}).</span><span class="nf">then</span><span class="p">(</span><span class="nx">val</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第三个任务</span><span class="dl">'</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span> 
   <span class="p">});</span>
 
@@ -187,11 +185,11 @@
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * 第一个任务
  */</span>
-<span class="kd">function</span> <span class="nx">task1</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第一个任务，必须第一个执行</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">done</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">task1</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">我是第一个任务，必须第一个执行</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nf">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">done</span><span class="dl">'</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
   <span class="p">});</span>
 <span class="p">}</span>
@@ -199,12 +197,12 @@
 <span class="cm">/**
  * 第二个任务
  */</span>
-<span class="kd">function</span> <span class="nx">task2</span> <span class="p">()</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">task2</span> <span class="p">()</span> <span class="p">{</span>
 
-  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">第二个任务</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">done</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">第二个任务</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nf">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">done</span><span class="dl">'</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
   <span class="p">});</span>
 <span class="p">}</span>
@@ -212,11 +210,11 @@
 <span class="cm">/**
  * 第三个任务
  */</span>
-<span class="kd">function</span> <span class="nx">task3</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">第三个任务</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">reject</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">task3</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">第三个任务</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nf">reject</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
   <span class="p">});</span>
 <span class="p">}</span>
@@ -224,11 +222,11 @@
 <span class="cm">/**
  * 第四个任务
  */</span>
-<span class="kd">function</span> <span class="nx">task4</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">第四个任务</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">done</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nf">task4</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">第四个任务</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nf">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">done</span><span class="dl">'</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
   <span class="p">})</span>
 <span class="p">}</span>
@@ -236,15 +234,15 @@
 <span class="cm">/**
  * 所有任务
  */</span>
-<span class="k">async</span> <span class="kd">function</span> <span class="nx">allTasks</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">await</span> <span class="nx">task1</span><span class="p">();</span>
-  <span class="k">await</span> <span class="nx">task2</span><span class="p">();</span>
-  <span class="k">await</span> <span class="nx">task3</span><span class="p">();</span>
-  <span class="k">await</span> <span class="nx">task4</span><span class="p">();</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">allTasks</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nf">task1</span><span class="p">();</span>
+  <span class="k">await</span> <span class="nf">task2</span><span class="p">();</span>
+  <span class="k">await</span> <span class="nf">task3</span><span class="p">();</span>
+  <span class="k">await</span> <span class="nf">task4</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="c1">// 执行任务</span>
-<span class="nx">allTasks</span><span class="p">();</span>
+<span class="nf">allTasks</span><span class="p">();</span>
 
 <span class="cm">/**
  * 3秒后
