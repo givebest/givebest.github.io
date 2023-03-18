@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>paddlejs humanStream demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        video {
+            width: 500px;
+            height: 280px;
+            transform: scaleX(-1);
+            object-fit: contain;
+        }
+
+        #demo {
+            transform: scaleX(-1);
+            width: 500px;
+            height: 280px;
+        }
+
+        #videoSelect::before {
+            content: "请选择设备摄像头：";
+        }
+
+        #video-tool {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #isLoading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #isLoading .loading-text {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .player {
+            height: 400px;
+            width: 600px;
+            border: 2px solid blue;
+            border-radius: 10px;
+        }
+    </style>
+
+    <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
+    <script>
+        var vConsole = new window.VConsole();
+    </script>
+</head>
+<body>
+    <!-- <video id="video"></video> -->
+    <img id="bainen" src="bgImgs/bainen.png" style="display:none;" />
+    <img src="bgImgs/vir-img1.jpeg" id="vrBg" style="display:none;">
+    <canvas id="imgBg" width="800" height="800" style="display: none"></canvas>
+    <div id="tool">
+        <div id="video-tool" class="flex">
+            <button id="start" type="btn">虚化背景</button>
+            <!-- <button id="pause" type="btn">暂停</button>
+            <button id="leave" type="btn">离开</button> -->
+        </div>
+    </div>
+    <canvas id="demo"></canvas>
+    <div id="background">
+    </div>
+
+    <div id="isLoading">
+        <p class="loading-text center">loading...</p>
+    </div>
+
+    <div id="timer"></div>
+    <div id="counter"></div>
+    <!--canvas id="canvasout" width="250" height="300"></canvas-->
+
+    <hr>
+    <div id="local-player" class="player"></div>
+    <div id="remote-playerlist"></div>
+<script type="text/javascript" src="index.js"></script></body>
+</html>

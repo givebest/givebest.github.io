@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GB-message</title>
+    <link rel="stylesheet" href="stylesheets/gb-message/typo/typo.css">
+    <link href="stylesheets/gb-message/gb-message.min.css" rel="stylesheet">    
+    <style>
+    	.wrapper{
+    		padding:20px 40px;
+    	}
+    	.fork-github{
+    		position: fixed;
+    		right: -100px;
+    		top: 45px;
+    		z-index: 9999;
+    		padding: 2px 100px;
+    		font-size: 12px;
+    		background-color: #444;
+    		border: 1px solid #000;
+    		-webkit-transform: rotate(45deg);
+    			-ms-transform: rotate(45deg);
+    				transform: rotate(45deg);
+    		text-align: center;
+    	}
+    	.fork-github a{
+    		color: #fff;
+    	}
+    </style>
+  </head>
+  <body>
+    
+	
+	<div class="wrapper typo">
+		
+		<h1>GB-Message.js</h1>
+
+		<h2>演示</h2>
+	
+		<ul>
+			<li>
+				<h3>无 Icon 提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.show( '抽中大奖一枚');" class="">msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.show('恭喜', '抽中大奖一枚');" class="">title+msg</a>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>笑脸提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.smile();" class="">icon</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.smile( '抽中大奖一枚');" class="">icon+msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.smile('恭喜', '抽中大奖一枚');" class="">icon+title+msg</a>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>皱眉提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.frown();" class="">icon</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.frown( '抽中大奖一枚');" class="">icon+msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.frown('恭喜', '抽中大奖一枚');" class="">icon+title+msg</a>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>成功提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.success();" class="">icon</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.success( '抽中大奖一枚');" class="">icon+msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.success('恭喜', '抽中大奖一枚');" class="">icon+title+msg</a>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>失败提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.failure();" class="">icon</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.failure( '抽中大奖一枚');" class="">icon+msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.failure('恭喜', '抽中大奖一枚');" class="">icon+title+msg</a>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>信息提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.info();" class="">icon</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.info( '抽中大奖一枚');" class="">icon+msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.info('恭喜', '抽中大奖一枚');" class="">icon+title+msg</a>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>等待提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.waitting();" class="">icon</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.waitting( '抽中大奖一枚');" class="">icon+msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.waitting('恭喜', '抽中大奖一枚');" class="">icon+title+msg</a>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>Loading提示</h3>
+				<ul>
+					<li>
+						<a href="javascript:gbmsg.loading();" class="">icon</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.loading( '抽中大奖一枚');" class="">icon+msg</a>
+					</li>
+					<li>
+						<a href="javascript:gbmsg.loading('恭喜', '抽中大奖一枚');" class="">icon+title+msg</a>
+					</li>
+				</ul>	
+			</li>
+		</ul>
+
+
+	</div>
+	
+	
+
+	<div class="fork-github">
+		<a href="https://github.com/givebest/gb-message">Fork me on Github</a>
+	</div>
+	
+	
+	<script src="javascripts/GB-message.min.js"></script>
+
+
+
+
+<!-- 	<div class="gbmsg-overlay" id="GBMsg">
+
+		<div class="gbmsg-dialog"> -->
+
+			<!-- <div class="gbmsg-dialog-icon">
+				<i class="icono-crossCircle"></i>
+			</div>
+			
+			<div class="gbmsg-dialog-container">
+				<h5 class="gbmsg-dialog-title">抱歉</h5>
+				<div class="gbmsg-dialog-content">
+					姓名不能为空。
+				</div>
+			</div> -->
+
+
+			<!-- <div class="gbmsg-dialog-icon">
+				<i class="icono-checkCircle"></i>
+			</div>
+
+			<div class="gbmsg-dialog-container">
+				<h5 class="gbmsg-dialog-title">恭喜</h5>
+				<div class="gbmsg-dialog-content">
+					您的操作已成功。
+				</div>
+			</div> -->
+
+
+			<!-- <div class="gbmsg-dialog-icon">
+				<i class="icono-exclamationCircle"></i>
+			</div>
+			
+			<div class="gbmsg-dialog-container">
+				<h5 class="gbmsg-dialog-title">提醒</h5>
+				<div class="gbmsg-dialog-content">
+					年龄必须选择哦。
+				</div>
+			</div> -->
+
+
+
+			<!-- <div class="gbmsg-dialog-icon">
+				<i class="icono-clock"></i>
+			</div>
+
+			<div class="gbmsg-dialog-container">
+
+				<div class="gbmsg-dialog-content">
+					请稍候...
+				</div>
+			</div> -->
+
+
+<!-- 			<div class="gbmsg-dialog-icon">
+				<i class="icono-reset"></i>
+			</div>
+
+			<div class="gbmsg-dialog-container">
+
+				<div class="gbmsg-dialog-content">
+					请稍候...
+				</div>
+			</div> -->
+
+				
+				
+
+<!-- 
+		</div>
+	</div>
+ -->
+ <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?29e38aeb85ae0cb9372690971fb4f5d6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>list</title>
+  <meta name="description" content="单行列表    @import "list.scss";                                    单行列表                                                             &lt;ul class="ui-list"&gt;  ...">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="canonical" href="/list">
+</head>
+
+
+  <body ontouchstart>
+
+    <header class="site-header">
+
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">CSS Modules 演示使用文档</a>
+      </div>
+
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+            
+            <li><a href="bug.html">问题汇总</a></li>
+            
+          
+            
+            <li><a href="htmlcssguide.html">编码规范</a></li>
+            
+          
+            
+          
+            
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  </nav>
+
+
+
+</header>
+
+		
+
+	  <div id="menuContainer" class="post-side">
+	<a href="javascript:;" id="menuCtrl" class="post-side-menu iconfont"></a>
+	<h1 class="post-side-title">
+		<a href="index.html">CSS Modules</a>
+	</h1>
+	<ul class="list-group">
+		   
+			   	
+			   		<li class="list-group-item"><a href="rule.html">rule</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="header.html">header</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="product.html">product</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="iconfont.html">iconfont</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="tipbox.html">tipbox</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="tab.html">tab</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="search.html">search</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="loading.html">loading</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="select.html">select</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="list.html">list</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="form.html">form</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="dialog.html">dialog</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="checkbox.html">checkbox</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="base.html">base</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="article.html">article</a></li>
+			   	
+		    
+			   	
+			   		<li class="list-group-item"><a href="button.html">button</a></li>
+			   	
+		    
+	</ul>
+</div>
+
+
+<script>
+
+	init();
+
+	function init(){
+		window.addEventListener('load', function(){
+			eventMenu();
+		}, false);
+	}
+
+	function eventMenu(){
+
+		var menuContainer = document.getElementById('menuContainer'),
+			menuCtrl = document.getElementById('menuCtrl');
+
+		menuCtrl.onclick = function(){
+			var className = 'post-side-show';
+			!!(utils.hasClass(menuContainer, className)) ? utils.removeClass(menuContainer, className) : utils.addClass(menuContainer, className);
+			//console.log(utils.hasClass(menuContainer, 'post-side-show'));
+		}
+
+	}
+
+
+	var utils = (function(){
+		function hasClass(obj, cls) {  
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
+		}  
+		 
+		function addClass(obj, cls) {  
+		    if (!this.hasClass(obj, cls)) obj.className += " " + cls;  
+		}  
+		 
+		function removeClass(obj, cls) {  
+		    if (hasClass(obj, cls)) {  
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');  
+		        obj.className = obj.className.replace(reg, ' ');  
+		    }  
+		}
+
+		return {
+			addClass: addClass,
+			removeClass: removeClass,
+			hasClass: hasClass
+		}
+
+	}());
+</script>
+
+      <div class="post-content">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+
+
+  		
+
+			
+
+
+		<div class="page-header">
+		  <h1> list </h1>
+		  <p>list模块。</p>
+		</div>
+
+
+		 <h2 id="nav-tabs">单行列表</h2>
+<p>
+    <code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <ul class="ui-list">
+        <li class="ui-list-item ui-list-item-last">
+            <a href="javascript:;">
+            单行列表
+                <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+                </i>
+            </a> 
+        </li>
+    </ul>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-item-last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span><span class="nt">&gt;</span>
+            单行列表
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span> 
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">双行列表-有摘要</h2>
+<p>
+    <code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <li class="ui-list-item ui-list-double ui-list-item-last">
+       <a href="javascript:;">
+            双行列表<br />
+            <span class="ui-list-describetxt">描述信息
+            </span>
+            <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+            </i>
+        </a> 
+    </li>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-double ui-list-item-last"</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                双行列表<span class="nt">&lt;br&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-list-describetxt"</span><span class="nt">&gt;</span>描述信息
+                <span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span> 
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">多行列表</h2>
+<p>
+    <code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <ul class="ui-list">
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                多行列表
+                <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+                </i>
+            </a>
+        </li>
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                多行列表
+                <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+                </i>
+            </a>
+        </li>
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                多行列表
+                <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+                </i>
+            </a>
+        </li>
+        <li class="ui-list-item ui-list-item-last">
+            <a href="javascript:;">
+                多行列表
+                <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+                </i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-item-last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">多选</h2>
+<p>
+    <code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <ul class="ui-list">
+        <li class="ui-list-item ui-list-single">
+           <a href="javascript:;">
+                <label class="ui-checkbox-round ui-vam-db">
+                   <input type="checkbox" name="ck2" />
+                   <i class="iconfont"></i>
+                   <span class="ui-list-mulsel">多选项</span>
+                </label>
+            </a> 
+        </li>
+        <li class="ui-list-item ui-list-single">
+           <a href="javascript:;">
+                <label class="ui-checkbox-round ui-vam-db">
+                   <input type="checkbox" name="ck2" />
+                   <i class="iconfont"></i>
+                   <span class="ui-list-mulsel">多选项</span>
+                </label>
+            </a> 
+        </li>
+        <li class="ui-list-item ui-list-single ui-list-item-last">
+           <a href="javascript:;">
+                <label class="ui-checkbox-round ui-vam-db">
+                   <input type="checkbox" name="ck2" />
+                   <i class="iconfont"></i>
+                   <span class="ui-list-mulsel">多选项</span>
+                </label>
+            </a> 
+        </li>  
+    </ul>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-single"</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"ui-checkbox-round ui-vam-db"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"ck2"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                   <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-list-mulsel"</span><span class="nt">&gt;</span>多选项<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/a&gt;</span> 
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-single"</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"ui-checkbox-round ui-vam-db"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"ck2"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                   <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-list-mulsel"</span><span class="nt">&gt;</span>多选项<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/a&gt;</span> 
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-single ui-list-item-last"</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"ui-checkbox-round ui-vam-db"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"ck2"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                   <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-list-mulsel"</span><span class="nt">&gt;</span>多选项<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/a&gt;</span> 
+        <span class="nt">&lt;/li&gt;</span>  
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">单选</h2>
+<p>
+	<code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+	<ul class="ui-list">
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                <label class="ui-checkbox-radio ui-w100">
+                   单选项
+                   <input type="radio" name="ck5" />
+                   <i class="iconfont"></i>
+                </label>
+            </a>
+        </li>
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                <label class="ui-checkbox-radio ui-w100">
+                   单选项
+                   <input type="radio" name="ck5" />
+                   <i class="iconfont"></i>
+                </label>
+            </a>
+        </li>
+        <li class="ui-list-item ui-list-item-last">
+            <a href="javascript:;">
+                <label class="ui-checkbox-radio ui-w100">
+                   单选项
+                   <input type="radio" name="ck5" />
+                   <i class="iconfont"></i>
+                </label>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"ui-checkbox-radio ui-w100"</span><span class="nt">&gt;</span>
+                   单选项
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"ck5"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"ui-checkbox-radio ui-w100"</span><span class="nt">&gt;</span>
+                   单选项
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"ck5"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-item-last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"ui-checkbox-radio ui-w100"</span><span class="nt">&gt;</span>
+                   单选项
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"ck5"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">滑块选择器</h2>
+<p>
+	<code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+    <ul class="ui-list">
+        <li class="ui-list-item ui-list-item-last">
+           <a href="javascript:;">
+                开关
+                <label for="ck1" class="ui-checkbox-slide fn-right">
+                   <input type="checkbox" name="ck1" id="ck1" />
+                   <i></i>
+               </label>
+            </a> 
+        </li>
+    </ul>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-item-last"</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                开关
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"ck1"</span> <span class="na">class=</span><span class="s">"ui-checkbox-slide fn-right"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"ck1"</span> <span class="na">id=</span><span class="s">"ck1"</span><span class="nt">&gt;</span>
+                   <span class="nt">&lt;i&gt;&lt;/i&gt;</span>
+               <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;/a&gt;</span> 
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">组合样式</h2>
+<p>
+	<code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+	 <ul class="ui-list">
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                <span class="ui-list-txt">广东省广州市新港中路TIT创业园腾讯自编八号楼前台</span>
+                <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+                </i>
+            </a>
+        </li>
+        <li class="ui-list-item ui-list-item-last">
+            <a href="javascript:;">
+                <span class="ui-list-txt">广东省广州市新港中路TIT创业园腾讯自编八号楼前台</span>
+                <i class="iconfont ui-list-arrow icon-arrow-right2 fn-right">
+                </i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">	<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-list-txt"</span><span class="nt">&gt;</span>广东省广州市新港中路TIT创业园腾讯自编八号楼前台<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-item-last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ui-list-txt"</span><span class="nt">&gt;</span>广东省广州市新港中路TIT创业园腾讯自编八号楼前台<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont ui-list-arrow icon-arrow-right2 fn-right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;/i&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<h2 id="nav-tabs">多行列表</h2>
+<p>
+  <code>@import "list.scss";</code>
+</p>
+<div class="bs-example" data-example-id="simple-nav-tabs">
+  <ul class="ui-list">
+       <li class="ui-list-item">
+            <a href="javascript:;">
+                多行列表
+                <div class="fn-right ui-list-arrow">
+                    文字
+                    <i class="iconfont icon-arrow-right2">
+                    </i>
+                </div>
+            </a>
+        </li>
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                多行列表
+                <div class="fn-right ui-list-arrow 
+                ">
+                    文字
+                    <i class="iconfont icon-arrow-right2">
+                    </i>
+                </div>
+            </a>
+        </li>
+        <li class="ui-list-item">
+            <a href="javascript:;">
+                多行列表
+                <div class="fn-right ui-list-arrow">
+                    文字
+                    <i class="iconfont icon-arrow-right2">
+                    </i>
+                </div>
+            </a>
+        </li>
+        <li class="ui-list-item ui-list-item-last">
+            <a href="javascript:;">
+                多行列表
+                <div class="fn-right ui-list-arrow">
+                    文字
+                    <i class="iconfont icon-arrow-right2">
+                    </i>
+                </div>
+            </a>
+        </li>
+  </ul>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">   <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"ui-list"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fn-right ui-list-arrow"</span><span class="nt">&gt;</span>
+                    文字
+                    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont icon-arrow-right2"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;/i&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fn-right ui-list-arrow 
+                "</span><span class="nt">&gt;</span>
+                    文字
+                    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont icon-arrow-right2"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;/i&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fn-right ui-list-arrow"</span><span class="nt">&gt;</span>
+                    文字
+                    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont icon-arrow-right2"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;/i&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"ui-list-item ui-list-item-last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:;"</span> <span class="nt">&gt;</span>
+                多行列表
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fn-right ui-list-arrow"</span><span class="nt">&gt;</span>
+                    文字
+                    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"iconfont icon-arrow-right2"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;/i&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+   <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+
+	
+
+
+
+
+
+
+
+
+
+</article>
+
+      </div>
+
+
+    <footer class="site-footer">
+
+  <div class="container-fluid">
+
+    <h2 class="footer-heading">CSS Modules 演示使用文档</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li><a href="mailto:givenlovs@msn.com">givenlovs@msn.com</a></li>
+        </ul>
+      </div>
+
+  
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
