@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[3434],{4364:s=>{s.exports=JSON.parse('{"label":"safari extensions","permalink":"/tags/safari-extensions","allTagsPath":"/tags","count":1}')}}]);

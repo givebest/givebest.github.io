@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[2172],{4765:e=>{e.exports=JSON.parse('{"label":"ie6","permalink":"/tags/ie-6","allTagsPath":"/tags","count":1}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[5210],{8097:s=>{s.exports=JSON.parse('{"label":"proxy cross","permalink":"/tags/proxy-cross","allTagsPath":"/tags","count":1}')}}]);
