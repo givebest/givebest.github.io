@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[6925],{8967:e=>{e.exports=JSON.parse('{"label":"Vee-validate","permalink":"/tags/vee-validate","allTagsPath":"/tags","count":1}')}}]);
